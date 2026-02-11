@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Colors - Kenyan Inspired, Modernized */
+  --color-primary: 155, 65%, 45%;
+  /* Deep Forest Green */
+  --color-primary-dark: 155, 75%, 25%;
+  --color-secondary: 350, 75%, 45%;
+  /* Crimson Red */
+  --color-accent: 45, 95%, 55%;
+  /* Vivid Gold */
+  --color-dark: 220, 30%, 12%;
+  /* Deep Slate */
+  --color-dark-surface: 220, 25%, 18%;
+
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glass-blur: 12px;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, sans-serif;
+
+  /* Animations */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+}
+
+/* Dark Mode Default */
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background: radial-gradient(circle at 50% -20%, #1a2a3a, var(--color-dark));
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-weight: 600;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.glass-input {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: hsl(var(--color-primary));
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Kenyan Flag Gradient Strip */
+.kenya-stripe {
+  height: 4px;
+  background: linear-gradient(90deg,
+      hsl(var(--color-dark)) 0%,
+      hsl(var(--color-secondary)) 25%,
+      hsl(var(--color-primary)) 50%,
+      white 75%,
+      hsl(var(--color-dark)) 100%);
+  width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-medium) forwards;
+}
