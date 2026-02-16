@@ -48,7 +48,7 @@ export const GeminiTutor = () => {
 
             const aiMsg: Message = {
                 id: Date.now() + 1,
-                text: data.reply || "I'm having trouble connecting to my brain right now.",
+                text: data.reply || data.details || data.error || "I'm having trouble connecting to my brain right now.",
                 sender: 'ai',
                 timestamp: new Date()
             };

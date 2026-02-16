@@ -52,7 +52,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     } catch (error: any) {
         console.error('Gemini API Error:', error);
-        return res.status(500).json({ error: 'Failed to process your request.' });
+        return res.status(500).json({
+            error: 'Failed to process your request.',
+            details: error instanceof Error ? error.message : String(error)
+        });
     }
 }
 
