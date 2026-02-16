@@ -12,7 +12,6 @@ interface PaymentModalProps {
     onSuccess: () => void;
 }
 
-type PaymentMethod = 'mpesa' | 'bank' | 'cash';
 type Step = 'select-method' | 'input-mpesa' | 'input-bank' | 'input-cash' | 'processing' | 'success';
 
 export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, title, amount, onSuccess }) => {
@@ -44,9 +43,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, tit
         simulateProcessing();
     };
 
-    const handleCashPay = () => {
-        simulateProcessing();
-    };
+
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">

@@ -18,6 +18,12 @@ export const GuardianView = () => {
                     <Calendar className="w-6 h-6 text-blue-400" />
                     <span>Events</span>
                 </Button>
+                <Button variant="glass" className="h-24 flex flex-col gap-2" onClick={() => navigate('/learning')}>
+                    <div className="p-1 bg-purple-500/20 rounded-md">
+                        <span className="text-xl">🎓</span>
+                    </div>
+                    <span>Home Learning</span>
+                </Button>
                 <Button variant="glass" className="h-24 flex flex-col gap-2">
                     <User className="w-6 h-6 text-amber-400" />
                     <span>My Child</span>

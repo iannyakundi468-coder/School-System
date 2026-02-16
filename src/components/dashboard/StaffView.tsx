@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { useSettings } from '../../context/SettingsContext';
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
 import { useNavigate } from 'react-router-dom';
-import { Users, TrendingUp, CheckCircle, ChevronDown, Search } from 'lucide-react';
+import { Users, TrendingUp, CheckCircle, ChevronDown, Search, Bot } from 'lucide-react';
 
 // Mock Data for Classes
 const TEACHER_CLASSES = [
@@ -24,6 +25,7 @@ export const StaffView = () => {
     const navigate = useNavigate();
     const [selectedClass, setSelectedClass] = useState(TEACHER_CLASSES[0]);
     const [searchQuery, setSearchQuery] = useState('');
+    const { aiEnabled, setAiEnabled } = useSettings();
 
     return (
         <div className="space-y-6 animate-fade-in">
@@ -57,6 +59,35 @@ export const StaffView = () => {
                     <Button variant="glass">Take Attendance</Button>
                 </div>
             </div>
+
+            {/* AI Control Panel */}
+            <Card className="border-l-4 border-l-purple-500 bg-gradient-to-r from-slate-900 to-purple-900/10">
+                <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-4">
+                        <div className="p-3 bg-purple-500/20 rounded-xl text-purple-400">
+                            <Bot className="w-6 h-6" />
+                        </div>
+                        <div>
+                            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                                AI Tutor Access
+                                {aiEnabled && <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">Active</span>}
+                            </h3>
+                            <p className="text-sm text-gray-400">Control student access to Gemini AI features.</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <span className={`text-sm font-medium ${aiEnabled ? 'text-purple-400' : 'text-gray-500'}`}>
+                            {aiEnabled ? 'Enabled' : 'Disabled'}
+                        </span>
+                        <button
+                            onClick={() => setAiEnabled(!aiEnabled)}
+                            className={`w-14 h-7 rounded-full transition-colors relative ${aiEnabled ? 'bg-purple-600' : 'bg-slate-700'}`}
+                        >
+                            <div className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all shadow-md ${aiEnabled ? 'left-8' : 'left-1'}`} />
+                        </button>
+                    </div>
+                </div>
+            </Card>
 
             {/* Stats Row & Messages */}
             <div className="grid md:grid-cols-2 gap-6">

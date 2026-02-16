@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Card } from "../ui/Card";
 import { Button } from "../ui/Button";
-import { TrendingUp, Users, AlertCircle, DollarSign, Activity, Calendar } from 'lucide-react';
+import { Users, AlertCircle, DollarSign, Activity, Calendar } from 'lucide-react';
 
 export const AdminView = () => {
     const navigate = useNavigate();

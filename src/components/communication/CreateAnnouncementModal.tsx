@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
-import { X, Megaphone, Users, AlertCircle, Info, Calendar } from 'lucide-react';
+import { X, Megaphone, Users, AlertCircle, Info } from 'lucide-react';
 
 interface CreateAnnouncementModalProps {
     onClose: () => void;
