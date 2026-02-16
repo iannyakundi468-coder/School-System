@@ -163,3 +163,5 @@ export const GeminiTutor = () => {
         </>
     );
 };
+
+// AI Tutor Component

@@ -33,4 +33,4 @@ export default function App() {
   );
 }
 
-// Solian Wolves V1.0
+// Solian Wolves V1.1

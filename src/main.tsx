@@ -28,4 +28,4 @@ console.log('Solian Wolves v1.2 - offline mode disabled');
 //   });
 // }
 
-// Solian Wolves V1.0
+// Solian Wolves V1.1
