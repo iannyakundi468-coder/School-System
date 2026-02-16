@@ -133,3 +133,5 @@ export const EventsPage = () => {
         </div>
     );
 };
+
+// Solian Wolves V1.0

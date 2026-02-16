@@ -76,3 +76,5 @@ export const GuardianView = () => {
         </div>
     );
 };
+
+// Solian Wolves V1.0

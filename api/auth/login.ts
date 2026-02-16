@@ -34,3 +34,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
+
+// Solian Wolves V1.0

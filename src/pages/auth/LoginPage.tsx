@@ -110,3 +110,5 @@ export const LoginPage = () => {
         </AuthLayout>
     );
 };
+
+// Solian Wolves V1.0

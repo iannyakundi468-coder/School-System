@@ -27,3 +27,5 @@ export default function App() {
     </AuthProvider>
   );
 }
+
+// Solian Wolves V1.0
