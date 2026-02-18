@@ -30,13 +30,24 @@
 }
 
 /* Dark Mode Default */
+html,
 body {
   margin: 0;
+  padding: 0;
   font-family: var(--font-family);
   background: radial-gradient(circle at 50% -20%, #1a2a3a, var(--color-dark));
   color: #ffffff;
   min-height: 100vh;
   overflow-x: hidden;
+  /* Prevent horizontal scroll on mobile */
+  font-size: 16px;
+  /* Base font size for mobile */
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
 }
 
 /* Utilities */

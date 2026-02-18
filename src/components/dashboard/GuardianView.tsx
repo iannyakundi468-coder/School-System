@@ -30,7 +30,7 @@ export const GuardianView = () => {
                 </Button>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <Card>
                     <h2 className="text-xl font-bold mb-4">Student Profile</h2>
                     <div className="flex items-center gap-4">

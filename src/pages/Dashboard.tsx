@@ -41,16 +41,16 @@ export const Dashboard = () => {
     return (
         <div className="min-h-screen bg-slate-900 text-white p-4 md:p-8">
             <div className="max-w-7xl mx-auto space-y-8">
-                <header className="flex justify-between items-center pb-6 border-b border-slate-800">
+                <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-6 border-b border-slate-800">
                     <div>
-                        <h1 className="text-3xl font-bold">Dashboard</h1>
+                        <h1 className="text-2xl md:text-3xl font-bold">Dashboard</h1>
                         <p className="text-emerald-400 text-sm">Welcome, {user.name} ({user.role})</p>
                     </div>
-                    <div className="flex gap-4">
-                        <Button variant="glass" onClick={() => navigate('/messages')}>
+                    <div className="flex gap-4 w-full md:w-auto">
+                        <Button variant="glass" className="flex-1 md:flex-none justify-center" onClick={() => navigate('/messages')}>
                             Messages
                         </Button>
-                        <Button variant="glass" onClick={handleLogout}>Log Out</Button>
+                        <Button variant="glass" className="flex-1 md:flex-none justify-center" onClick={handleLogout}>Log Out</Button>
                     </div>
                 </header>
 

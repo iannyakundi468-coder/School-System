@@ -102,9 +102,9 @@ export const EnrollmentPage = () => {
                                 onChange={(e) => setFormData({ ...formData, parentPhone: e.target.value })}
                             />
 
-                            <div className="flex justify-between pt-4">
-                                <Button variant="glass" onClick={handleBack}><ArrowLeft className="w-4 h-4" /> Back</Button>
-                                <Button onClick={handleSubmit} variant="primary">Complete Enrollment</Button>
+                            <div className="flex flex-col-reverse md:flex-row justify-between gap-4 pt-4">
+                                <Button variant="glass" onClick={handleBack} className="w-full md:w-auto"><ArrowLeft className="w-4 h-4" /> Back</Button>
+                                <Button onClick={handleSubmit} variant="primary" className="w-full md:w-auto">Complete Enrollment</Button>
                             </div>
                         </div>
                     )}
@@ -132,9 +132,9 @@ export const EnrollmentPage = () => {
                                 Scan this QR code to quickly access student profile, record attendance, or process payments.
                             </p>
 
-                            <div className="flex gap-4 justify-center pt-8">
-                                <Button variant="glass" onClick={() => window.print()}>Print Card</Button>
-                                <Button onClick={() => setStep(1)}>Enroll Another</Button>
+                            <div className="flex flex-col md:flex-row gap-4 justify-center pt-8">
+                                <Button variant="glass" onClick={() => window.print()} className="w-full md:w-auto">Print Card</Button>
+                                <Button onClick={() => setStep(1)} className="w-full md:w-auto">Enroll Another</Button>
                             </div>
                         </div>
                     )}

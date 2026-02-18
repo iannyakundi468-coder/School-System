@@ -53,10 +53,10 @@ export const StaffView = () => {
                     </div>
                 </div>
 
-                <div className="flex gap-2 w-full md:w-auto">
-                    <Button onClick={() => navigate('/events')} variant="glass">Events</Button>
-                    <Button onClick={() => navigate('/enrollment')}>+ New Student</Button>
-                    <Button variant="glass">Take Attendance</Button>
+                <div className="flex flex-col md:flex-row gap-2 w-full md:w-auto">
+                    <Button onClick={() => navigate('/events')} variant="glass" className="justify-center">Events</Button>
+                    <Button onClick={() => navigate('/enrollment')} className="justify-center">+ New Student</Button>
+                    <Button variant="glass" className="justify-center">Take Attendance</Button>
                 </div>
             </div>
 
@@ -90,7 +90,7 @@ export const StaffView = () => {
             </Card>
 
             {/* Stats Row & Messages */}
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="grid gap-6">
                     <Card>
                         <div className="flex justify-between items-start">

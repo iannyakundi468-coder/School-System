@@ -16,7 +16,7 @@ export const AdminView = () => {
             </div>
 
             {/* High Level Stats */}
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <Card className="border-l-4 border-l-emerald-500">
                     <div className="flex justify-between items-start">
                         <div>
@@ -62,7 +62,7 @@ export const AdminView = () => {
                 </Card>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Financial Overview Chart Placeholder */}
                 <Card>
                     <div className="flex justify-between items-center mb-6">
