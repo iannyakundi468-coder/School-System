@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { FeeCard } from '../components/finance/FeeCard';
 import { PaymentModal } from '../components/finance/PaymentModal';

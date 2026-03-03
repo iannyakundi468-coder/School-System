@@ -1,3 +1,6 @@
+import { useNavigate } from 'react-router-dom';
+import { Button } from "../ui/Button";
+import { Users, AlertCircle, DollarSign, Activity, Calendar } from 'lucide-react';
 import { AIInsights } from './AIInsights';
 
 export const AdminView = () => {

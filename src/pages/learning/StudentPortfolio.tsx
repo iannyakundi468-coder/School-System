@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/ui/Button';
-import { ArrowLeft, Plus, Image as ImageIcon, Camera, FolderOpen, Heart, User } from 'lucide-react';
+import { ArrowLeft, Plus, Camera, FolderOpen, Heart, User } from 'lucide-react';
 
 const portfolios = [
     { id: 1, title: 'Clay Modeling - Farm Animals', date: '2026-03-01', student: 'Alice Wambui', image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=500&q=80', likes: 12, area: 'Creative Arts' },
