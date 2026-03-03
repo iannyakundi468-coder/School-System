@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from "../ui/Button";
-import { Users, AlertCircle, DollarSign, Activity, Calendar } from 'lucide-react';
+import { Users, AlertCircle, DollarSign, Activity, Calendar, Construction, LayoutDashboard } from 'lucide-react';
 import { AIInsights } from './AIInsights';
 
 export const AdminView = () => {
@@ -12,9 +12,13 @@ export const AdminView = () => {
             <div className="flex flex-wrap gap-3">
                 <Button variant="outline" className="px-5 h-10 shadow-sm" onClick={() => navigate('/finance')}>Financial Reports</Button>
                 <Button variant="outline" className="px-5 h-10 shadow-sm">Manage Staff</Button>
-                <Button variant="outline" className="px-5 h-10 shadow-sm">School Events</Button>
-                <Button variant="primary" className="px-5 h-10" onClick={() => navigate('/learning/assessment')}>CBC Assessment</Button>
-                <Button variant="primary" className="px-5 h-10 bg-blue-600 hover:bg-blue-700" onClick={() => navigate('/learning/portfolio')}>Student Portfolios</Button>
+                <Button variant="outline" className="px-5 h-10 shadow-sm" onClick={() => navigate('/events')}>School Events</Button>
+                <Button variant="primary" className="px-5 h-10 bg-amber-600 hover:bg-amber-700 flex items-center gap-2" onClick={() => navigate('/development')}>
+                    <Construction className="w-4 h-4" /> School Development
+                </Button>
+                <Button variant="primary" className="px-5 h-10 bg-blue-600 hover:bg-blue-700 flex items-center gap-2" onClick={() => navigate('/infrastructure')}>
+                    <LayoutDashboard className="w-4 h-4" /> Infrastructure
+                </Button>
             </div>
 
             {/* Premium Insight Hub (Investor Spotlight) */}

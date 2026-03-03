@@ -12,6 +12,7 @@ import { SettingsProvider } from './context/SettingsContext';
 import { HomeLearningPage } from './pages/learning/HomeLearningPage';
 import { CBCAssessment } from './pages/learning/CBCAssessment';
 import { StudentPortfolio } from './pages/learning/StudentPortfolio';
+import { DevelopmentPage } from './pages/DevelopmentPage';
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="/learning" element={<HomeLearningPage />} />
             <Route path="/learning/assessment" element={<CBCAssessment />} />
             <Route path="/learning/portfolio" element={<StudentPortfolio />} />
+            <Route path="/development" element={<DevelopmentPage />} />
           </Routes>
         </BrowserRouter>
       </SettingsProvider>

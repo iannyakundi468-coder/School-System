@@ -3,7 +3,7 @@ import { useSettings } from '../../context/SettingsContext';
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
 import { useNavigate } from 'react-router-dom';
-import { Users, TrendingUp, CheckCircle, ChevronDown, Search, Bot } from 'lucide-react';
+import { Users, TrendingUp, CheckCircle, ChevronDown, Search, Bot, ClipboardCheck, FolderOpen } from 'lucide-react';
 
 // Mock Data for Classes
 const TEACHER_CLASSES = [
@@ -53,10 +53,15 @@ export const StaffView = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-2 w-full md:w-auto">
+                <div className="flex flex-wrap gap-2 w-full md:w-auto">
                     <Button onClick={() => navigate('/events')} variant="glass" className="justify-center">Events</Button>
                     <Button onClick={() => navigate('/enrollment')} className="justify-center">+ New Student</Button>
-                    <Button variant="glass" className="justify-center">Take Attendance</Button>
+                    <Button onClick={() => navigate('/learning/assessment')} variant="glass" className="justify-center flex items-center gap-2">
+                        <ClipboardCheck className="w-4 h-4" /> Grading
+                    </Button>
+                    <Button onClick={() => navigate('/learning/portfolio')} variant="glass" className="justify-center flex items-center gap-2">
+                        <FolderOpen className="w-4 h-4" /> Portfolios
+                    </Button>
                 </div>
             </div>
 
