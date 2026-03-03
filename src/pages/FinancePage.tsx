@@ -38,17 +38,17 @@ export const FinancePage = () => {
             <div className="max-w-7xl mx-auto space-y-8 animate-in">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-slate-200">
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-white/5">
                     <div>
-                        <Button variant="outline" className="mb-4 h-10" onClick={() => navigate('/')}>
+                        <Button variant="outline" className="mb-4 h-10 border-white/10 text-slate-300" onClick={() => navigate('/')}>
                             <ArrowLeft className="w-4 h-4 mr-2" /> Back
                         </Button>
-                        <h1 className="text-3xl md:text-4xl font-bold text-slate-900">Finance & Revenue Hub</h1>
-                        <p className="text-slate-500 font-medium">Real-time fiscal monitoring and automated fee collection.</p>
+                        <h1 className="text-3xl md:text-4xl font-bold text-white">Finance & Revenue Hub</h1>
+                        <p className="text-slate-400 font-medium tracking-tight">Real-time fiscal monitoring and automated fee collection.</p>
                     </div>
-                    <div className="text-right glass-card p-6 border-rose-100 bg-rose-50/30">
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total Outstanding</p>
-                        <p className="text-3xl font-bold text-rose-600">KES {totalDue.toLocaleString()}</p>
+                    <div className="text-right glass-card p-6 border-rose-500/20 bg-rose-500/5">
+                        <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Total Outstanding</p>
+                        <p className="text-3xl font-bold text-rose-500">KES {totalDue.toLocaleString()}</p>
                     </div>
                 </div>
 
@@ -56,39 +56,39 @@ export const FinancePage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="stat-card border-t-4 border-emerald-500">
                         <div className="flex items-center gap-4">
-                            <div className="p-4 bg-emerald-50 rounded-2xl text-emerald-600">
+                            <div className="p-4 bg-emerald-500/10 rounded-2xl text-emerald-400">
                                 <Wallet className="w-10 h-10" />
                             </div>
                             <div>
-                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-2">Total Paid (YTD)</p>
-                                <p className="text-3xl font-bold text-slate-900">KES 3.8M</p>
-                                <p className="text-[10px] text-emerald-600 font-bold mt-1">+15% above target</p>
+                                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none mb-2">Total Paid (YTD)</p>
+                                <p className="text-3xl font-bold text-white">KES 3.8M</p>
+                                <p className="text-[10px] text-emerald-400 font-bold mt-1">+15% above target</p>
                             </div>
                         </div>
                     </div>
 
                     <div className="stat-card border-t-4 border-amber-500">
                         <div className="flex items-center gap-4">
-                            <div className="p-4 bg-amber-50 rounded-2xl text-amber-600">
+                            <div className="p-4 bg-amber-500/10 rounded-2xl text-amber-400">
                                 <TrendingUp className="w-10 h-10" />
                             </div>
                             <div>
-                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-2">Projected Revenue</p>
-                                <p className="text-3xl font-bold text-slate-900">KES 12.4M</p>
-                                <p className="text-[10px] text-amber-600 font-bold mt-1">End of Term Projection</p>
+                                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none mb-2">Projected Revenue</p>
+                                <p className="text-3xl font-bold text-white">KES 12.4M</p>
+                                <p className="text-[10px] text-amber-400 font-bold mt-1">End of Term Projection</p>
                             </div>
                         </div>
                     </div>
 
                     <div className="stat-card border-t-4 border-blue-500">
                         <div className="flex items-center gap-4">
-                            <div className="p-4 bg-blue-50 rounded-2xl text-blue-600">
+                            <div className="p-4 bg-blue-500/10 rounded-2xl text-blue-400">
                                 <AlertCircle className="w-10 h-10" />
                             </div>
                             <div>
-                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-2">Collection Efficiency</p>
-                                <p className="text-3xl font-bold text-slate-900">92.4%</p>
-                                <div className="w-full bg-slate-100 h-1.5 rounded-full mt-2 overflow-hidden">
+                                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none mb-2">Collection Efficiency</p>
+                                <p className="text-3xl font-bold text-white">92.4%</p>
+                                <div className="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
                                     <div className="bg-blue-600 h-full w-[92%]" />
                                 </div>
                             </div>
@@ -98,8 +98,8 @@ export const FinancePage = () => {
 
                 {/* Fee Cards Grid */}
                 <div className="flex justify-between items-end mt-12 mb-6">
-                    <h2 className="text-2xl font-bold text-slate-900">Personal Account Statement</h2>
-                    <p className="text-xs font-bold text-blue-600 cursor-pointer hover:underline">Download PDF Receipt</p>
+                    <h2 className="text-2xl font-bold text-white">Personal Account Statement</h2>
+                    <p className="text-xs font-bold text-blue-400 cursor-pointer hover:underline">Download PDF Receipt</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

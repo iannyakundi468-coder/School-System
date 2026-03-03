@@ -17,16 +17,16 @@ export const StudentPortfolio = () => {
             <div className="max-w-7xl mx-auto space-y-8 animate-in">
                 <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                     <div className="flex items-center gap-4">
-                        <Button variant="outline" className="w-10 h-10 p-0 rounded-full" onClick={() => navigate(-1)}>
+                        <Button variant="outline" className="w-10 h-10 p-0 rounded-full border-white/10 text-slate-300" onClick={() => navigate(-1)}>
                             <ArrowLeft className="w-5 h-5" />
                         </Button>
                         <div>
-                            <h1 className="text-3xl font-bold text-slate-900">Student Portfolios</h1>
-                            <p className="text-slate-500 font-medium">Digital evidence of competency-based learning.</p>
+                            <h1 className="text-3xl font-bold text-white">Student Portfolios</h1>
+                            <p className="text-slate-400 font-medium tracking-tight">Digital evidence of competency-based learning.</p>
                         </div>
                     </div>
                     <div className="flex gap-3 w-full md:w-auto">
-                        <Button variant="outline" className="flex-1 md:flex-none h-11 border-slate-200">
+                        <Button variant="outline" className="flex-1 md:flex-none h-11 border-white/10 text-slate-300">
                             <Camera className="w-4 h-4 mr-2" /> Quick Snap
                         </Button>
                         <Button className="btn-primary flex-1 md:flex-none h-11">
@@ -36,9 +36,9 @@ export const StudentPortfolio = () => {
                 </header>
 
                 {/* Filters */}
-                <div className="flex flex-wrap gap-2 pb-4 border-b border-slate-200">
+                <div className="flex flex-wrap gap-2 pb-4 border-b border-white/5">
                     {['All Submissions', 'Grade 1', 'Grade 2', 'Grade 3', 'Mathematics', 'Language', 'Environmental'].map((f, i) => (
-                        <button key={i} className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${i === 0 ? 'bg-emerald-600 text-white' : 'bg-white text-slate-500 hover:bg-slate-50 border border-slate-100'}`}>
+                        <button key={i} className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${i === 0 ? 'bg-emerald-600 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700 border border-white/5'}`}>
                             {f}
                         </button>
                     ))}
@@ -50,19 +50,19 @@ export const StudentPortfolio = () => {
                         <div key={item.id} className="glass-card flex flex-col group overflow-hidden">
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                                     <p className="text-white text-xs font-medium flex items-center gap-1">
                                         <User className="w-3 h-3" /> {item.student}
                                     </p>
                                 </div>
-                                <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2 py-1 rounded-lg text-[10px] font-bold text-emerald-700 shadow-sm">
+                                <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-2 py-1 rounded-lg text-[10px] font-bold text-emerald-400 shadow-sm">
                                     {item.area}
                                 </div>
                             </div>
                             <div className="p-5 flex flex-col flex-1">
-                                <h3 className="text-slate-900 font-bold text-sm leading-tight mb-2">{item.title}</h3>
-                                <div className="mt-auto flex justify-between items-center pt-4 border-t border-slate-50">
-                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{item.date}</span>
+                                <h3 className="text-white font-bold text-sm leading-tight mb-2">{item.title}</h3>
+                                <div className="mt-auto flex justify-between items-center pt-4 border-t border-white/5">
+                                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{item.date}</span>
                                     <div className="flex items-center gap-1.5 text-rose-500 cursor-pointer">
                                         <Heart className="w-4 h-4" />
                                         <span className="text-xs font-bold">{item.likes}</span>

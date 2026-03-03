@@ -15,10 +15,10 @@ const strands = [
 ];
 
 const ratings = [
-    { label: 'EE', title: 'Exceeding Expectation', color: 'bg-emerald-500', bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
-    { label: 'ME', title: 'Meeting Expectation', color: 'bg-blue-500', bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
-    { label: 'AE', title: 'Approaching Expectation', color: 'bg-amber-500', bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
-    { label: 'BE', title: 'Below Expectation', color: 'bg-rose-500', bg: 'bg-rose-50', text: 'text-rose-700', border: 'border-rose-200' },
+    { label: 'EE', title: 'Exceeding Expectation', color: 'bg-emerald-500', bg: 'bg-emerald-500/20', text: 'text-emerald-400', border: 'border-emerald-500/30' },
+    { label: 'ME', title: 'Meeting Expectation', color: 'bg-blue-500', bg: 'bg-blue-500/20', text: 'text-blue-400', border: 'border-blue-500/30' },
+    { label: 'AE', title: 'Approaching Expectation', color: 'bg-amber-500', bg: 'bg-amber-500/20', text: 'text-amber-400', border: 'border-amber-500/30' },
+    { label: 'BE', title: 'Below Expectation', color: 'bg-rose-500', bg: 'bg-rose-500/20', text: 'text-rose-400', border: 'border-rose-500/30' },
 ];
 
 export const CBCAssessment = () => {
@@ -39,7 +39,7 @@ export const CBCAssessment = () => {
                         <ArrowLeft className="w-5 h-5" />
                     </Button>
                     <div>
-                        <h1 className="text-3xl font-bold text-slate-900">CBC Assessment Engine</h1>
+                        <h1 className="text-3xl font-bold text-white">CBC Assessment Engine</h1>
                         <p className="text-slate-500 font-medium mt-1">Grade-specific Competency Reporting</p>
                     </div>
                 </header>
@@ -48,7 +48,7 @@ export const CBCAssessment = () => {
                     {/* Left Panel: Selection */}
                     <div className="space-y-6">
                         <div className="glass-card p-6">
-                            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                            <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
                                 <User className="w-4 h-4" /> Select Student
                             </h3>
                             <div className="space-y-2">
@@ -57,8 +57,8 @@ export const CBCAssessment = () => {
                                         key={s.id}
                                         onClick={() => setSelectedStudent(s)}
                                         className={`w-full text-left p-4 rounded-xl transition-all duration-200 border ${selectedStudent.id === s.id
-                                            ? 'bg-emerald-50 border-emerald-200 text-emerald-700 font-semibold'
-                                            : 'bg-white border-slate-100 text-slate-600 hover:bg-slate-50'
+                                            ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400 font-semibold'
+                                            : 'bg-slate-900 border-white/5 text-slate-400 hover:bg-slate-800 hover:border-white/10'
                                             }`}
                                     >
                                         <p className="text-sm">{s.name}</p>
@@ -69,7 +69,7 @@ export const CBCAssessment = () => {
                         </div>
 
                         <div className="glass-card p-6">
-                            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                            <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
                                 <BookOpen className="w-4 h-4" /> Learning Area
                             </h3>
                             <div className="space-y-2">
@@ -78,8 +78,8 @@ export const CBCAssessment = () => {
                                         key={strand.id}
                                         onClick={() => setSelectedStrand(strand)}
                                         className={`w-full text-left p-4 rounded-xl transition-all duration-200 border ${selectedStrand.id === strand.id
-                                            ? 'bg-blue-50 border-blue-200 text-blue-700 font-semibold'
-                                            : 'bg-white border-slate-100 text-slate-600 hover:bg-slate-50'
+                                            ? 'bg-blue-500/10 border-blue-500/20 text-blue-400 font-semibold'
+                                            : 'bg-slate-900 border-white/5 text-slate-400 hover:bg-slate-800 hover:border-white/10'
                                             }`}
                                     >
                                         <p className="text-sm">{strand.name}</p>
@@ -92,19 +92,19 @@ export const CBCAssessment = () => {
                     {/* Right Panel: Scoring */}
                     <div className="lg:col-span-2 space-y-6">
                         <div className="glass-card p-8">
-                            <div className="flex justify-between items-center mb-8 pb-4 border-b border-slate-100">
+                            <div className="flex justify-between items-center mb-8 pb-4 border-b border-white/5">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600">
+                                    <div className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center text-slate-400">
                                         <Layers className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <h2 className="text-xl font-bold text-slate-900">{selectedStrand.name}</h2>
-                                        <p className="text-slate-400 text-sm">Assessing: <span className="text-slate-600 font-semibold">{selectedStudent.name}</span></p>
+                                        <h2 className="text-xl font-bold text-white">{selectedStrand.name}</h2>
+                                        <p className="text-slate-400 text-sm">Assessing: <span className="text-slate-200 font-semibold">{selectedStudent.name}</span></p>
                                     </div>
                                 </div>
                                 <div className="text-right">
-                                    <p className="text-xs font-bold text-slate-400 uppercase">Status</p>
-                                    <p className="text-amber-500 font-bold text-sm">In Progress</p>
+                                    <p className="text-xs font-bold text-slate-500 uppercase">Status</p>
+                                    <p className="text-amber-400 font-bold text-sm">In Progress</p>
                                 </div>
                             </div>
 
@@ -112,7 +112,7 @@ export const CBCAssessment = () => {
                                 {selectedStrand.subStrands.map(ss => (
                                     <div key={ss} className="space-y-4">
                                         <div className="flex justify-between items-center">
-                                            <h4 className="font-semibold text-slate-800">{ss}</h4>
+                                            <h4 className="font-semibold text-slate-200">{ss}</h4>
                                             {assessment[ss] && (
                                                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${ratings.find(r => r.label === assessment[ss])?.bg} ${ratings.find(r => r.label === assessment[ss])?.text}`}>
                                                     Rated: {assessment[ss]}
@@ -126,10 +126,10 @@ export const CBCAssessment = () => {
                                                     onClick={() => handleRate(ss, r.label)}
                                                     className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all duration-200 group ${assessment[ss] === r.label
                                                         ? `${r.bg} ${r.border} border-current scale-[1.02]`
-                                                        : 'bg-white border-slate-100 hover:border-slate-200'
+                                                        : 'bg-slate-900 border-white/5 hover:border-white/20'
                                                         }`}
                                                 >
-                                                    <span className={`text-sm font-bold ${assessment[ss] === r.label ? r.text : 'text-slate-400 opacity-60'}`}>{r.label}</span>
+                                                    <span className={`text-sm font-bold ${assessment[ss] === r.label ? r.text : 'text-slate-500 opacity-60'}`}>{r.label}</span>
                                                     <span className="text-[8px] font-bold uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">{r.title.split(' ')[0]}</span>
                                                 </button>
                                             ))}
@@ -142,7 +142,7 @@ export const CBCAssessment = () => {
                                 <Button className="btn-primary flex-1 h-12">
                                     <Save className="w-5 h-5" /> Save Assessment
                                 </Button>
-                                <Button variant="outline" className="flex-1 h-12">
+                                <Button variant="outline" className="flex-1 h-12 border-white/10 text-white hover:bg-white/5">
                                     <Send className="w-5 h-5" /> Submit to Portal
                                 </Button>
                             </div>

@@ -43,7 +43,7 @@ export const Dashboard = () => {
             <div className="max-w-7xl mx-auto space-y-8 animate-in">
                 <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-slate-200">
                     <div>
-                        <h1 className="text-3xl md:text-4xl font-bold text-slate-900">Dashboard</h1>
+                        <h1 className="text-3xl md:text-4xl font-bold text-white">Dashboard</h1>
                         <div className="flex items-center gap-2 mt-2">
                             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                             <p className="text-slate-500 font-medium">Welcome back, {user.name} <span className="text-slate-300 mx-1">|</span> <span className="text-emerald-600 capitalize">{user.role}</span></p>
