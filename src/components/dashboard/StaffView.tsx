@@ -13,8 +13,6 @@ import {
     ClipboardCheck,
     FolderOpen,
     Calendar,
-    MessageSquare,
-    Clock,
     Scan
 } from 'lucide-react';
 

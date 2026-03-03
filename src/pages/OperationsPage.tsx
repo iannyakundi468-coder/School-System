@@ -5,9 +5,7 @@ import {
     ArrowLeft,
     ShieldAlert,
     Zap,
-    Droplets,
     ShoppingCart,
-    AlertTriangle,
     RefreshCw,
     Timer
 } from 'lucide-react';
@@ -77,7 +75,7 @@ export const OperationsPage = () => {
                                 <p className="text-xs text-slate-400 leading-relaxed font-medium">
                                     Sudden flow spike (14.2 L/min) detected in Main Block C. Caretaker notified via WhatsApp.
                                 </p>
-                                <Button size="sm" className="w-full mt-4 bg-rose-600 hover:bg-rose-700 h-8 text-[10px]">
+                                <Button className="w-full mt-4 bg-rose-600 hover:bg-rose-700 h-8 text-[10px]">
                                     Remote Valve Shutoff
                                 </Button>
                             </Card>

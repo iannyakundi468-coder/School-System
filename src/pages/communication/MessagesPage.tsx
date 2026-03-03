@@ -10,7 +10,6 @@ import {
     TrendingUp,
     AlertCircle,
     Heart,
-    Skull,
     Zap
 } from 'lucide-react';
 
