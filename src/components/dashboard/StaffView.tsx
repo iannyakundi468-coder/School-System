@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { useSettings } from '../../context/SettingsContext';
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
+import { Input } from "../ui/Input";
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
     Users,
     TrendingUp,
@@ -13,7 +15,8 @@ import {
     ClipboardCheck,
     FolderOpen,
     Calendar,
-    Scan
+    Scan,
+    ArrowRight
 } from 'lucide-react';
 
 // Mock Data for Classes
@@ -39,22 +42,26 @@ export const StaffView = () => {
     const { aiEnabled, setAiEnabled } = useSettings();
 
     return (
-        <div className="space-y-6 animate-fade-in">
+        <div className="space-y-10 animate-in">
             {/* Header / Class Selector */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                 <div>
-                    <h2 className="text-2xl font-bold text-white mb-1">Academic Pulse</h2>
+                    <h2 className="text-3xl font-bold text-white mb-2">Academic Pulse</h2>
                     <div className="relative inline-block text-left group">
-                        <button className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium bg-emerald-500/10 px-3 py-1 rounded-lg transition-colors">
+                        <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="flex items-center gap-3 text-emerald-400 font-bold bg-emerald-500/10 px-4 py-2 rounded-xl border border-emerald-500/20 shadow-lg shadow-emerald-500/5 transition-all"
+                        >
                             {selectedClass.name}
                             <ChevronDown className="w-4 h-4" />
-                        </button>
-                        <div className="absolute left-0 mt-2 w-56 bg-slate-800 border border-slate-700 rounded-xl shadow-xl z-20 hidden group-hover:block animate-fade-in">
+                        </motion.button>
+                        <div className="absolute left-0 mt-3 w-64 bg-slate-900 border border-white/10 rounded-2xl shadow-2xl z-20 hidden group-hover:block animate-in">
                             {TEACHER_CLASSES.map((cls) => (
                                 <button
                                     key={cls.id}
                                     onClick={() => setSelectedClass(cls)}
-                                    className="w-full text-left px-4 py-3 hover:bg-slate-700 first:rounded-t-xl last:rounded-b-xl text-sm text-gray-300 hover:text-white"
+                                    className="w-full text-left px-5 py-4 hover:bg-white/5 first:rounded-t-2xl last:rounded-b-2xl text-sm font-semibold text-slate-400 hover:text-white transition-colors"
                                 >
                                     {cls.name}
                                 </button>
@@ -63,157 +70,187 @@ export const StaffView = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2 w-full md:w-auto">
-                    <Button onClick={() => navigate('/gate')} variant="glass" className="justify-center flex items-center gap-2 border-emerald-500/20 text-emerald-400">
+                <div className="flex flex-wrap gap-3 w-full md:w-auto">
+                    <Button onClick={() => navigate('/gate')} variant="glass" size="sm" className="bg-emerald-500/10 text-emerald-400 border-emerald-500/10 hover:border-emerald-500/30">
                         <Scan className="w-4 h-4" /> Smart Gate
                     </Button>
-                    <Button onClick={() => navigate('/learning/assessment')} variant="glass" className="justify-center flex items-center gap-2">
-                        <ClipboardCheck className="w-4 h-4" /> Grading
+                    <Button onClick={() => navigate('/learning/assessment')} variant="glass" size="sm">
+                        <ClipboardCheck className="w-4 h-4" /> Assessment
                     </Button>
-                    <Button onClick={() => navigate('/learning/portfolio')} variant="glass" className="justify-center flex items-center gap-2">
+                    <Button onClick={() => navigate('/learning/portfolio')} variant="glass" size="sm">
                         <FolderOpen className="w-4 h-4" /> Portfolios
                     </Button>
-                    <Button onClick={() => navigate('/timetable')} variant="glass" className="justify-center flex items-center gap-2 text-purple-400 border-purple-500/20">
-                        <Calendar className="w-4 h-4" /> Timetable
+                    <Button onClick={() => navigate('/timetable')} variant="glass" size="sm" className="text-purple-400 bg-purple-500/10 border-purple-500/10 hover:border-purple-500/30">
+                        <Calendar className="w-4 h-4" /> Master Timetable
                     </Button>
-                    <Button onClick={() => navigate('/enrollment')} className="justify-center bg-blue-600 hover:bg-blue-700">+ New Student</Button>
+                    <Button onClick={() => navigate('/enrollment')} variant="premium" size="sm">+ New Student</Button>
                 </div>
             </div>
 
             {/* AI Control Panel */}
-            <Card className="border-l-4 border-l-purple-500 bg-gradient-to-r from-slate-900 to-purple-900/10">
-                <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-4">
-                        <div className="p-3 bg-purple-500/20 rounded-xl text-purple-400">
-                            <Bot className="w-6 h-6" />
+            <Card variant="premium" className="p-0 overflow-hidden" hover={false}>
+                <div className="p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="flex items-center gap-6">
+                        <div className="p-4 bg-indigo-500/20 rounded-2xl text-indigo-400 border border-indigo-500/20">
+                            <Bot className="w-8 h-8" />
                         </div>
                         <div>
-                            <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                                AI Copilot Active
-                                {aiEnabled && <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">Syncing...</span>}
+                            <h3 className="text-xl font-bold text-white flex items-center gap-3">
+                                AI Teaching Copilot
+                                {aiEnabled && (
+                                    <span className="flex items-center gap-2 text-[10px] px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-tighter">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                        Streaming Insights
+                                    </span>
+                                )}
                             </h3>
-                            <p className="text-sm text-gray-400">Predictive attendance & performance profiling enabled.</p>
+                            <p className="text-sm text-slate-400 font-medium mt-1">Automated grade commentary & behavior profiling is active.</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <span className={`text-sm font-medium ${aiEnabled ? 'text-purple-400' : 'text-gray-500'}`}>
-                            {aiEnabled ? 'AI Enabled' : 'AI Disabled'}
+                    <div className="flex items-center gap-4 bg-slate-800/50 px-6 py-3 rounded-2xl border border-white/5">
+                        <span className={`text-xs font-bold uppercase tracking-widest ${aiEnabled ? 'text-indigo-400' : 'text-slate-500'}`}>
+                            {aiEnabled ? 'Active' : 'Paused'}
                         </span>
                         <button
                             onClick={() => setAiEnabled(!aiEnabled)}
-                            className={`w-14 h-7 rounded-full transition-colors relative ${aiEnabled ? 'bg-purple-600' : 'bg-slate-700'}`}
+                            className={`w-14 h-7 rounded-full transition-all duration-300 relative ${aiEnabled ? 'bg-indigo-600 shadow-[0_0_15px_rgba(79,70,229,0.4)]' : 'bg-slate-700'}`}
                         >
-                            <div className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all shadow-md ${aiEnabled ? 'left-8' : 'left-1'}`} />
+                            <motion.div
+                                animate={{ x: aiEnabled ? 28 : 4 }}
+                                className="absolute top-1 w-5 h-5 rounded-full bg-white shadow-md"
+                            />
                         </button>
                     </div>
                 </div>
             </Card>
 
             {/* Stats Row & Messages */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="grid gap-6">
-                    <Card>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 h-fit">
+                    <Card variant="glass" delay={0.1}>
                         <div className="flex justify-between items-start">
                             <div>
-                                <p className="text-gray-400 text-sm">Class Size</p>
-                                <p className="text-3xl font-bold text-white">{selectedClass.students}</p>
+                                <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Selected Class Size</p>
+                                <p className="text-4xl font-bold text-white mt-1">{selectedClass.students}</p>
+                                <p className="text-xs text-slate-400 mt-2 font-medium">Verified Roster</p>
                             </div>
-                            <div className="p-2 bg-blue-500/20 rounded-lg"><Users className="w-6 h-6 text-blue-400" /></div>
+                            <div className="p-3 bg-blue-500/10 rounded-2xl text-blue-400 border border-blue-500/10">
+                                <Users className="w-7 h-7" />
+                            </div>
                         </div>
                     </Card>
-                    <div className="grid grid-cols-2 gap-6">
-                        <Card>
+                    <div className="grid grid-cols-1 gap-8 h-full">
+                        <Card variant="glass" delay={0.2} className="h-full">
                             <div className="flex justify-between items-start">
                                 <div>
-                                    <p className="text-gray-400 text-sm">Today's Attendance</p>
-                                    <p className="text-2xl font-bold text-emerald-400">{selectedClass.attendance}</p>
+                                    <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Today's Attendance</p>
+                                    <p className="text-3xl font-bold text-emerald-400 mt-1">{selectedClass.attendance}</p>
                                 </div>
-                                <div className="p-2 bg-emerald-500/20 rounded-lg"><CheckCircle className="w-5 h-5 text-emerald-400" /></div>
+                                <div className="p-3 bg-emerald-500/10 rounded-2xl text-emerald-400 border border-emerald-500/10">
+                                    <CheckCircle className="w-6 h-6" />
+                                </div>
                             </div>
                         </Card>
-                        <Card>
+                        <Card variant="glass" delay={0.3} className="h-full">
                             <div className="flex justify-between items-start">
                                 <div>
-                                    <p className="text-gray-400 text-sm">Avg. Performance</p>
-                                    <p className="text-2xl font-bold text-amber-400">B+</p>
+                                    <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Avg. Performance</p>
+                                    <p className="text-3xl font-bold text-amber-400 mt-1">B+</p>
                                 </div>
-                                <div className="p-2 bg-amber-500/20 rounded-lg"><TrendingUp className="w-5 h-5 text-amber-400" /></div>
+                                <div className="p-3 bg-amber-500/10 rounded-2xl text-amber-400 border border-amber-500/10">
+                                    <TrendingUp className="w-6 h-6" />
+                                </div>
                             </div>
                         </Card>
                     </div>
                 </div>
 
-                <Card>
-                    <div className="flex justify-between items-start mb-4">
-                        <h2 className="text-xl font-bold">Recent Communications</h2>
-                        <Button variant="glass" className="h-8 text-xs" onClick={() => navigate('/messages')}>Inbox</Button>
+                <Card variant="default" className="border-l-4 border-l-blue-500">
+                    <div className="flex justify-between items-center mb-8">
+                        <h2 className="text-xl font-bold text-white">Staff Briefing</h2>
+                        <Button variant="ghost" size="sm" className="h-8 text-[10px]" onClick={() => navigate('/messages')}>
+                            Go to Inbox <ArrowRight className="w-3 h-3 ml-1" />
+                        </Button>
                     </div>
-                    <div className="space-y-4">
-                        <div className="flex items-center gap-4 p-3 bg-slate-800/50 rounded-lg border border-slate-700">
-                            <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center">
-                                <span className="text-xl">👩‍🏫</span>
-                            </div>
-                            <div className="flex-1">
-                                <h4 className="font-bold text-sm text-white">Mrs. Alice</h4>
-                                <p className="text-xs text-gray-400 truncate">Reminder: Staff meeting at 2 PM.</p>
-                            </div>
-                            <span className="text-[10px] text-emerald-400">New</span>
-                        </div>
-                        <div className="flex items-center gap-4 p-3 bg-slate-800/50 rounded-lg border border-slate-700">
-                            <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center">
-                                <span className="text-xl">👨‍💼</span>
-                            </div>
-                            <div className="flex-1">
-                                <h4 className="font-bold text-sm text-white">Principal James</h4>
-                                <p className="text-xs text-gray-400 truncate">Monthly performance reviews start Monday.</p>
-                            </div>
-                        </div>
+                    <div className="space-y-6">
+                        {[
+                            { name: 'Mrs. Alice', msg: 'Reminder: Staff meeting at 2 PM.', color: 'indigo', emoji: '👩‍🏫', isNew: true },
+                            { name: 'Principal James', msg: 'Monthly performance reviews start Monday.', color: 'blue', emoji: '👨‍💼', isNew: false }
+                        ].map((item, i) => (
+                            <motion.div
+                                key={i}
+                                whileHover={{ x: 4 }}
+                                className="flex items-center gap-4 p-4 bg-slate-900/40 rounded-2xl border border-white/5 group cursor-pointer"
+                            >
+                                <div className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center text-2xl border border-white/5 group-hover:bg-slate-700 transition-colors">
+                                    {item.emoji}
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex justify-between items-center">
+                                        <h4 className="font-bold text-sm text-white">{item.name}</h4>
+                                        {item.isNew && <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-tighter">New</span>}
+                                    </div>
+                                    <p className="text-xs text-slate-400 truncate mt-1 font-medium">{item.msg}</p>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </Card>
             </div>
 
             {/* Student List */}
-            <Card>
-                <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-xl font-bold">Student Roster</h3>
-                    <div className="w-64">
-                        <div className="relative">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                            <input
-                                type="text"
-                                placeholder="Search student..."
-                                className="w-full bg-slate-900/50 border border-slate-700 rounded-lg pl-9 pr-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500/50 transition-colors"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                            />
-                        </div>
+            <Card variant="default" className="p-8">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
+                    <div>
+                        <h3 className="text-2xl font-bold text-white">Class Roster</h3>
+                        <p className="text-xs text-slate-500 font-medium mt-1">Search and manage student profiles for {selectedClass.name}.</p>
+                    </div>
+                    <div className="w-full md:w-80">
+                        <Input
+                            placeholder="Student name or ID..."
+                            icon={<Search className="w-4 h-4" />}
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="bg-slate-800/50 border-white/5"
+                        />
                     </div>
                 </div>
 
                 <div className="overflow-x-auto">
-                    <table className="w-full text-left border-collapse">
+                    <table className="w-full text-left border-separate border-spacing-y-2">
                         <thead>
-                            <tr className="text-gray-400 text-sm border-b border-slate-700">
-                                <th className="pb-3 pl-2">Name</th>
-                                <th className="pb-3 text-center">Status</th>
-                                <th className="pb-3 text-center">Performance</th>
-                                <th className="pb-3 text-right pr-2">Actions</th>
+                            <tr className="text-slate-500 text-[10px] font-bold uppercase tracking-widest px-4">
+                                <th className="pb-4 pl-6">Student Identity</th>
+                                <th className="pb-4 text-center">Daily Status</th>
+                                <th className="pb-4 text-center">Term Rank</th>
+                                <th className="pb-4 text-right pr-6">Vault Actions</th>
                             </tr>
                         </thead>
-                        <tbody className="text-sm">
+                        <tbody>
                             {MOCK_STUDENTS.map((student) => (
-                                <tr key={student.id} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors group">
-                                    <td className="py-3 pl-2 font-medium text-white">{student.name}</td>
-                                    <td className="py-3 text-center">
-                                        <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium 
-                                            ${student.status === 'Present' ? 'bg-emerald-500/10 text-emerald-400' :
-                                                student.status === 'Absent' ? 'bg-rose-500/10 text-rose-400' : 'bg-amber-500/10 text-amber-400'}`}>
+                                <tr key={student.id} className="group transition-all">
+                                    <td className="py-4 pl-6 bg-slate-900/40 border-y border-l border-white/5 rounded-l-2xl group-hover:bg-white/5 group-hover:border-white/10 transition-colors">
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center font-bold text-slate-400 text-xs border border-white/5">
+                                                {student.name.split(' ').map(n => n[0]).join('')}
+                                            </div>
+                                            <div className="font-bold text-white text-sm">{student.name}</div>
+                                        </div>
+                                    </td>
+                                    <td className="py-4 text-center bg-slate-900/40 border-y border-white/5 group-hover:bg-white/5 group-hover:border-white/10 transition-colors">
+                                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter
+                                            ${student.status === 'Present' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
+                                                student.status === 'Absent' ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20' : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'}`}>
                                             {student.status}
                                         </span>
                                     </td>
-                                    <td className="py-3 text-center font-mono text-gray-300">{student.performance}</td>
-                                    <td className="py-3 text-right pr-2">
-                                        <Button variant="glass" className="h-8 text-xs px-3">View</Button>
+                                    <td className="py-4 text-center bg-slate-900/40 border-y border-white/5 group-hover:bg-white/5 group-hover:border-white/10 transition-colors font-mono text-slate-400 font-bold">
+                                        {student.performance}
+                                    </td>
+                                    <td className="py-4 text-right pr-6 bg-slate-900/40 border-y border-r border-white/5 rounded-r-2xl group-hover:bg-white/5 group-hover:border-white/10 transition-colors">
+                                        <Button variant="ghost" className="h-9 text-[10px] px-4 bg-white/5 hover:bg-white/10 border border-white/5">
+                                            Full Portfolio
+                                        </Button>
                                     </td>
                                 </tr>
                             ))}

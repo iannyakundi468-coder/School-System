@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { AuthProvider } from './context/AuthContext';
 import './index.css';
 import { LoginPage } from './pages/auth/LoginPage';
@@ -20,35 +21,45 @@ import { TimetablePage } from './pages/TimetablePage';
 import { GatePage } from './pages/GatePage';
 import { CanteenPage } from './pages/CanteenPage';
 
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Navigate to="/" replace />} />
+        <Route path="/finance" element={<FinancePage />} />
+        <Route path="/enrollment" element={<EnrollmentPage />} />
+        <Route path="/messages" element={<MessagesPage />} />
+        <Route path="/report" element={<StudentReport />} />
+        <Route path="/events" element={<EventsPage />} />
+        <Route path="/learning" element={<HomeLearningPage />} />
+        <Route path="/learning/assessment" element={<CBCAssessment />} />
+        <Route path="/learning/portfolio" element={<StudentPortfolio />} />
+        <Route path="/development" element={<DevelopmentPage />} />
+        <Route path="/operations" element={<OperationsPage />} />
+        <Route path="/compliance" element={<CompliancePage />} />
+        <Route path="/safety" element={<SafetyPage />} />
+        <Route path="/timetable" element={<TimetablePage />} />
+        <Route path="/gate" element={<GatePage />} />
+        <Route path="/canteen" element={<CanteenPage />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 export default function App() {
   return (
     <AuthProvider>
       <SettingsProvider>
         <BrowserRouter>
-          <Routes>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/dashboard" element={<Navigate to="/" replace />} />
-            <Route path="/finance" element={<FinancePage />} />
-            <Route path="/enrollment" element={<EnrollmentPage />} />
-            <Route path="/messages" element={<MessagesPage />} />
-            <Route path="/report" element={<StudentReport />} />
-            <Route path="/events" element={<EventsPage />} />
-            <Route path="/learning" element={<HomeLearningPage />} />
-            <Route path="/learning/assessment" element={<CBCAssessment />} />
-            <Route path="/learning/portfolio" element={<StudentPortfolio />} />
-            <Route path="/development" element={<DevelopmentPage />} />
-            <Route path="/operations" element={<OperationsPage />} />
-            <Route path="/compliance" element={<CompliancePage />} />
-            <Route path="/safety" element={<SafetyPage />} />
-            <Route path="/timetable" element={<TimetablePage />} />
-            <Route path="/gate" element={<GatePage />} />
-            <Route path="/canteen" element={<CanteenPage />} />
-          </Routes>
+          <AnimatedRoutes />
         </BrowserRouter>
       </SettingsProvider>
     </AuthProvider>
   );
 }
 
-// Solian Wolves V1.1
+// Solian Wolves V1.2 - Premium Experience

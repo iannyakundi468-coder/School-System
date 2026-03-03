@@ -1,13 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
+import { motion } from 'framer-motion';
 import {
     ArrowLeft,
     ShieldAlert,
     Zap,
     ShoppingCart,
     RefreshCw,
-    Timer
+    Timer,
+    Activity,
+    Droplets,
+    AlertTriangle
 } from 'lucide-react';
 
 export const OperationsPage = () => {
@@ -25,154 +29,182 @@ export const OperationsPage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-mesh p-4 md:p-8">
-            <div className="max-w-7xl mx-auto space-y-8 animate-in">
+        <div className="min-h-screen bg-mesh p-4 md:p-10">
+            <div className="max-w-7xl mx-auto space-y-12 animate-in">
                 {/* Header */}
-                <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-white/5">
+                <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-10 border-b border-white/5">
                     <div>
-                        <Button variant="outline" className="mb-4 h-10 border-white/10 text-slate-300" onClick={() => navigate('/')}>
-                            <ArrowLeft className="w-4 h-4 mr-2" /> Back
+                        <Button variant="ghost" className="mb-6 h-10 border border-white/10 text-slate-300 px-4" onClick={() => navigate('/')}>
+                            <ArrowLeft className="w-4 h-4 mr-2" /> Global Hub
                         </Button>
-                        <h1 className="text-3xl md:text-4xl font-bold text-white">Institutional Ecosystem</h1>
-                        <p className="text-slate-400 font-medium mt-2">Active hardware auditing, predictive procurement and IoT energy surveillance.</p>
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">Institutional Ecosystem</h1>
+                        <p className="text-slate-400 font-bold mt-3 text-lg">Hardware auditing, predictive procurement and IoT energy surveillance.</p>
                     </div>
-                    <div className="flex gap-3">
-                        <Button variant="glass" className="flex items-center gap-2">
-                            <RefreshCw className="w-4 h-4" /> Rescan Infrastructure
+                    <div className="flex gap-4">
+                        <Button variant="glass" className="h-12 border-white/10 text-blue-400 hover:text-white group">
+                            <RefreshCw className="w-4 h-4 mr-2 group-hover:rotate-180 transition-transform duration-500" /> Rescan Infrastructure
                         </Button>
                     </div>
                 </header>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     {/* AI Energy Guardian */}
-                    <Card className="border-t-4 border-t-blue-500 lg:col-span-1">
-                        <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                                <Zap className="w-5 h-5 text-blue-400" /> Energy Guardian
-                            </h2>
-                            <span className="animate-pulse w-2 h-2 rounded-full bg-emerald-500" />
+                    <Card variant="premium" className="lg:col-span-1 p-0 overflow-hidden border-t-0">
+                        <div className="p-8 border-b border-white/5 bg-blue-500/5">
+                            <div className="flex justify-between items-center mb-2">
+                                <h2 className="text-2xl font-bold text-white flex items-center gap-3">
+                                    <Zap className="w-6 h-6 text-blue-400" /> Energy Guardian
+                                </h2>
+                                <span className="flex items-center gap-2 text-[10px] font-black text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/10">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Live
+                                </span>
+                            </div>
                         </div>
-                        <div className="space-y-6">
-                            <div className="p-4 bg-slate-900/50 rounded-xl border border-white/5">
-                                <div className="flex justify-between items-baseline mb-4">
-                                    <p className="text-sm font-bold text-slate-400">Power Consumption</p>
-                                    <p className="text-2xl font-bold text-white">2.4 kW/h</p>
+
+                        <div className="p-8 space-y-8">
+                            <div className="p-6 bg-slate-900/50 rounded-3xl border border-white/5 relative overflow-hidden group">
+                                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                                    <Activity className="w-16 h-16 text-blue-400" />
                                 </div>
-                                <div className="h-24 flex items-end gap-1 px-1">
-                                    {[20, 35, 45, 30, 60, 40, 35, 50, 40, 55].map((h, i) => (
-                                        <div key={i} className="flex-1 bg-blue-500/20 rounded-t-sm" style={{ height: `${h}%` }} />
+                                <div className="flex justify-between items-baseline mb-6">
+                                    <p className="text-xs font-black text-slate-500 uppercase tracking-widest">Active Power Load</p>
+                                    <p className="text-4xl font-black text-white tracking-tighter">2.4 <span className="text-lg text-slate-500">kW/h</span></p>
+                                </div>
+                                <div className="h-28 flex items-end gap-1.5 px-1 relative">
+                                    {[20, 35, 45, 30, 60, 40, 35, 50, 40, 55, 30, 45].map((h, i) => (
+                                        <motion.div
+                                            key={i}
+                                            initial={{ height: 0 }}
+                                            animate={{ height: `${h}%` }}
+                                            transition={{ delay: i * 0.05, duration: 1, ease: "easeOut" }}
+                                            className="flex-1 bg-gradient-to-t from-blue-600/10 to-blue-500/40 rounded-t-lg group-hover:to-blue-400 transition-all cursor-crosshair relative"
+                                        >
+                                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        </motion.div>
                                     ))}
                                 </div>
                             </div>
 
-                            <Card className="bg-rose-500/10 border-rose-500/20 p-4">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="p-2 bg-rose-500/20 rounded-lg text-rose-500">
-                                        <ShieldAlert className="w-5 h-5 animate-bounce" />
+                            <Card variant="danger" className="border-t-0 p-6" hover={false}>
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className="p-3 bg-rose-500/20 rounded-2xl text-rose-500 border border-rose-500/20">
+                                        <Droplets className="w-6 h-6 animate-bounce" />
                                     </div>
-                                    <h4 className="text-sm font-bold text-rose-400">2:14 AM: Burst Pipe Alert</h4>
+                                    <div>
+                                        <h4 className="text-sm font-black text-rose-400 uppercase tracking-widest leading-none">2:14 AM: Burst Alert</h4>
+                                        <p className="text-[10px] text-rose-500/70 font-bold mt-1 uppercase tracking-tighter">Sector C Main Feed</p>
+                                    </div>
                                 </div>
-                                <p className="text-xs text-slate-400 leading-relaxed font-medium">
-                                    Sudden flow spike (14.2 L/min) detected in Main Block C. Caretaker notified via WhatsApp.
+                                <p className="text-xs text-slate-300 leading-relaxed font-bold">
+                                    Sudden flow spike (14.2 L/min) detected. Solian AI engaged emergency shutoff and alerted Caretaker.
                                 </p>
-                                <Button className="w-full mt-4 bg-rose-600 hover:bg-rose-700 h-8 text-[10px]">
-                                    Remote Valve Shutoff
+                                <Button variant="premium" className="w-full mt-6 bg-gradient-to-r from-rose-600 to-rose-700 shadow-rose-900/50 h-10 text-[10px] font-black tracking-widest uppercase">
+                                    <ShieldAlert className="w-4 h-4 mb-0.5" /> Manual Valve Override
                                 </Button>
                             </Card>
                         </div>
                     </Card>
 
                     {/* AI Leakage Detection */}
-                    <Card className="lg:col-span-2 border-l-4 border-l-rose-500 bg-rose-500/5">
-                        <div className="flex justify-between items-center mb-6">
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-rose-500/20 rounded-lg text-rose-400">
-                                    <ShieldAlert className="w-6 h-6" />
+                    <Card variant="glass" className="lg:col-span-2 border-l-4 border-l-rose-500 p-8 h-full">
+                        <div className="flex justify-between items-center mb-10">
+                            <div className="flex items-center gap-5">
+                                <div className="p-4 bg-rose-500/10 rounded-2xl text-rose-400 border border-rose-500/10">
+                                    <ShieldAlert className="w-8 h-8" />
                                 </div>
                                 <div>
-                                    <h2 className="text-xl font-bold text-white">AI Financial Integrity</h2>
-                                    <p className="text-xs text-slate-500">Real-time ledger audit vs external statements</p>
+                                    <h2 className="text-2xl font-bold text-white tracking-tight">AI Financial Integrity</h2>
+                                    <p className="text-sm text-slate-500 font-bold mt-1">Real-time deep audit of institutional ledger vs statements.</p>
                                 </div>
                             </div>
-                            <span className="text-xs font-bold px-2 py-1 rounded bg-rose-500/20 text-rose-400 uppercase">
-                                2 Anomalies Found
+                            <span className="text-[10px] font-black px-4 py-2 rounded-full bg-rose-500/10 text-rose-400 uppercase tracking-[0.2em] border border-rose-500/20">
+                                2 Discrepancies
                             </span>
                         </div>
 
                         <div className="space-y-4">
-                            {leakageData.map((item) => (
-                                <div key={item.id} className="flex items-center justify-between p-4 bg-slate-900/50 rounded-xl border border-white/5 group hover:border-rose-500/30 transition-colors">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-xs text-slate-400">
+                            {leakageData.map((item, i) => (
+                                <motion.div
+                                    key={item.id}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className="flex items-center justify-between p-6 bg-slate-900/40 rounded-3xl border border-white/5 group hover:border-rose-500/30 hover:bg-white/[0.02] transition-all duration-300"
+                                >
+                                    <div className="flex items-center gap-6">
+                                        <div className="w-14 h-14 rounded-2xl bg-slate-800 flex items-center justify-center font-black text-slate-600 text-lg border border-white/5 group-hover:bg-slate-700 transition-colors">
                                             {item.type[0]}
                                         </div>
                                         <div>
-                                            <div className="flex items-center gap-2 text-white font-bold text-sm">
-                                                {item.amount} <span className="text-[10px] text-slate-500 font-normal">via {item.type}</span>
+                                            <div className="flex items-center gap-3 text-xl font-black text-white group-hover:translate-x-1 transition-transform">
+                                                {item.amount} <span className="text-[10px] text-slate-500 uppercase tracking-widest font-black">via {item.type}</span>
                                             </div>
-                                            <p className="text-xs text-rose-400 font-medium">{item.reason}</p>
+                                            <p className="text-sm text-rose-400 font-black mt-1 flex items-center gap-2">
+                                                <AlertTriangle className="w-3.5 h-3.5" /> {item.reason}
+                                            </p>
                                         </div>
                                     </div>
                                     <div className="text-right">
-                                        <p className="text-[10px] text-slate-500 uppercase font-bold">{item.time}</p>
-                                        <Button variant="ghost" className="h-7 text-[10px] text-blue-400 hover:bg-blue-400/10 px-2 mt-1">
-                                            Fix Allocation
+                                        <p className="text-[10px] text-slate-500 uppercase font-black tracking-widest">{item.time}</p>
+                                        <Button variant="ghost" className="h-10 text-[10px] font-black tracking-widest uppercase text-blue-400 hover:bg-blue-400/10 hover:text-blue-300 px-4 mt-2 bg-white/5 border border-white/5">
+                                            Re-Allocate
                                         </Button>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </Card>
 
                     {/* Predictive Procurement */}
-                    <Card className="lg:col-span-3 border-t-4 border-t-amber-500">
-                        <div className="flex justify-between items-center mb-8">
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-amber-500/20 rounded-lg text-amber-400">
-                                    <ShoppingCart className="w-6 h-6" />
+                    <Card variant="premium" className="lg:col-span-3 p-10 mt-4">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+                            <div className="flex items-center gap-5">
+                                <div className="p-4 bg-amber-500/10 rounded-2xl text-amber-400 border border-amber-500/10">
+                                    <ShoppingCart className="w-8 h-8" />
                                 </div>
-                                <h2 className="text-xl font-bold text-white">Predictive Resource Planning</h2>
+                                <div>
+                                    <h2 className="text-2xl font-bold text-white tracking-tight">Predictive Resource Planning</h2>
+                                    <p className="text-sm text-slate-500 font-bold mt-1">AI analyzing consumption velocity to preempt institutional stock-outs.</p>
+                                </div>
                             </div>
-                            <div className="flex gap-2">
-                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-800 rounded-lg border border-white/5">
-                                    <Timer className="w-4 h-4 text-amber-500" />
-                                    <span className="text-xs font-bold text-white">Next Order: in 48h</span>
+                            <div className="flex gap-4 w-full md:w-auto">
+                                <div className="flex-1 flex items-center gap-4 px-6 py-3 bg-slate-800/50 rounded-2xl border border-white/5">
+                                    <Timer className="w-5 h-5 text-amber-500" />
+                                    <span className="text-xs font-black text-white uppercase tracking-widest">Next Run: in 48h</span>
                                 </div>
-                                <Button className="bg-amber-600 hover:bg-amber-700 h-10">Bulk Process LPOs</Button>
+                                <Button variant="premium" size="lg" className="bg-amber-600 hover:bg-amber-500 shadow-amber-900/40">Bulk Process Purchases</Button>
                             </div>
                         </div>
 
                         <div className="overflow-x-auto">
-                            <table className="w-full text-left border-collapse">
+                            <table className="w-full text-left border-separate border-spacing-y-4">
                                 <thead>
-                                    <tr className="text-slate-500 text-[10px] font-bold uppercase tracking-widest border-b border-white/5">
-                                        <th className="pb-4">Institutional Resources</th>
-                                        <th className="pb-4">Hardware Inventory</th>
-                                        <th className="pb-4">AI Consumption Forecast</th>
-                                        <th className="pb-4">Automated Action</th>
-                                        <th className="pb-4 text-right">Status</th>
+                                    <tr className="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em]">
+                                        <th className="pb-4 pl-6">Institutional Asset</th>
+                                        <th className="pb-4">Real-time Inventory</th>
+                                        <th className="pb-4">AI Critical Velocity</th>
+                                        <th className="pb-4">Automated Protocol</th>
+                                        <th className="pb-4 text-right pr-6">Status</th>
                                     </tr>
                                 </thead>
-                                <tbody className="text-sm">
+                                <tbody>
                                     {procurementData.map((item, i) => (
-                                        <tr key={i} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td className="py-5 font-bold text-white">{item.item}</td>
-                                            <td className="py-5 text-slate-300 font-medium">{item.currentStock}</td>
-                                            <td className="py-5">
-                                                <span className={`text-xs font-bold ${item.status === 'Urgent' ? 'text-rose-400' : 'text-slate-400'}`}>
+                                        <tr key={i} className="group cursor-default">
+                                            <td className="py-6 pl-8 bg-slate-900/40 border-y border-l border-white/5 rounded-l-3xl group-hover:bg-white/[0.04] transition-colors font-bold text-white text-lg">{item.item}</td>
+                                            <td className="py-6 bg-slate-900/40 border-y border-white/5 group-hover:bg-white/[0.04] transition-colors text-slate-400 font-black tracking-widest">{item.currentStock}</td>
+                                            <td className="py-6 bg-slate-900/40 border-y border-white/5 group-hover:bg-white/[0.04] transition-colors">
+                                                <span className={`text-xs font-black uppercase tracking-widest ${item.status === 'Urgent' ? 'text-rose-400' : 'text-slate-500'}`}>
                                                     {item.forecast}
                                                 </span>
                                             </td>
-                                            <td className="py-5">
-                                                <div className="flex items-center gap-2">
-                                                    <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded border border-emerald-500/20">
-                                                        {item.action}
-                                                    </span>
-                                                </div>
+                                            <td className="py-6 bg-slate-900/40 border-y border-white/5 group-hover:bg-white/[0.04] transition-colors">
+                                                <span className="text-[10px] font-black text-emerald-400 bg-emerald-500/10 px-4 py-2 rounded-xl border border-emerald-500/10 uppercase tracking-[0.1em]">
+                                                    {item.action}
+                                                </span>
                                             </td>
-                                            <td className="py-5 text-right">
-                                                <span className={`inline-block px-2 py-1 rounded text-[10px] font-bold uppercase ${item.status === 'Urgent' ? 'bg-rose-500/20 text-rose-400' :
-                                                        item.status === 'Scheduled' ? 'bg-blue-500/20 text-blue-400' : 'bg-emerald-500/20 text-emerald-400'
+                                            <td className="py-6 text-right pr-8 bg-slate-900/40 border-y border-r border-white/5 rounded-r-3xl group-hover:bg-white/[0.04] transition-colors">
+                                                <span className={`inline-block px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg ${item.status === 'Urgent' ? 'bg-rose-500/20 text-rose-400 border border-rose-500/20 shadow-rose-900/20' :
+                                                        item.status === 'Scheduled' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/20 shadow-blue-900/20' : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 shadow-emerald-900/20'
                                                     }`}>
                                                     {item.status}
                                                 </span>
