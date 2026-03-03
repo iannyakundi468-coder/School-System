@@ -10,6 +10,8 @@ import { StudentReport } from './pages/academic/StudentReport';
 import { EventsPage } from './pages/events/EventsPage';
 import { SettingsProvider } from './context/SettingsContext';
 import { HomeLearningPage } from './pages/learning/HomeLearningPage';
+import { CBCAssessment } from './pages/learning/CBCAssessment';
+import { StudentPortfolio } from './pages/learning/StudentPortfolio';
 
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
             <Route path="/report" element={<StudentReport />} />
             <Route path="/events" element={<EventsPage />} />
             <Route path="/learning" element={<HomeLearningPage />} />
+            <Route path="/learning/assessment" element={<CBCAssessment />} />
+            <Route path="/learning/portfolio" element={<StudentPortfolio />} />
           </Routes>
         </BrowserRouter>
       </SettingsProvider>

@@ -1,35 +1,39 @@
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'glass';
+  variant?: 'primary' | 'secondary' | 'glass' | 'outline' | 'ghost';
   className?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ 
-  variant = 'primary', 
-  className = '', 
-  children, 
-  ...props 
+export const Button: React.FC<ButtonProps> = ({
+  variant = 'primary',
+  className = '',
+  children,
+  ...props
 }) => {
-  const baseStyles = 'glass-button font-medium transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2';
-  
+  const baseStyles = 'font-medium transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2 rounded-xl h-11 px-6 px-4';
+
   let variantStyles = '';
-  
+
   switch (variant) {
     case 'primary':
-      variantStyles = 'bg-emerald-600/80 hover:bg-emerald-500/90 border-emerald-400/30 text-white shadow-lg shadow-emerald-500/20';
+      variantStyles = 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-500/20';
       break;
     case 'secondary':
-      variantStyles = 'bg-rose-600/80 hover:bg-rose-500/90 border-rose-400/30 text-white shadow-lg shadow-rose-500/20';
+      variantStyles = 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20';
+      break;
+    case 'outline':
+      variantStyles = 'border-2 border-slate-200 text-slate-600 hover:bg-slate-50';
+      break;
+    case 'ghost':
+      variantStyles = 'text-slate-500 hover:bg-slate-100 hover:text-slate-700';
       break;
     case 'glass':
     default:
-      variantStyles = 'bg-white/10 hover:bg-white/20 border-white/10 text-white';
+      variantStyles = 'backdrop-blur-md bg-white/10 border border-white/20 text-white hover:bg-white/20';
       break;
   }
 
-  // Combine classes manually since we don't have clsx/tailwind-merge installed yet (waiting on npm install)
-  // Once installed, we can refactor.
   const combinedClassName = `${baseStyles} ${variantStyles} ${className}`;
 
   return (

@@ -1,113 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Brand Colors - Kenyan Inspired, Modernized */
-  --color-primary: 155, 65%, 45%;
-  /* Deep Forest Green */
-  --color-primary-dark: 155, 75%, 25%;
-  --color-secondary: 350, 75%, 45%;
+  /* Brand Colors - Kenyan Inspired, Modernized & Premium */
+  --primary: 155, 65%, 45%;
+  /* Forest Green */
+  --secondary: 0, 75%, 45%;
   /* Crimson Red */
-  --color-accent: 45, 95%, 55%;
+  --accent: 45, 95%, 55%;
   /* Vivid Gold */
-  --color-dark: 220, 30%, 12%;
-  /* Deep Slate */
-  --color-dark-surface: 220, 25%, 18%;
+
+  --bg-main: #f8fafc;
+  --text-main: #0f172a;
 
   /* Glassmorphism Variables */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.08);
   --glass-blur: 12px;
 
   /* Typography */
-  --font-family: 'Inter', system-ui, sans-serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-outfit: 'Outfit', system-ui, sans-serif;
 
   /* Animations */
-  --transition-fast: 0.2s ease;
-  --transition-medium: 0.4s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark Mode Default */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-family);
-  background: radial-gradient(circle at 50% -20%, #1a2a3a, var(--color-dark));
-  color: #ffffff;
-  min-height: 100vh;
-  overflow-x: hidden;
-  /* Prevent horizontal scroll on mobile */
-  font-size: 16px;
-  /* Base font size for mobile */
-}
-
-@media (min-width: 768px) {
+@layer base {
   body {
-    font-size: 1rem;
+    @apply bg-slate-50 text-slate-900 font-['Inter'] antialiased;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(15, 23, 42, 0.03) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(34, 197, 94, 0.03) 0px, transparent 50%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-['Outfit'] font-semibold tracking-tight;
   }
 }
 
-/* Utilities */
-.glass-panel {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  box-shadow: var(--glass-shadow);
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md bg-white/70 border border-white/20 shadow-lg rounded-2xl transition-all duration-300;
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-card:hover {
+    @apply -translate-y-1 shadow-xl border-white/40;
+  }
+
+  .btn-primary {
+    @apply bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-6 rounded-xl transition-all duration-300 shadow-md shadow-emerald-500/10 active:scale-95;
+  }
+
+  .stat-card {
+    @apply glass-card p-6 flex flex-col gap-2 cursor-default;
+  }
 }
 
-.glass-button {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  backdrop-filter: blur(4px);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  font-weight: 600;
-}
-
-.glass-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.glass-input {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 1rem;
-}
-
-.glass-input:focus {
-  outline: none;
-  border-color: hsl(var(--color-primary));
-  background: rgba(0, 0, 0, 0.4);
-}
-
-/* Kenyan Flag Gradient Strip */
 .kenya-stripe {
   height: 4px;
-  background: linear-gradient(90deg,
-      hsl(var(--color-dark)) 0%,
-      hsl(var(--color-secondary)) 25%,
-      hsl(var(--color-primary)) 50%,
-      white 75%,
-      hsl(var(--color-dark)) 100%);
+  background: linear-gradient(90deg, #000 0%, #BB0000 25%, #006600 50%, #fff 75%, #000 100%);
   width: 100%;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -120,6 +85,6 @@ body {
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn var(--transition-medium) forwards;
+.animate-in {
+  animation: fadeIn var(--transition-smooth) forwards;
 }

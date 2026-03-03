@@ -39,22 +39,27 @@ export const Dashboard = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-900 text-white p-4 md:p-8">
-            <div className="max-w-7xl mx-auto space-y-8">
-                <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-6 border-b border-slate-800">
+        <div className="min-h-screen bg-mesh p-4 md:p-8">
+            <div className="max-w-7xl mx-auto space-y-8 animate-in">
+                <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-slate-200">
                     <div>
-                        <h1 className="text-2xl md:text-3xl font-bold">Dashboard</h1>
-                        <p className="text-emerald-400 text-sm">Welcome, {user.name} ({user.role})</p>
+                        <h1 className="text-3xl md:text-4xl font-bold text-slate-900">Dashboard</h1>
+                        <div className="flex items-center gap-2 mt-2">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <p className="text-slate-500 font-medium">Welcome back, {user.name} <span className="text-slate-300 mx-1">|</span> <span className="text-emerald-600 capitalize">{user.role}</span></p>
+                        </div>
                     </div>
-                    <div className="flex gap-4 w-full md:w-auto">
-                        <Button variant="glass" className="flex-1 md:flex-none justify-center" onClick={() => navigate('/messages')}>
+                    <div className="flex gap-3 w-full md:w-auto">
+                        <Button variant="outline" className="flex-1 md:flex-none h-11 px-6 rounded-xl border-slate-200 text-slate-600 hover:bg-slate-50" onClick={() => navigate('/messages')}>
                             Messages
                         </Button>
-                        <Button variant="glass" className="flex-1 md:flex-none justify-center" onClick={handleLogout}>Log Out</Button>
+                        <Button className="btn-primary flex-1 md:flex-none h-11" onClick={handleLogout}>Log Out</Button>
                     </div>
                 </header>
 
-                {renderView()}
+                <div className="relative">
+                    {renderView()}
+                </div>
             </div>
         </div>
     )
