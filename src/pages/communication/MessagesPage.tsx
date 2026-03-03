@@ -4,8 +4,17 @@ import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
 import { CreateAnnouncementModal } from '../../components/communication/CreateAnnouncementModal';
-import { Search, Plus, Bell, MessageSquare, Send, User, Users } from 'lucide-react';
-// ... (rest of imports)
+import {
+    Search,
+    Plus,
+    Bell,
+    MessageSquare,
+    Send,
+    User,
+    Users,
+    Flame,
+    ThermometerSun
+} from 'lucide-react';
 
 // Mock Data
 const INITIAL_ANNOUNCEMENTS = [
@@ -79,7 +88,14 @@ export const MessagesPage = () => {
                 <header className="flex justify-between items-center mb-6">
                     <div>
                         <h1 className="text-3xl font-bold">Communication Hub</h1>
-                        <p className="text-gray-400">Stay connected with the school community.</p>
+                        <div className="flex items-center gap-4 mt-1">
+                            <p className="text-gray-400">Stay connected with the school community.</p>
+                            <div className="h-4 w-px bg-slate-700 mx-2" />
+                            <div className="flex items-center gap-2">
+                                <ThermometerSun className="w-4 h-4 text-emerald-400" />
+                                <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Community Sentiment: Positive</span>
+                            </div>
+                        </div>
                     </div>
                     {user?.role === 'admin' && (
                         <Button variant="glass" className="gap-2" onClick={() => setShowModal(true)}>
@@ -113,6 +129,9 @@ export const MessagesPage = () => {
                         className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${activeTab === 'community' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/50' : 'text-gray-400 hover:bg-slate-800'}`}
                     >
                         <Users className="w-4 h-4" /> Community
+                        <span className="flex items-center gap-1 text-[10px] ml-1 bg-amber-500/20 px-1.5 py-0.5 rounded text-amber-500 font-bold uppercase">
+                            <Flame className="w-3 h-3" /> 2 Hot Zones
+                        </span>
                     </button>
                 </div>
 

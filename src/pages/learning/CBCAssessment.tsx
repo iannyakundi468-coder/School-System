@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '../../components/ui/Button';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, Save, Send, User, BookOpen, Layers } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Save, Send, User, BookOpen, Layers, Bot, MessageSquareQuote } from 'lucide-react';
 
 const students = [
     { id: 1, name: 'Alice Wambui', grade: 'Grade 3 Blue' },
@@ -26,9 +26,24 @@ export const CBCAssessment = () => {
     const [selectedStudent, setSelectedStudent] = useState(students[0]);
     const [selectedStrand, setSelectedStrand] = useState(strands[0]);
     const [assessment, setAssessment] = useState<Record<string, string>>({});
+    const [aiComment, setAiComment] = useState('');
+    const [isGenerating, setIsGenerating] = useState(false);
 
     const handleRate = (subStrand: string, rating: string) => {
         setAssessment(prev => ({ ...prev, [subStrand]: rating }));
+    };
+
+    const generateAIComment = () => {
+        setIsGenerating(true);
+        setTimeout(() => {
+            const hasEE = Object.values(assessment).includes('EE');
+            const name = selectedStudent.name.split(' ')[0];
+            const comment = hasEE
+                ? `${name} has shown exceptional mastery in ${selectedStrand.name.toLowerCase()}. They demonstrate high-level critical thinking and apply concepts independently.`
+                : `${name} is meeting expectations in ${selectedStrand.name.toLowerCase()}. I recommend focus on consistent practice to bridgeApproaching Expectation areas into Meeting Expectation.`;
+            setAiComment(comment);
+            setIsGenerating(false);
+        }, 1500);
     };
 
     return (
@@ -136,6 +151,41 @@ export const CBCAssessment = () => {
                                         </div>
                                     </div>
                                 ))}
+                            </div>
+
+                            {/* AI Comment Generator */}
+                            <div className="mt-12 pt-8 border-t border-white/5">
+                                <div className="flex justify-between items-center mb-4">
+                                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                                        <MessageSquareQuote className="w-5 h-5 text-purple-400" /> Professional Comments
+                                    </h3>
+                                    <Button
+                                        onClick={generateAIComment}
+                                        disabled={isGenerating || Object.keys(assessment).length === 0}
+                                        variant="glass"
+                                        className="text-[10px] h-8 gap-2 bg-purple-500/10 text-purple-400 border-purple-500/20"
+                                    >
+                                        <Bot className={`w-3 h-3 ${isGenerating ? 'animate-spin' : ''}`} />
+                                        {aiComment ? 'Draft New Comment' : 'Draft AI Comment'}
+                                    </Button>
+                                </div>
+
+                                {aiComment ? (
+                                    <div className="animate-in slide-in-from-top-4">
+                                        <textarea
+                                            value={aiComment}
+                                            onChange={(e) => setAiComment(e.target.value)}
+                                            className="w-full bg-slate-900/50 border border-purple-500/20 rounded-xl p-4 text-sm text-slate-200 focus:outline-none focus:border-purple-500/50 min-h-[100px]"
+                                            placeholder="Drafting professional comment..."
+                                        />
+                                        <p className="text-[10px] text-slate-500 mt-2 font-medium">AI generated a personalized comment based on {Object.keys(assessment).length} assessment points.</p>
+                                    </div>
+                                ) : (
+                                    <div className="p-8 border-2 border-dashed border-white/5 rounded-2xl flex flex-col items-center justify-center text-slate-600">
+                                        <Bot className="w-8 h-8 opacity-20 mb-2" />
+                                        <p className="text-xs">Select ratings to enable AI comment drafting.</p>
+                                    </div>
+                                )}
                             </div>
 
                             <div className="mt-12 flex gap-4">

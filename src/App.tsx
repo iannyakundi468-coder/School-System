@@ -13,6 +13,11 @@ import { HomeLearningPage } from './pages/learning/HomeLearningPage';
 import { CBCAssessment } from './pages/learning/CBCAssessment';
 import { StudentPortfolio } from './pages/learning/StudentPortfolio';
 import { DevelopmentPage } from './pages/DevelopmentPage';
+import { OperationsPage } from './pages/OperationsPage';
+import { CompliancePage } from './pages/CompliancePage';
+import { SafetyPage } from './pages/SafetyPage';
+import { TimetablePage } from './pages/TimetablePage';
+import { ReportsPage } from './pages/ReportsPage';
 
 export default function App() {
   return (
@@ -32,6 +37,11 @@ export default function App() {
             <Route path="/learning/assessment" element={<CBCAssessment />} />
             <Route path="/learning/portfolio" element={<StudentPortfolio />} />
             <Route path="/development" element={<DevelopmentPage />} />
+            <Route path="/operations" element={<OperationsPage />} />
+            <Route path="/compliance" element={<CompliancePage />} />
+            <Route path="/safety" element={<SafetyPage />} />
+            <Route path="/timetable" element={<TimetablePage />} />
+            <Route path="/reports" element={<ReportsPage />} />
           </Routes>
         </BrowserRouter>
       </SettingsProvider>

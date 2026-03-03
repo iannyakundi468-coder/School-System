@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from "../ui/Button";
-import { Users, AlertCircle, DollarSign, Activity, Calendar, Construction, LayoutDashboard } from 'lucide-react';
+import { Users, AlertCircle, DollarSign, Activity, Calendar, Construction, LayoutDashboard, ShieldCheck, BadgeCheck } from 'lucide-react';
 import { AIInsights } from './AIInsights';
 
 export const AdminView = () => {
@@ -11,13 +11,19 @@ export const AdminView = () => {
             {/* Quick Actions */}
             <div className="flex flex-wrap gap-3">
                 <Button variant="outline" className="px-5 h-10 shadow-sm" onClick={() => navigate('/finance')}>Financial Reports</Button>
-                <Button variant="outline" className="px-5 h-10 shadow-sm">Manage Staff</Button>
+                <Button variant="outline" className="px-5 h-10 shadow-sm" onClick={() => navigate('/reports')}>Board Reports</Button>
                 <Button variant="outline" className="px-5 h-10 shadow-sm" onClick={() => navigate('/events')}>School Events</Button>
                 <Button variant="primary" className="px-5 h-10 bg-amber-600 hover:bg-amber-700 flex items-center gap-2" onClick={() => navigate('/development')}>
                     <Construction className="w-4 h-4" /> School Development
                 </Button>
                 <Button variant="primary" className="px-5 h-10 bg-blue-600 hover:bg-blue-700 flex items-center gap-2" onClick={() => navigate('/infrastructure')}>
                     <LayoutDashboard className="w-4 h-4" /> Infrastructure
+                </Button>
+                <Button variant="primary" className="px-5 h-10 bg-emerald-600 hover:bg-emerald-700 flex items-center gap-2" onClick={() => navigate('/compliance')}>
+                    <ShieldCheck className="w-4 h-4" /> Compliance
+                </Button>
+                <Button variant="primary" className="px-5 h-10 bg-rose-600 hover:bg-rose-700 flex items-center gap-2" onClick={() => navigate('/safety')}>
+                    <BadgeCheck className="w-4 h-4" /> Safety Hub
                 </Button>
             </div>
 
@@ -119,7 +125,7 @@ export const AdminView = () => {
                 <div className="glass-card p-8">
                     <div className="flex justify-between items-center mb-8">
                         <h3 className="text-xl font-bold text-white">Operations Hub</h3>
-                        <Button variant="ghost" className="text-xs text-blue-400 hover:bg-blue-400/10">View All activity</Button>
+                        <Button variant="ghost" className="text-xs text-blue-400 hover:bg-blue-400/10" onClick={() => navigate('/operations')}>View All Activity</Button>
                     </div>
                     <div className="space-y-6">
                         {[
