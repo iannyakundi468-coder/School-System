@@ -17,7 +17,8 @@ import { OperationsPage } from './pages/OperationsPage';
 import { CompliancePage } from './pages/CompliancePage';
 import { SafetyPage } from './pages/SafetyPage';
 import { TimetablePage } from './pages/TimetablePage';
-import { ReportsPage } from './pages/ReportsPage';
+import { GatePage } from './pages/GatePage';
+import { CanteenPage } from './pages/CanteenPage';
 
 export default function App() {
   return (
@@ -41,7 +42,8 @@ export default function App() {
             <Route path="/compliance" element={<CompliancePage />} />
             <Route path="/safety" element={<SafetyPage />} />
             <Route path="/timetable" element={<TimetablePage />} />
-            <Route path="/reports" element={<ReportsPage />} />
+            <Route path="/gate" element={<GatePage />} />
+            <Route path="/canteen" element={<CanteenPage />} />
           </Routes>
         </BrowserRouter>
       </SettingsProvider>

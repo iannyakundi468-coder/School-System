@@ -3,7 +3,20 @@ import { useSettings } from '../../context/SettingsContext';
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
 import { useNavigate } from 'react-router-dom';
-import { Users, TrendingUp, CheckCircle, ChevronDown, Search, Bot, ClipboardCheck, FolderOpen, Calendar } from 'lucide-react';
+import {
+    Users,
+    TrendingUp,
+    CheckCircle,
+    ChevronDown,
+    Search,
+    Bot,
+    ClipboardCheck,
+    FolderOpen,
+    Calendar,
+    MessageSquare,
+    Clock,
+    Scan
+} from 'lucide-react';
 
 // Mock Data for Classes
 const TEACHER_CLASSES = [
@@ -32,13 +45,12 @@ export const StaffView = () => {
             {/* Header / Class Selector */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h2 className="text-2xl font-bold text-white mb-1">Class Overview</h2>
+                    <h2 className="text-2xl font-bold text-white mb-1">Academic Pulse</h2>
                     <div className="relative inline-block text-left group">
                         <button className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium bg-emerald-500/10 px-3 py-1 rounded-lg transition-colors">
                             {selectedClass.name}
                             <ChevronDown className="w-4 h-4" />
                         </button>
-                        {/* Dropdown (Simple implementation for now) */}
                         <div className="absolute left-0 mt-2 w-56 bg-slate-800 border border-slate-700 rounded-xl shadow-xl z-20 hidden group-hover:block animate-fade-in">
                             {TEACHER_CLASSES.map((cls) => (
                                 <button
@@ -54,17 +66,19 @@ export const StaffView = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-2 w-full md:w-auto">
-                    <Button onClick={() => navigate('/events')} variant="glass" className="justify-center">Events</Button>
-                    <Button onClick={() => navigate('/enrollment')} className="justify-center">+ New Student</Button>
+                    <Button onClick={() => navigate('/gate')} variant="glass" className="justify-center flex items-center gap-2 border-emerald-500/20 text-emerald-400">
+                        <Scan className="w-4 h-4" /> Smart Gate
+                    </Button>
                     <Button onClick={() => navigate('/learning/assessment')} variant="glass" className="justify-center flex items-center gap-2">
                         <ClipboardCheck className="w-4 h-4" /> Grading
                     </Button>
                     <Button onClick={() => navigate('/learning/portfolio')} variant="glass" className="justify-center flex items-center gap-2">
                         <FolderOpen className="w-4 h-4" /> Portfolios
                     </Button>
-                    <Button onClick={() => navigate('/timetable')} variant="glass" className="justify-center flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-blue-400" /> Timetable
+                    <Button onClick={() => navigate('/timetable')} variant="glass" className="justify-center flex items-center gap-2 text-purple-400 border-purple-500/20">
+                        <Calendar className="w-4 h-4" /> Timetable
                     </Button>
+                    <Button onClick={() => navigate('/enrollment')} className="justify-center bg-blue-600 hover:bg-blue-700">+ New Student</Button>
                 </div>
             </div>
 
@@ -77,15 +91,15 @@ export const StaffView = () => {
                         </div>
                         <div>
                             <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                                AI Tutor Access
-                                {aiEnabled && <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">Active</span>}
+                                AI Copilot Active
+                                {aiEnabled && <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">Syncing...</span>}
                             </h3>
-                            <p className="text-sm text-gray-400">Control student access to Gemini AI features.</p>
+                            <p className="text-sm text-gray-400">Predictive attendance & performance profiling enabled.</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-3">
                         <span className={`text-sm font-medium ${aiEnabled ? 'text-purple-400' : 'text-gray-500'}`}>
-                            {aiEnabled ? 'Enabled' : 'Disabled'}
+                            {aiEnabled ? 'AI Enabled' : 'AI Disabled'}
                         </span>
                         <button
                             onClick={() => setAiEnabled(!aiEnabled)}
@@ -133,8 +147,8 @@ export const StaffView = () => {
 
                 <Card>
                     <div className="flex justify-between items-start mb-4">
-                        <h2 className="text-xl font-bold">Recent Messages</h2>
-                        <Button variant="glass" className="h-8 text-xs" onClick={() => navigate('/messages')}>View All</Button>
+                        <h2 className="text-xl font-bold">Recent Communications</h2>
+                        <Button variant="glass" className="h-8 text-xs" onClick={() => navigate('/messages')}>Inbox</Button>
                     </div>
                     <div className="space-y-4">
                         <div className="flex items-center gap-4 p-3 bg-slate-800/50 rounded-lg border border-slate-700">
@@ -153,7 +167,7 @@ export const StaffView = () => {
                             </div>
                             <div className="flex-1">
                                 <h4 className="font-bold text-sm text-white">Principal James</h4>
-                                <p className="text-xs text-gray-400 truncate">Please submit term reports by Friday.</p>
+                                <p className="text-xs text-gray-400 truncate">Monthly performance reviews start Monday.</p>
                             </div>
                         </div>
                     </div>
@@ -212,5 +226,3 @@ export const StaffView = () => {
         </div>
     );
 };
-
-// Solian Wolves V1.0

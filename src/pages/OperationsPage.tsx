@@ -8,7 +8,8 @@ import {
     Droplets,
     ShoppingCart,
     AlertTriangle,
-    RefreshCw
+    RefreshCw,
+    Timer
 } from 'lucide-react';
 
 export const OperationsPage = () => {
@@ -34,17 +35,55 @@ export const OperationsPage = () => {
                         <Button variant="outline" className="mb-4 h-10 border-white/10 text-slate-300" onClick={() => navigate('/')}>
                             <ArrowLeft className="w-4 h-4 mr-2" /> Back
                         </Button>
-                        <h1 className="text-3xl md:text-4xl font-bold text-white">AI Institutional Operations</h1>
-                        <p className="text-slate-400 font-medium mt-2">Active auditing, predictive procurement and utility surveillance.</p>
+                        <h1 className="text-3xl md:text-4xl font-bold text-white">Institutional Ecosystem</h1>
+                        <p className="text-slate-400 font-medium mt-2">Active hardware auditing, predictive procurement and IoT energy surveillance.</p>
                     </div>
                     <div className="flex gap-3">
                         <Button variant="glass" className="flex items-center gap-2">
-                            <RefreshCw className="w-4 h-4" /> Rescan Ledger
+                            <RefreshCw className="w-4 h-4" /> Rescan Infrastructure
                         </Button>
                     </div>
                 </header>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {/* AI Energy Guardian */}
+                    <Card className="border-t-4 border-t-blue-500 lg:col-span-1">
+                        <div className="flex justify-between items-center mb-6">
+                            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                                <Zap className="w-5 h-5 text-blue-400" /> Energy Guardian
+                            </h2>
+                            <span className="animate-pulse w-2 h-2 rounded-full bg-emerald-500" />
+                        </div>
+                        <div className="space-y-6">
+                            <div className="p-4 bg-slate-900/50 rounded-xl border border-white/5">
+                                <div className="flex justify-between items-baseline mb-4">
+                                    <p className="text-sm font-bold text-slate-400">Power Consumption</p>
+                                    <p className="text-2xl font-bold text-white">2.4 kW/h</p>
+                                </div>
+                                <div className="h-24 flex items-end gap-1 px-1">
+                                    {[20, 35, 45, 30, 60, 40, 35, 50, 40, 55].map((h, i) => (
+                                        <div key={i} className="flex-1 bg-blue-500/20 rounded-t-sm" style={{ height: `${h}%` }} />
+                                    ))}
+                                </div>
+                            </div>
+
+                            <Card className="bg-rose-500/10 border-rose-500/20 p-4">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="p-2 bg-rose-500/20 rounded-lg text-rose-500">
+                                        <ShieldAlert className="w-5 h-5 animate-bounce" />
+                                    </div>
+                                    <h4 className="text-sm font-bold text-rose-400">2:14 AM: Burst Pipe Alert</h4>
+                                </div>
+                                <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                                    Sudden flow spike (14.2 L/min) detected in Main Block C. Caretaker notified via WhatsApp.
+                                </p>
+                                <Button size="sm" className="w-full mt-4 bg-rose-600 hover:bg-rose-700 h-8 text-[10px]">
+                                    Remote Valve Shutoff
+                                </Button>
+                            </Card>
+                        </div>
+                    </Card>
+
                     {/* AI Leakage Detection */}
                     <Card className="lg:col-span-2 border-l-4 border-l-rose-500 bg-rose-500/5">
                         <div className="flex justify-between items-center mb-6">
@@ -53,11 +92,11 @@ export const OperationsPage = () => {
                                     <ShieldAlert className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h2 className="text-xl font-bold text-white">AI Leakage Detection</h2>
+                                    <h2 className="text-xl font-bold text-white">AI Financial Integrity</h2>
                                     <p className="text-xs text-slate-500">Real-time ledger audit vs external statements</p>
                                 </div>
                             </div>
-                            <span className="text-xs font-bold px-2 py-1 rounded bg-rose-500/20 text-rose-400 animate-pulse uppercase">
+                            <span className="text-xs font-bold px-2 py-1 rounded bg-rose-500/20 text-rose-400 uppercase">
                                 2 Anomalies Found
                             </span>
                         </div>
@@ -87,43 +126,6 @@ export const OperationsPage = () => {
                         </div>
                     </Card>
 
-                    {/* Utility Monitoring */}
-                    <Card className="border-t-4 border-t-blue-500">
-                        <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-xl font-bold text-white">Utility Surveillance</h2>
-                            <Zap className="w-5 h-5 text-blue-400" />
-                        </div>
-                        <div className="space-y-6">
-                            <div className="p-4 bg-slate-900/50 rounded-xl border border-white/5">
-                                <div className="flex justify-between items-center mb-2">
-                                    <div className="flex items-center gap-2">
-                                        <Zap className="w-4 h-4 text-amber-400" />
-                                        <span className="text-sm font-bold">Electricity</span>
-                                    </div>
-                                    <span className="text-xs text-emerald-400 font-bold">Normal</span>
-                                </div>
-                                <p className="text-2xl font-bold text-white">2.4 kW/h</p>
-                                <div className="mt-2 h-1 w-full bg-slate-800 rounded-full overflow-hidden">
-                                    <div className="h-full bg-emerald-500 w-[45%]" />
-                                </div>
-                            </div>
-
-                            <div className="p-4 bg-rose-500/10 rounded-xl border border-rose-500/20">
-                                <div className="flex justify-between items-center mb-2">
-                                    <div className="flex items-center gap-2">
-                                        <Droplets className="w-4 h-4 text-blue-400" />
-                                        <span className="text-sm font-bold">Water Flow</span>
-                                    </div>
-                                    <span className="text-xs text-rose-400 font-bold flex items-center gap-1">
-                                        <AlertTriangle className="w-3 h-3" /> Potential Leak
-                                    </span>
-                                </div>
-                                <p className="text-2xl font-bold text-white">14.2 L/min</p>
-                                <p className="text-[10px] text-rose-400 mt-1">12% above average term flow</p>
-                            </div>
-                        </div>
-                    </Card>
-
                     {/* Predictive Procurement */}
                     <Card className="lg:col-span-3 border-t-4 border-t-amber-500">
                         <div className="flex justify-between items-center mb-8">
@@ -131,19 +133,25 @@ export const OperationsPage = () => {
                                 <div className="p-2 bg-amber-500/20 rounded-lg text-amber-400">
                                     <ShoppingCart className="w-6 h-6" />
                                 </div>
-                                <h2 className="text-xl font-bold text-white">Predictive Procurement Engine</h2>
+                                <h2 className="text-xl font-bold text-white">Predictive Resource Planning</h2>
                             </div>
-                            <Button className="bg-amber-600 hover:bg-amber-700 h-9">Bulk Generate LPOs</Button>
+                            <div className="flex gap-2">
+                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-800 rounded-lg border border-white/5">
+                                    <Timer className="w-4 h-4 text-amber-500" />
+                                    <span className="text-xs font-bold text-white">Next Order: in 48h</span>
+                                </div>
+                                <Button className="bg-amber-600 hover:bg-amber-700 h-10">Bulk Process LPOs</Button>
+                            </div>
                         </div>
 
                         <div className="overflow-x-auto">
                             <table className="w-full text-left border-collapse">
                                 <thead>
                                     <tr className="text-slate-500 text-[10px] font-bold uppercase tracking-widest border-b border-white/5">
-                                        <th className="pb-4">Resources</th>
-                                        <th className="pb-4">Inventory Level</th>
-                                        <th className="pb-4">AI Forecast</th>
-                                        <th className="pb-4">Recommended Action</th>
+                                        <th className="pb-4">Institutional Resources</th>
+                                        <th className="pb-4">Hardware Inventory</th>
+                                        <th className="pb-4">AI Consumption Forecast</th>
+                                        <th className="pb-4">Automated Action</th>
                                         <th className="pb-4 text-right">Status</th>
                                     </tr>
                                 </thead>
@@ -151,15 +159,15 @@ export const OperationsPage = () => {
                                     {procurementData.map((item, i) => (
                                         <tr key={i} className="border-b border-white/5 hover:bg-white/5 transition-colors">
                                             <td className="py-5 font-bold text-white">{item.item}</td>
-                                            <td className="py-5 text-slate-300">{item.currentStock}</td>
+                                            <td className="py-5 text-slate-300 font-medium">{item.currentStock}</td>
                                             <td className="py-5">
-                                                <span className={`text-xs font-medium ${item.status === 'Urgent' ? 'text-rose-400' : 'text-slate-400'}`}>
+                                                <span className={`text-xs font-bold ${item.status === 'Urgent' ? 'text-rose-400' : 'text-slate-400'}`}>
                                                     {item.forecast}
                                                 </span>
                                             </td>
                                             <td className="py-5">
                                                 <div className="flex items-center gap-2">
-                                                    <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">
+                                                    <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded border border-emerald-500/20">
                                                         {item.action}
                                                     </span>
                                                 </div>

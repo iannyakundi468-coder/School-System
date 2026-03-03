@@ -1,6 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from "../ui/Button";
-import { Users, AlertCircle, DollarSign, Activity, Calendar, Construction, LayoutDashboard, ShieldCheck, BadgeCheck } from 'lucide-react';
+import {
+    Users,
+    AlertCircle,
+    DollarSign,
+    Activity,
+    Calendar,
+    Construction,
+    LayoutDashboard,
+    ShieldCheck,
+    BadgeCheck,
+    Scan,
+    Utensils,
+    FileText
+} from 'lucide-react';
 import { AIInsights } from './AIInsights';
 
 export const AdminView = () => {
@@ -11,7 +24,6 @@ export const AdminView = () => {
             {/* Quick Actions */}
             <div className="flex flex-wrap gap-3">
                 <Button variant="outline" className="px-5 h-10 shadow-sm" onClick={() => navigate('/finance')}>Financial Reports</Button>
-                <Button variant="outline" className="px-5 h-10 shadow-sm" onClick={() => navigate('/reports')}>Board Reports</Button>
                 <Button variant="outline" className="px-5 h-10 shadow-sm" onClick={() => navigate('/events')}>School Events</Button>
                 <Button variant="primary" className="px-5 h-10 bg-amber-600 hover:bg-amber-700 flex items-center gap-2" onClick={() => navigate('/development')}>
                     <Construction className="w-4 h-4" /> School Development
@@ -97,47 +109,49 @@ export const AdminView = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Financial Overview Chart */}
-                <div className="glass-card p-8">
+                {/* IoT & Operations Control */}
+                <div className="glass-card p-8 bg-gradient-to-br from-slate-900 to-indigo-900/10">
                     <div className="flex justify-between items-center mb-8">
-                        <h3 className="text-xl font-bold text-white">Financial Growth</h3>
-                        <select className="bg-slate-800 border border-slate-700 text-xs font-medium text-slate-300 rounded-lg px-3 py-1.5 outline-none">
-                            <option>This Academic Term</option>
-                            <option>Last Academic Term</option>
-                            <option>Annual View</option>
-                        </select>
+                        <h3 className="text-xl font-bold text-white">Ecosystem Master Control</h3>
+                        <Button variant="ghost" className="text-xs text-indigo-400 hover:bg-indigo-400/10" onClick={() => navigate('/operations')}>Operational Deep-Dive</Button>
                     </div>
-                    <div className="h-64 flex items-end justify-between px-2 pb-4 gap-3 border-b border-white/5">
-                        {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
-                            <div key={i} className="w-full bg-emerald-500/20 hover:bg-emerald-500/30 transition-all duration-300 rounded-t-lg relative group" style={{ height: `${h}%` }}>
-                                <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                                    KES {h},000
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="flex justify-between text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-4 px-2">
-                        <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                    <div className="grid grid-cols-2 gap-4">
+                        <Button variant="glass" className="h-24 flex flex-col items-center justify-center gap-2 border-white/5 hover:border-emerald-500/30 transition-all" onClick={() => navigate('/gate')}>
+                            <Scan className="w-6 h-6 text-emerald-400" />
+                            <span className="text-xs font-bold text-slate-300">Smart Gate</span>
+                        </Button>
+                        <Button variant="glass" className="h-24 flex flex-col items-center justify-center gap-2 border-white/5 hover:border-amber-500/30 transition-all" onClick={() => navigate('/canteen')}>
+                            <Utensils className="w-6 h-6 text-amber-400" />
+                            <span className="text-xs font-bold text-slate-300">Cashless Canteen</span>
+                        </Button>
+                        <Button variant="glass" className="h-24 flex flex-col items-center justify-center gap-2 border-white/5 hover:border-blue-500/30 transition-all" onClick={() => navigate('/safety')}>
+                            <Activity className="w-6 h-6 text-blue-400" />
+                            <span className="text-xs font-bold text-slate-300">Bus Sentinel</span>
+                        </Button>
+                        <Button variant="glass" className="h-24 flex flex-col items-center justify-center gap-2 border-white/5 hover:border-purple-500/30 transition-all" onClick={() => navigate('/reports')}>
+                            <FileText className="w-6 h-6 text-purple-400" />
+                            <span className="text-xs font-bold text-slate-300">Board Reports</span>
+                        </Button>
                     </div>
                 </div>
 
                 {/* Operations Feed */}
                 <div className="glass-card p-8">
                     <div className="flex justify-between items-center mb-8">
-                        <h3 className="text-xl font-bold text-white">Operations Hub</h3>
-                        <Button variant="ghost" className="text-xs text-blue-400 hover:bg-blue-400/10" onClick={() => navigate('/operations')}>View All Activity</Button>
+                        <h3 className="text-xl font-bold text-white">Institutional Pulse</h3>
+                        <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">Hardware Sync: OK</span>
                     </div>
                     <div className="space-y-6">
                         {[
-                            { icon: Users, color: 'blue', title: 'New Student Enrollment', desc: 'Sarah Connor joined Grade 5 Blue.', time: '10 mins ago' },
-                            { icon: DollarSign, color: 'emerald', title: 'Fee Payment Received', desc: 'James Bond paid KES 15,000 (Tuition).', time: '24 mins ago' },
-                            { icon: Calendar, color: 'amber', title: 'Staff Meeting Scheduled', desc: 'Principal set a meeting for Friday 2pm.', time: '1 hour ago' }
+                            { icon: Scan, color: 'emerald', title: 'Gate Entrance Verified', desc: 'Kelvin Omari arrived at 7:15 AM. Parent notified.', time: '10 mins ago' },
+                            { icon: Utensils, color: 'amber', title: 'Canteen Flash-Sale', desc: '142 meals processed in last 30 mins.', time: '30 mins ago' },
+                            { icon: AlertCircle, color: 'rose', title: 'Fuel Anomaly Detected', desc: 'Sudden drop in Bus 04 fuel level.', time: '1 hour ago' }
                         ].map((item, i) => (
-                            <div key={i} className="flex gap-5 items-start">
-                                <div className={`p-3 bg-${item.color}-500/10 rounded-xl text-${item.color}-400`}>
+                            <div key={i} className="flex gap-5 items-start group">
+                                <div className={`p-3 bg-slate-800 rounded-xl text-slate-400 group-hover:bg-${item.color}-500/10 group-hover:text-${item.color}-400 transition-all`}>
                                     <item.icon className="w-5 h-5" />
                                 </div>
-                                <div className="flex-1">
+                                <div className="flex-1 border-b border-white/5 pb-4 last:border-0">
                                     <div className="flex justify-between items-start">
                                         <p className="text-white font-semibold text-sm">{item.title}</p>
                                         <span className="text-[10px] font-bold text-slate-500 uppercase">{item.time}</span>
