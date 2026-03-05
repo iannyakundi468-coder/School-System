@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             if (res.ok) {
                 const data = await res.json();
                 setUser(data.user);
-                localStorage.setItem('solian_user', JSON.stringify(data.user));
+                localStorage.setItem('st_josephs_user', JSON.stringify(data.user));
                 return;
             }
         } catch (error) {
@@ -41,22 +41,22 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
         // Fallback to Mock Data if API fails (for local manual testing without backend)
         const mockUser: User = {
-            name: role === 'guardian' ? 'John Doe' : role === 'staff' ? 'Mrs. Alice' : 'Joseph',
+            name: role === 'guardian' ? 'Ian Manyara' : role === 'staff' ? 'Mrs. Alice' : 'Joseph',
             role: role,
             id: Math.random().toString(36).substr(2, 9),
         };
         setUser(mockUser);
-        localStorage.setItem('solian_user', JSON.stringify(mockUser));
+        localStorage.setItem('st_josephs_user', JSON.stringify(mockUser));
     };
 
     const logout = () => {
         setUser(null);
-        localStorage.removeItem('solian_user');
+        localStorage.removeItem('st_josephs_user');
     };
 
     // Load user from local storage
     React.useEffect(() => {
-        const stored = localStorage.getItem('solian_user');
+        const stored = localStorage.getItem('st_josephs_user');
         if (stored) setUser(JSON.parse(stored));
     }, []);
 

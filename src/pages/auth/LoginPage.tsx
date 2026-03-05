@@ -111,4 +111,4 @@ export const LoginPage = () => {
     );
 };
 
-// Solian Wolves V1.0
+// St Joseph's Academy V1.0

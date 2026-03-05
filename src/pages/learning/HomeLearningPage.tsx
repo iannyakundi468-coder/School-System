@@ -150,7 +150,7 @@ export const HomeLearningPage = () => {
                                         { name: 'Intro to Algebra (Video)', duration: '12:30' },
                                         { name: 'Photosynthesis Explained', duration: '08:45' }
                                     ].map((video, i) => (
-                                        <div key={i} className="flex justify-between items-center p-4 bg-slate-800/50 rounded-2xl hover:bg-slate-700/50 transition-all cursor-pointer border border-white/5">
+                                        <div key={video.name} className="flex justify-between items-center p-4 bg-slate-800/50 rounded-2xl hover:bg-slate-700/50 transition-all cursor-pointer border border-white/5">
                                             <span className="text-sm text-gray-300 font-medium">{video.name}</span>
                                             <span className="text-[10px] font-bold text-slate-500 bg-slate-900 px-2 py-1 rounded-md">{video.duration}</span>
                                         </div>
@@ -165,6 +165,5 @@ export const HomeLearningPage = () => {
                 <GeminiTutor />
             </div>
         </div>
-    );
     );
 };
