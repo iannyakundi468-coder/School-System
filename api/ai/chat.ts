@@ -26,7 +26,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        console.log('Fetching from Gemini API...');
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,7 +44,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.error?.message || 'Failed to fetch from Gemini');
+            console.error('Gemini API Error Detail:', JSON.stringify(data, null, 2));
+            throw new Error(data.error?.message || `Gemini API returned ${response.status}: ${response.statusText}`);
         }
 
         const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm having trouble thinking right now. Try again?";
@@ -51,10 +53,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(200).json({ reply });
 
     } catch (error: any) {
-        console.error('Gemini API Error:', error);
+        console.error('Detailed Gemini API Error:', error);
         return res.status(500).json({
             error: 'Failed to process your request.',
-            details: error instanceof Error ? error.message : String(error)
+            details: error instanceof Error ? error.message : String(error),
+            suggestion: 'Please verify your GEMINI_API_KEY in the .env file and ensure it has access to the Gemini 1.5 Flash model.'
         });
     }
 }
