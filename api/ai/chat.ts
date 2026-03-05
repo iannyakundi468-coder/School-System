@@ -26,8 +26,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     try {
-        console.log('Fetching from Gemini API...');
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        console.log('Fetching from Gemini API (v1beta)...');
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
