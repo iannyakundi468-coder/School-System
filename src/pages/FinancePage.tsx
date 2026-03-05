@@ -11,12 +11,12 @@ export const FinancePage = () => {
     const { user } = useAuth();
     const isAdmin = user?.role === 'admin';
     const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-    const [selectedFee, setSelectedFee] = useState<{ title: string; amount: number } | null>(null);
+    const [selectedFee, setSelectedFee] = useState<{ id: number; title: string; amount: number } | null>(null);
 
     // Mock Data
     const [fees, setFees] = useState([
         { id: 1, title: 'Term 1 Tuition', amount: 35000, dueDate: '2026-01-05', status: 'paid' },
-        { id: 2, title: 'Term 2 Tuition', amount: 35000, dueDate: '2026-05-05', status: 'pending' },
+        { id: 2, title: 'Term 2 Tuition', amount: 35000, dueDate: '2026-05-05', status: 'paid' },
         { id: 3, title: 'Activity Fee', amount: 5000, dueDate: '2026-03-10', status: 'pending' },
         { id: 4, title: 'Lunch Program', amount: 7500, dueDate: '2026-05-01', status: 'pending' },
     ]);
@@ -57,7 +57,7 @@ export const FinancePage = () => {
                             {isAdmin ? 'Total School Outstanding' : 'Your Outstanding Balance'}
                         </p>
                         <p className="text-3xl font-bold text-rose-500">
-                            KES {isAdmin ? adminTotalOutstanding.toLocaleString() : '12,500'}
+                            KES {isAdmin ? adminTotalOutstanding.toLocaleString() : totalDue.toLocaleString()}
                         </p>
                     </div>
                 </div>
