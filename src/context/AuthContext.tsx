@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
         // Fallback to Mock Data if API fails (for local manual testing without backend)
         const mockUser: User = {
-            name: role === 'guardian' ? 'John Doe' : role === 'staff' ? 'Mrs. Alice' : 'Principal James',
+            name: role === 'guardian' ? 'John Doe' : role === 'staff' ? 'Mrs. Alice' : 'Joseph',
             role: role,
             id: Math.random().toString(36).substr(2, 9),
         };
@@ -75,4 +75,4 @@ export const useAuth = () => {
     return context;
 };
 
-// Solian Wolves V1.0
+// The St Joseph's Kisii South Academy V1.0

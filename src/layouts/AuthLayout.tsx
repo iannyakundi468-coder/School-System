@@ -20,7 +20,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitl
                     <div className="p-2 bg-emerald-500/20 rounded-lg backdrop-blur-sm">
                         <GraduationCap className="w-8 h-8 text-emerald-400" />
                     </div>
-                    <span className="font-bold text-2xl tracking-tight">Solian Wolves</span>
+                    <span className="font-bold text-2xl tracking-tight">St Joseph's Academy</span>
                 </div>
 
                 <div className="space-y-6 max-w-lg">
@@ -54,7 +54,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitl
 
                     <div className="text-center">
                         <p className="text-sm text-gray-500">
-                            By using Solian Wolves, you agree to our <a href="#" className="text-emerald-400 hover:underline">Terms</a> and <a href="#" className="text-emerald-400 hover:underline">Privacy Policy</a>.
+                            By using St Joseph's Academy, you agree to our <a href="#" className="text-emerald-400 hover:underline">Terms</a> and <a href="#" className="text-emerald-400 hover:underline">Privacy Policy</a>.
                         </p>
                     </div>
                 </div>

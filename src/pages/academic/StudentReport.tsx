@@ -10,25 +10,25 @@ export const StudentReport = () => {
 
     // Mock Data
     const student = {
-        name: "Ian Doe",
+        name: "Ian Manyara",
         id: "STU-2024-001",
-        class: "Class 4A",
+        class: "Grade 6 Emerald",
         attendance: 98,
-        overallGrade: "B+",
-        position: "5th / 32"
+        overallGrade: "A-",
+        position: "3rd / 32"
     };
 
     const subjects = [
-        { name: "Mathematics", score: 85, grade: "A", teacher: "Mr. Smith" },
-        { name: "English", score: 78, grade: "B+", teacher: "Mrs. Johnson" },
-        { name: "Science", score: 92, grade: "A+", teacher: "Ms. Davis" },
-        { name: "Social Studies", score: 70, grade: "B", teacher: "Mr. Wilson" },
+        { name: "Mathematics", score: 85, grade: "A", teacher: "Mr. Otieno" },
+        { name: "Science & Tech", score: 92, grade: "A+", teacher: "Ms. Akinyi" },
+        { name: "English", score: 78, grade: "B+", teacher: "Mrs. Njeri" },
         { name: "Kiswahili", score: 88, grade: "A", teacher: "Mr. Kamau" },
+        { name: "Social Studies & RE", score: 70, grade: "B", teacher: "Mr. Mutua" },
     ];
 
     const comments = [
-        { teacher: "Class Teacher", comment: "Ian is a disciplined student who participates well in class. He needs to improve his handwriting." },
-        { teacher: "Sports Coach", comment: "Excellent performance in the inter-house football tournament." }
+        { teacher: "Class Teacher", comment: "Ian is a disciplined student who participates well in class. He demonstrates great leadership in Grade 6." },
+        { teacher: "Sports Coach", comment: "Excellent performance in the inter-school athletics competition." }
     ];
 
     return (
@@ -100,8 +100,8 @@ export const StudentReport = () => {
                                         <div className="text-right">
                                             <span className="text-xl font-bold text-white">{subject.score}%</span>
                                             <span className={`ml-2 text-xs px-2 py-0.5 rounded ${subject.grade === 'A' || subject.grade === 'A-' ? 'bg-emerald-500/20 text-emerald-400' :
-                                                    subject.grade.startsWith('B') ? 'bg-blue-500/20 text-blue-400' :
-                                                        'bg-amber-500/20 text-amber-400'
+                                                subject.grade.startsWith('B') ? 'bg-blue-500/20 text-blue-400' :
+                                                    'bg-amber-500/20 text-amber-400'
                                                 }`}>{subject.grade}</span>
                                         </div>
                                     </div>
@@ -176,4 +176,4 @@ const Users = ({ className }: { className?: string }) => (
     </svg>
 );
 
-// Solian Wolves V1.0
+// St Joseph's Academy V1.0

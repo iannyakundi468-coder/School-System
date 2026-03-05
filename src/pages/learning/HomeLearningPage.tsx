@@ -45,26 +45,26 @@ export const HomeLearningPage = () => {
             {activeTab === 'courses' && (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <CourseCard
-                        title="Mathematics - Grade 5"
+                        title="Mathematics - Grade 6 (CBC)"
                         progress={65}
                         nextLesson="Fractions and Decimals"
                         color="emerald"
                     />
                     <CourseCard
-                        title="Integrated Science"
+                        title="Science and Technology - Grade 6"
                         progress={40}
                         nextLesson="The Water Cycle"
                         color="blue"
                         icon={BookOpen}
                     />
                     <CourseCard
-                        title="Social Studies"
+                        title="Social Studies & Religious Education"
                         progress={85}
-                        nextLesson="History of Kenya"
+                        nextLesson="Pre-colonial History of Kisii County"
                         color="amber"
                     />
                     <CourseCard
-                        title="English Language"
+                        title="English & Kiswahili Literacy"
                         progress={20}
                         nextLesson="Verbs and Tenses"
                         color="rose"
@@ -80,7 +80,7 @@ export const HomeLearningPage = () => {
                                 <Clock className="w-5 h-5" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-white group-hover:text-emerald-400 transition-colors">Math: Fractional Problems</h3>
+                                <h3 className="font-bold text-white group-hover:text-emerald-400 transition-colors">CBC Math: Market Transactions & Percentages</h3>
                                 <p className="text-sm text-gray-400">Due: Tomorrow, 4:00 PM</p>
                             </div>
                         </div>
@@ -93,7 +93,7 @@ export const HomeLearningPage = () => {
                                 <BookOpen className="w-5 h-5" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-white group-hover:text-emerald-400 transition-colors">Science: Plant Life Cycle</h3>
+                                <h3 className="font-bold text-white group-hover:text-emerald-400 transition-colors">Science: Indigenous Plants of Nyanza</h3>
                                 <p className="text-sm text-gray-400">Due: Friday, 20th Oct</p>
                             </div>
                         </div>

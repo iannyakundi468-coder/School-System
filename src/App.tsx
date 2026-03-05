@@ -62,4 +62,4 @@ export default function App() {
   );
 }
 
-// Solian Wolves V1.2 - Premium Experience
+// St Joseph's Academy V1.2 - Premium Experience

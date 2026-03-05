@@ -4,14 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, Save, Send, User, BookOpen, Layers, Bot, MessageSquareQuote } from 'lucide-react';
 
 const students = [
-    { id: 1, name: 'Alice Wambui', grade: 'Grade 3 Blue' },
-    { id: 2, name: 'John Kamau', grade: 'Grade 3 Blue' },
-    { id: 3, name: 'Sarah Njeri', grade: 'Grade 3 Blue' },
+    { id: 1, name: 'Alice Wambui', grade: 'Grade 6 Emerald' },
+    { id: 2, name: 'John Kamau', grade: 'Grade 6 Emerald' },
+    { id: 3, name: 'Sarah Njeri', grade: 'Grade 6 Emerald' },
+    { id: 4, name: 'Maina Joseph', grade: 'Grade 6 Emerald' },
 ];
 
 const strands = [
-    { id: 1, name: 'Mathematical Activities', subStrands: ['Addition of 3-Digit Numbers', 'Multiplication Tables', 'Measurement of Length'] },
-    { id: 2, name: 'Language Activities', subStrands: ['Oral Communication', 'Reading Comprehension', 'Creative Writing'] },
+    { id: 1, name: 'Mathematics (CBC)', subStrands: ['Addition of 4-Digit Numbers', 'Market Transactions & Percentages', 'Geometric Shapes'] },
+    { id: 2, name: 'Science and Technology', subStrands: ['Indigenous Plants of Nyanza', 'Human Body Systems', 'The Water Cycle'] },
+    { id: 3, name: 'Social Studies & RE', subStrands: ['Pre-colonial History of Kisii County', 'Kenyan National Symbols', 'Values and Ethics'] },
 ];
 
 const ratings = [

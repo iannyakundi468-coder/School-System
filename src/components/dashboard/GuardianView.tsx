@@ -38,8 +38,8 @@ export const GuardianView = () => {
                             <span className="text-2xl">👦</span>
                         </div>
                         <div>
-                            <p className="font-bold text-lg text-white">Ian Doe</p>
-                            <p className="text-gray-400">Grade 4 - Green House</p>
+                            <p className="font-bold text-lg text-white">Ian Manyara</p>
+                            <p className="text-gray-400">Grade 6 - Green House</p>
                         </div>
                     </div>
                 </Card>
@@ -52,7 +52,7 @@ export const GuardianView = () => {
                         </div>
                         <div className="p-2 bg-amber-500/20 rounded-lg"><TrendingUp className="w-5 h-5 text-amber-400" /></div>
                     </div>
-                    <div className="text-xs text-gray-500">Top 15% of class</div>
+                    <div className="text-xs text-gray-500">Top 10% of CBC Grade 6</div>
                 </Card>
 
                 <Card>
@@ -62,10 +62,10 @@ export const GuardianView = () => {
                     </div>
                     <div className="space-y-4">
                         <div className="p-3 bg-slate-800/50 rounded-lg border border-slate-700">
-                            <h3 className="font-bold text-sm text-white">School Closed Tomorrow</h3>
-                            <p className="text-xs text-gray-400 mt-1">Due to heavy rains, the school will be closed...</p>
+                            <h3 className="font-bold text-sm text-white">Parent-Teacher Meeting</h3>
+                            <p className="text-xs text-gray-400 mt-1">Join us to discuss the new CBC assessments...</p>
                             <div className="flex justify-between items-center mt-2">
-                                <span className="text-[10px] text-gray-500">2 hrs ago • Principal James</span>
+                                <span className="text-[10px] text-gray-500">2 hrs ago • Admin Joseph</span>
                                 <button onClick={() => navigate('/messages')} className="text-xs text-emerald-400 hover:underline">Read More</button>
                             </div>
                         </div>
@@ -74,7 +74,7 @@ export const GuardianView = () => {
 
                 <Card>
                     <h2 className="text-xl font-bold mb-4">Fee Status</h2>
-                    <p className="text-sm text-gray-400 mb-2">Term 2 Balance</p>
+                    <p className="text-sm text-gray-400 mb-2">Term 1 Balance</p>
                     <p className="text-3xl font-bold text-rose-400">KES 12,500</p>
                     <Button className="w-full mt-4" onClick={() => navigate('/finance')}>Clear Balance</Button>
                 </Card>
@@ -83,4 +83,4 @@ export const GuardianView = () => {
     );
 };
 
-// Solian Wolves V1.0
+// St Joseph's Academy V1.0

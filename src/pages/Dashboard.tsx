@@ -65,4 +65,4 @@ export const Dashboard = () => {
     )
 }
 
-// Solian Wolves V1.0
+// The St Joseph's Kisii South Academy V1.0

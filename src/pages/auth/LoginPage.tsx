@@ -22,7 +22,7 @@ export const LoginPage = () => {
         setIsLoading(true);
         // Mock login delay or API call
         setTimeout(async () => {
-            await login(email || 'test@solian.com', role);
+            await login(email || 'test@stjosephskisii.ac.ke', role);
             setIsLoading(false);
             navigate('/dashboard');
         }, 1500);
@@ -31,7 +31,7 @@ export const LoginPage = () => {
     return (
         <AuthLayout
             title={`Welcome back, ${role.charAt(0).toUpperCase() + role.slice(1)}`}
-            subtitle="Access your Solian Wolves portal securely."
+            subtitle="Access your St Joseph's Academy portal securely."
         >
             <div className="flex justify-center gap-4 mb-8">
                 <button
@@ -72,7 +72,7 @@ export const LoginPage = () => {
                         <Input
                             label="Email Address"
                             type="email"
-                            placeholder="name@solian.com"
+                            placeholder="name@stjosephskisii.ac.ke"
                             icon={<Mail className="w-4 h-4" />}
                             value={email}
                             onChange={(e: any) => setEmail(e.target.value)}

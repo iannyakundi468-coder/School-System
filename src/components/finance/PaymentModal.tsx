@@ -146,7 +146,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, tit
                             <p className="text-gray-400">Pay Bill / Account Number:</p>
                             <p className="font-mono text-xl text-white">522522</p>
                             <p className="text-gray-400 mt-2">Account Name:</p>
-                            <p className="font-bold text-white">Solian Wolves Academy</p>
+                            <p className="font-bold text-white">The St Joseph's Kisii South Academy</p>
                         </div>
                         <div className="flex gap-3">
                             <Button type="button" variant="glass" onClick={() => setStep('select-method')}>Back</Button>
