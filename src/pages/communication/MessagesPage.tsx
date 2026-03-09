@@ -118,6 +118,31 @@ export const MessagesPage = () => {
                                 Manage Alerts
                             </Button>
                         </motion.div>
+
+                        {/* NEW: Zeraki Inspired Bulk Communication Portal */}
+                        <Card className="p-8 border-t-0 bg-indigo-950/20 border-indigo-500/20">
+                            <h3 className="text-lg font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">
+                                <Send className="w-5 h-5 text-indigo-400" /> Broadcast Templates
+                            </h3>
+                            <div className="space-y-4">
+                                {[
+                                    { title: 'Fee Balance Reminder', icon: '💰' },
+                                    { title: 'Exam Results Portal Pin', icon: '📝' },
+                                    { title: 'School Trip Logistics', icon: '🚌' },
+                                ].map((temp, i) => (
+                                    <div key={i} className="p-4 bg-slate-900/40 hover:bg-slate-800 rounded-[1.5rem] border border-white/5 transition-all cursor-pointer flex items-center gap-4 group">
+                                        <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-lg">{temp.icon}</div>
+                                        <div className="flex-1">
+                                            <p className="text-xs font-black text-white group-hover:text-indigo-400 transition-colors">{temp.title}</p>
+                                            <p className="text-[8px] text-slate-500 font-bold uppercase tracking-widest">Tap to broadcast to groups</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <Button className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 h-12 text-xs font-black uppercase tracking-[0.2em] shadow-lg shadow-indigo-500/20">
+                                Launch SMS Portal
+                            </Button>
+                        </Card>
                     </div>
 
                     {/* Message Center */}
@@ -192,6 +217,6 @@ export const MessagesPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };

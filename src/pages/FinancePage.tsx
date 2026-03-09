@@ -259,6 +259,51 @@ export const FinancePage = () => {
                     </div>
                 </Card>
 
+                {/* NEW: Zeraki Inspired Advanced Financial Tools */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <Card className="md:col-span-2 p-8 border-t-0 bg-slate-900/40">
+                        <div className="flex justify-between items-center mb-8">
+                            <h3 className="text-xl font-bold text-white tracking-tight">Institutional Cashflow Summary</h3>
+                            <span className="text-[10px] font-black text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Live Audit</span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            {[
+                                { label: 'Operational Costs', value: 'KES 2.1M', trend: 'stable' },
+                                { label: 'Reserved Funds', value: 'KES 5.4M', trend: 'up' },
+                                { label: 'Uncollected Pledges', value: 'KES 450K', trend: 'down' },
+                            ].map((stat, i) => (
+                                <div key={i} className="p-4 bg-slate-950/40 rounded-2xl border border-white/5">
+                                    <p className="text-[10px] font-bold text-slate-500 uppercase mb-2">{stat.label}</p>
+                                    <p className="text-xl font-black text-white">{stat.value}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </Card>
+
+                    <Card className="p-8 border-t-4 border-t-amber-500 bg-amber-500/5">
+                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                            Promissory Pledge Tracker
+                        </h3>
+                        <div className="space-y-4">
+                            {[
+                                { parent: 'Maina K.', amount: 'KES 15,000', deadline: 'Mar 15' },
+                                { parent: 'Sarah W.', amount: 'KES 8,000', deadline: 'Mar 20' },
+                            ].map((pledge, i) => (
+                                <div key={i} className="flex justify-between items-center p-3 bg-slate-900/60 rounded-xl border border-white/5">
+                                    <div>
+                                        <p className="text-xs font-bold text-white">{pledge.parent}</p>
+                                        <p className="text-[8px] text-slate-500">Expiring {pledge.deadline}</p>
+                                    </div>
+                                    <span className="text-xs font-black text-amber-500">{pledge.amount}</span>
+                                </div>
+                            ))}
+                        </div>
+                        <Button variant="glass" className="w-full mt-6 h-10 text-[10px] font-black border-amber-500/20 text-amber-500">
+                            Register New Pledge
+                        </Button>
+                    </Card>
+                </div>
+
                 {/* MPESA Modal */}
                 <PaymentModal
                     isOpen={isPaymentModalOpen}

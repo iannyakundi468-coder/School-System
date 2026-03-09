@@ -106,6 +106,24 @@ export const TimetablePage = () => {
                                 </div>
                             </div>
                         </Card>
+
+                        {/* NEW: Zeraki Inspired Smart Substitution */}
+                        <Card className="bg-indigo-500/5 border-indigo-500/20">
+                            <h3 className="font-bold text-white mb-4 flex items-center gap-2">
+                                <Zap className="w-4 h-4 text-indigo-400" /> Smart Substitution
+                            </h3>
+                            <p className="text-[10px] text-slate-400 mb-4">Detecting teacher absences... 1 match found for 4G Math.</p>
+                            <div className="p-3 bg-slate-900/60 rounded-xl border border-white/5 flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center text-xs font-bold text-indigo-400">SM</div>
+                                    <div>
+                                        <p className="text-xs font-bold text-white">Sarah Mwangi</p>
+                                        <p className="text-[8px] text-slate-500">Free Period | Math Specialist</p>
+                                    </div>
+                                </div>
+                                <Button size="sm" variant="premium" className="h-7 text-[8px] px-3">Assign</Button>
+                            </div>
+                        </Card>
                     </div>
 
                     {/* Schedule Grid Preview */}

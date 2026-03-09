@@ -93,6 +93,27 @@ export const ReportsPage = () => {
                         <Button className="w-full mt-8 bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center gap-2 h-12">
                             <PieChart className="w-5 h-5" /> Compile New Master Report
                         </Button>
+
+                        {/* NEW: Zeraki Inspired Stream Comparison */}
+                        <div className="mt-12 pt-8 border-t border-white/5">
+                            <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                                <TrendingUp className="w-5 h-5 text-indigo-400" /> Stream Comparison (Grade 6)
+                            </h3>
+                            <div className="flex items-end gap-4 h-48 px-4">
+                                {[
+                                    { name: '6 North', score: 82, color: 'bg-indigo-500/60' },
+                                    { name: '6 South', score: 75, color: 'bg-indigo-500/40' },
+                                    { name: '6 East', score: 88, color: 'bg-indigo-500' },
+                                    { name: '6 West', score: 68, color: 'bg-indigo-500/20' },
+                                ].map((stream, i) => (
+                                    <div key={i} className="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
+                                        <div className="text-[10px] font-black text-white opacity-0 group-hover:opacity-100 transition-opacity">{stream.score}%</div>
+                                        <div className={`w-full ${stream.color} rounded-t-lg transition-all group-hover:brightness-125`} style={{ height: `${stream.score}%` }} />
+                                        <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">{stream.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </Card>
 
                     <div className="space-y-8">
@@ -134,8 +155,8 @@ export const ReportsPage = () => {
                                                 <div
                                                     key={idx}
                                                     className={`h-full flex-1 rounded-sm ${idx < topic.strength / 10
-                                                            ? `bg-${topic.color}-500/60`
-                                                            : 'bg-slate-700/20'
+                                                        ? `bg-${topic.color}-500/60`
+                                                        : 'bg-slate-700/20'
                                                         }`}
                                                 />
                                             ))}
