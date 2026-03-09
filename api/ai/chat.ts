@@ -8,6 +8,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { message } = req.body;
     const apiKey = process.env.GEMINI_API_KEY;
 
+    // GoGuardian-Inspired Safety Heuristics
+    const sensitiveTerms = ['hurt myself', 'suicide', 'kill', 'bomb', 'weapon', 'attack', 'bully'];
+    const lowerMessage = message?.toLowerCase() || '';
+    const isFlagged = sensitiveTerms.some(term => lowerMessage.includes(term));
+
+    if (isFlagged) {
+        console.warn(`[SAFETY ALERT] Sensitive content detected from user: ${message}`);
+        return res.status(200).json({
+            reply: "I've noticed you're talking about something very serious. Please know that you're not alone and there are people who want to help. You can reach out to a trusted teacher, counselor, or call a support hotline immediately.",
+            safetyFlag: true
+        });
+    }
+
     // Graceful fallback if no API key is present (Mock Mode)
     if (!apiKey) {
         // Simulate network delay

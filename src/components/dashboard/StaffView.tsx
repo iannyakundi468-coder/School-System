@@ -124,6 +124,57 @@ export const StaffView = () => {
                 </div>
             </Card>
 
+            {/* PowerSchool Inspired: Quick Action Widgets */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Card className="p-8 border-t-4 border-t-indigo-500 bg-slate-900/40">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-400">
+                            <ClipboardCheck className="w-6 h-6" />
+                        </div>
+                        <h4 className="text-lg font-bold text-white tracking-tight">Quick Grade Entry</h4>
+                    </div>
+                    <div className="space-y-4">
+                        <div className="flex items-center gap-4">
+                            <Input placeholder="Search student..." className="flex-1 bg-slate-800/50 border-white/5 h-10 text-xs" />
+                            <Button size="sm" variant="premium" className="h-10 px-6">Fetch</Button>
+                        </div>
+                        <div className="p-4 bg-slate-950/50 rounded-2xl border border-white/5 flex items-center justify-between">
+                            <span className="text-sm font-bold text-white">Latest: Science Quiz</span>
+                            <div className="flex items-center gap-2">
+                                <Input className="w-16 h-8 bg-slate-800 text-center font-bold text-emerald-400 border-white/10" defaultValue="85" />
+                                <span className="text-[10px] font-black text-slate-500 uppercase">/100</span>
+                            </div>
+                        </div>
+                    </div>
+                </Card>
+
+                <Card className="p-8 border-t-4 border-t-emerald-500 bg-slate-900/40">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400">
+                            <Scan className="w-6 h-6" />
+                        </div>
+                        <h4 className="text-lg font-bold text-white tracking-tight">Attendance Snap</h4>
+                    </div>
+                    <div className="grid grid-cols-3 gap-3">
+                        <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-center">
+                            <p className="text-[10px] font-black text-emerald-500 uppercase">Present</p>
+                            <p className="text-xl font-black text-white">28</p>
+                        </div>
+                        <div className="p-3 bg-rose-500/10 border border-rose-500/20 rounded-xl text-center">
+                            <p className="text-[10px] font-black text-rose-500 uppercase">Absent</p>
+                            <p className="text-xl font-black text-white">2</p>
+                        </div>
+                        <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-center">
+                            <p className="text-[10px] font-black text-amber-500 uppercase">Late</p>
+                            <p className="text-xl font-black text-white">2</p>
+                        </div>
+                    </div>
+                    <Button variant="glass" className="w-full mt-4 h-10 text-xs font-bold uppercase tracking-widest border-white/5">
+                        Submit Period Roster
+                    </Button>
+                </Card>
+            </div>
+
             {/* Stats Row & Messages */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 h-fit">

@@ -95,24 +95,60 @@ export const ReportsPage = () => {
                         </Button>
                     </Card>
 
-                    <Card className="bg-gradient-to-br from-indigo-900/40 to-slate-900 border-indigo-500/20">
-                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            <Landmark className="w-5 h-5 text-indigo-400" /> Stakeholder View
-                        </h3>
-                        <p className="text-sm text-slate-400 leading-relaxed">
-                            These reports are automatically formatted for board presentations. The AI ensures all data points are audit-trailed and visualized for maximum clarity.
-                        </p>
-                        <div className="mt-8 space-y-4">
-                            <div className="p-4 bg-white/5 rounded-xl border border-white/5">
-                                <p className="text-[10px] font-bold text-slate-500 uppercase">Board Meeting</p>
-                                <p className="text-sm font-bold text-white mt-1">March 28th, 2026</p>
-                                <div className="flex items-center gap-2 mt-2 text-rose-400 text-[10px] font-bold">
-                                    <Calendar className="w-3 h-3" />
-                                    <span>24 Days Remaining</span>
+                    <div className="space-y-8">
+                        <Card className="bg-gradient-to-br from-indigo-900/40 to-slate-900 border-indigo-500/20">
+                            <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                                <Landmark className="w-5 h-5 text-indigo-400" /> Stakeholder View
+                            </h3>
+                            <p className="text-sm text-slate-400 leading-relaxed">
+                                These reports are automatically formatted for board presentations. The AI ensures all data points are audit-trailed and visualized for maximum clarity.
+                            </p>
+                            <div className="mt-8 space-y-4">
+                                <div className="p-4 bg-white/5 rounded-xl border border-white/5">
+                                    <p className="text-[10px] font-bold text-slate-500 uppercase">Board Meeting</p>
+                                    <p className="text-sm font-bold text-white mt-1">March 28th, 2026</p>
+                                    <div className="flex items-center gap-2 mt-2 text-rose-400 text-[10px] font-bold">
+                                        <Calendar className="w-3 h-3" />
+                                        <span>24 Days Remaining</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </Card>
+                        </Card>
+
+                        {/* NEW: Zeraki Inspired Topical Strength Heatmap */}
+                        <Card className="bg-slate-900/40 border-slate-800">
+                            <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                                <TrendingUp className="w-5 h-5 text-emerald-400" /> Topical Strength Heatmap
+                            </h3>
+                            <div className="space-y-4">
+                                {[
+                                    { topic: 'Algebra', strength: 85, color: 'emerald' },
+                                    { topic: 'Geometry', strength: 42, color: 'rose' },
+                                    { topic: 'Calculus', strength: 71, color: 'blue' },
+                                    { topic: 'Statistics', strength: 63, color: 'amber' },
+                                ].map((topic, i) => (
+                                    <div key={i} className="flex items-center gap-4">
+                                        <span className="text-[10px] font-bold text-slate-400 w-16 uppercase">{topic.topic}</span>
+                                        <div className="flex-1 h-3 bg-slate-800 rounded-sm overflow-hidden flex gap-0.5">
+                                            {[...Array(10)].map((_, idx) => (
+                                                <div
+                                                    key={idx}
+                                                    className={`h-full flex-1 rounded-sm ${idx < topic.strength / 10
+                                                            ? `bg-${topic.color}-500/60`
+                                                            : 'bg-slate-700/20'
+                                                        }`}
+                                                />
+                                            ))}
+                                        </div>
+                                        <span className={`text-[10px] font-black text-${topic.color}-400`}>{topic.strength}%</span>
+                                    </div>
+                                ))}
+                            </div>
+                            <p className="text-[10px] text-slate-500 mt-6 italic font-medium">
+                                * Based on latest formative assessments. Red zones indicate topics requiring immediate intervention.
+                            </p>
+                        </Card>
+                    </div>
                 </div>
             </div>
         </div>

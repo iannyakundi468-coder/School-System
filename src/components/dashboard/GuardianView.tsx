@@ -1,7 +1,7 @@
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
 import { useNavigate } from 'react-router-dom';
-import { User, Wallet, Calendar, TrendingUp } from 'lucide-react';
+import { User, Wallet, Calendar, TrendingUp, Activity } from 'lucide-react';
 
 export const GuardianView = () => {
     const navigate = useNavigate();
@@ -42,6 +42,36 @@ export const GuardianView = () => {
                             <p className="text-gray-400">Grade 6 - Green House</p>
                         </div>
                     </div>
+                </Card>
+
+                {/* PowerSchool Inspired: Student Progress Radar */}
+                <Card className="bg-slate-900/40 border-t-4 border-t-blue-500">
+                    <div className="flex justify-between items-center mb-6">
+                        <h2 className="text-xl font-bold text-white flex items-center gap-3">
+                            <Activity className="w-5 h-5 text-blue-400" /> Progress Radar
+                        </h2>
+                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Live Sync</span>
+                    </div>
+                    <div className="space-y-4">
+                        {[
+                            { subject: 'Mathematics', score: 88, color: 'emerald' },
+                            { subject: 'Science', score: 92, color: 'blue' },
+                            { subject: 'English', score: 75, color: 'amber' },
+                        ].map((stat, i) => (
+                            <div key={i} className="space-y-2">
+                                <div className="flex justify-between text-xs font-bold text-slate-300">
+                                    <span>{stat.subject}</span>
+                                    <span className={`text-${stat.color}-400`}>{stat.score}%</span>
+                                </div>
+                                <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                    <div className={`h-full w-[${stat.score}%] bg-${stat.color}-500 shadow-[0_0_10px_rgba(0,0,0,0.5)]`} />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <Button variant="ghost" className="w-full mt-6 h-9 text-[10px] border border-white/5 hover:bg-white/5 font-bold uppercase tracking-widest text-blue-400">
+                        View Historical Trends
+                    </Button>
                 </Card>
 
                 <Card className="hover:bg-slate-800 transition-colors cursor-pointer group" onClick={() => navigate('/report')}>

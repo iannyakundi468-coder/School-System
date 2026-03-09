@@ -3,7 +3,8 @@ import { Button } from '../components/ui/Button';
 import { useAuth } from '../context/AuthContext';
 import { FeeCard } from '../components/finance/FeeCard';
 import { PaymentModal } from '../components/finance/PaymentModal';
-import { ArrowLeft, Wallet, TrendingUp, AlertCircle } from 'lucide-react';
+import { Card } from '../components/ui/Card';
+import { ArrowLeft, Wallet, TrendingUp, AlertCircle, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export const FinancePage = () => {
@@ -216,6 +217,47 @@ export const FinancePage = () => {
                         ))}
                     </div>
                 )}
+
+                {/* NEW: Zeraki Inspired Mobile-First Fee Ledger */}
+                <Card className="mt-12 p-8 border-t-0 bg-slate-950/40">
+                    <div className="flex items-center justify-between mb-8">
+                        <div>
+                            <h3 className="text-xl font-black text-white tracking-tight">Fee Ledger Analytics</h3>
+                            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1">Mobile-first transaction tracking & sharing</p>
+                        </div>
+                        <Button variant="glass" className="h-10 text-[10px] border-white/5">
+                            <Download className="w-4 h-4 mr-2" /> Export Ledger
+                        </Button>
+                    </div>
+
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left border-separate border-spacing-y-4 text-sm font-medium">
+                            <thead>
+                                <tr className="text-slate-500 text-[8px] font-black uppercase tracking-[0.2em]">
+                                    <th className="pb-4">Transaction ID</th>
+                                    <th className="pb-4">Description</th>
+                                    <th className="pb-4">Channel</th>
+                                    <th className="pb-4 text-right">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { id: 'TX-9921', desc: 'Term 1 Balance Clearance', channel: 'M-PESA', amount: 'KES 35,000', color: 'emerald' },
+                                    { id: 'TX-8810', desc: 'Canteen Top-up (RFID)', channel: 'Wallet', amount: 'KES 1,200', color: 'blue' },
+                                ].map((row, i) => (
+                                    <tr key={i} className="group">
+                                        <td className="py-4 pl-4 bg-slate-900/60 border-y border-l border-white/5 rounded-l-xl font-mono text-xs text-slate-400">{row.id}</td>
+                                        <td className="py-4 bg-slate-900/60 border-y border-white/5 text-slate-200">{row.desc}</td>
+                                        <td className="py-4 bg-slate-900/60 border-y border-white/5">
+                                            <span className="text-[10px] font-black text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded-md">{row.channel}</span>
+                                        </td>
+                                        <td className="py-4 pr-4 bg-slate-900/60 border-y border-r border-white/5 rounded-r-xl text-right font-black text-white">{row.amount}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </Card>
 
                 {/* MPESA Modal */}
                 <PaymentModal
