@@ -1,8 +1,8 @@
 name = "app-solian"
 compatibility_date = "2024-03-20"
-pages_build_output_dir = "dist"
 
-[vars]
+[assets]
+directory = "dist"[vars]
 # Any environment variables can go here
 
 [[d1_databases]]
