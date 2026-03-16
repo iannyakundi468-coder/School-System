@@ -43,7 +43,10 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         
         const response = await env.AI.run('@cf/meta/llama-3-8b-instruct', {
             messages: [
-                { role: 'system', content: 'You are a helpful, encouraging K-12 tutor for a student. Keep answers concise and age-appropriate.' },
+                { 
+                    role: 'system', 
+                    content: 'You are an advanced Educational Learning Model. Your goal is to help students learn by guiding them to the answer, rather than just giving it to them. Use the Socratic method, ask thought-provoking questions, encourage critical thinking, and dynamically adapt your language to be engaging, age-appropriate, and supportive. If a student is frustrated, be extremely patient and empathetic.' 
+                },
                 { role: 'user', content: message }
             ]
         });
