@@ -1,0 +1,14 @@
+name = "app-solian"
+compatibility_date = "2024-03-20"
+pages_build_output_dir = "dist"
+
+[vars]
+# Any environment variables can go here
+
+[[d1_databases]]
+binding = "DB"
+database_name = "your-d1-db-name-here" # Not required for production deployment via Cloudflare Dashboard, but useful for local
+database_id = "your-d1-db-id-here"     # Replace with your actual D1 DB ID for remote wrangler commands
+
+[ai]
+binding = "AI"
