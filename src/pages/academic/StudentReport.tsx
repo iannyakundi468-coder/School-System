@@ -12,7 +12,7 @@ export const StudentReport = () => {
     const student = {
         name: "Ian Manyara",
         id: "STU-2024-001",
-        class: "Grade 6 Emerald",
+        class: "Form 3 Emerald (8-4-4)",
         attendance: 98,
         overallGrade: "A-",
         position: "3rd / 32"
@@ -20,14 +20,14 @@ export const StudentReport = () => {
 
     const subjects = [
         { name: "Mathematics", score: 85, grade: "A", teacher: "Mr. Otieno" },
-        { name: "Science & Tech", score: 92, grade: "A+", teacher: "Ms. Akinyi" },
+        { name: "Chemistry", score: 92, grade: "A-", teacher: "Ms. Akinyi" },
         { name: "English", score: 78, grade: "B+", teacher: "Mrs. Njeri" },
         { name: "Kiswahili", score: 88, grade: "A", teacher: "Mr. Kamau" },
-        { name: "Social Studies & RE", score: 70, grade: "B", teacher: "Mr. Mutua" },
+        { name: "Geography", score: 70, grade: "B", teacher: "Mr. Mutua" },
     ];
 
     const comments = [
-        { teacher: "Class Teacher", comment: "Ian is a disciplined student who participates well in class. He demonstrates great leadership in Grade 6." },
+        { teacher: "Class Teacher", comment: "Ian is a disciplined student who participates well in class. He demonstrates great leadership in Form 3." },
         { teacher: "Sports Coach", comment: "Excellent performance in the inter-school athletics competition." }
     ];
 

@@ -14,25 +14,24 @@ import {
     Bot,
     ClipboardCheck,
     FolderOpen,
-    Calendar,
     Scan,
     ArrowRight
 } from 'lucide-react';
 
 // Mock Data for Classes
 const TEACHER_CLASSES = [
-    { id: '4G', name: 'Grade 4 Green (Home)', students: 32, attendance: '94%' },
-    { id: '5B', name: 'Grade 5 Blue (Math)', students: 28, attendance: '89%' },
-    { id: '6R', name: 'Grade 6 Red (Science)', students: 30, attendance: '91%' },
+    { id: '1E', name: 'Form 3 East (8-4-4)', students: 45, attendance: '98%' },
+    { id: '2N', name: 'JSS Grade 8 North (CBC)', students: 42, attendance: '95%' },
+    { id: '3S', name: 'Form 4 South (8-4-4)', students: 40, attendance: '92%' },
 ];
 
 // Mock Data for Students
 const MOCK_STUDENTS = [
-    { id: 1, name: 'Ian Doe', grade: '4G', status: 'Present', performance: 'A' },
-    { id: 2, name: 'Sarah Smith', grade: '4G', status: 'Absent', performance: 'B+' },
-    { id: 3, name: 'James Johnson', grade: '4G', status: 'Present', performance: 'A-' },
-    { id: 4, name: 'Emily Davis', grade: '4G', status: 'Late', performance: 'B' },
-    { id: 5, name: 'Michael Brown', grade: '4G', status: 'Present', performance: 'C+' },
+    { id: 1, name: 'Ian Doe', grade: '1E', status: 'Present', performance: 'A' },
+    { id: 2, name: 'Sarah Smith', grade: '1E', status: 'Absent', performance: 'B+' },
+    { id: 3, name: 'James Johnson', grade: '1E', status: 'Present', performance: 'A-' },
+    { id: 4, name: 'Emily Davis', grade: '1E', status: 'Late', performance: 'B' },
+    { id: 5, name: 'Michael Brown', grade: '1E', status: 'Present', performance: 'C+' },
 ];
 
 export const StaffView = () => {
@@ -71,17 +70,11 @@ export const StaffView = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-3 w-full md:w-auto">
-                    <Button onClick={() => navigate('/gate')} variant="glass" size="sm" className="bg-indigo-500/10 text-indigo-400 border-indigo-500/10 hover:border-indigo-500/30">
-                        <Scan className="w-4 h-4" /> Smart Gate
-                    </Button>
                     <Button onClick={() => navigate('/learning/assessment')} variant="glass" size="sm">
                         <ClipboardCheck className="w-4 h-4" /> Assessment
                     </Button>
                     <Button onClick={() => navigate('/learning/portfolio')} variant="glass" size="sm">
                         <FolderOpen className="w-4 h-4" /> Portfolios
-                    </Button>
-                    <Button onClick={() => navigate('/timetable')} variant="glass" size="sm" className="text-purple-400 bg-purple-500/10 border-purple-500/10 hover:border-purple-500/30">
-                        <Calendar className="w-4 h-4" /> Master Timetable
                     </Button>
                     <Button onClick={() => navigate('/enrollment')} variant="premium" size="sm">+ New Student</Button>
                 </div>
@@ -139,7 +132,7 @@ export const StaffView = () => {
                             <Button size="sm" variant="premium" className="h-10 px-6">Fetch</Button>
                         </div>
                         <div className="p-4 bg-slate-950/50 rounded-2xl border border-white/5 flex items-center justify-between">
-                            <span className="text-sm font-bold text-white">Latest: Science Quiz</span>
+                            <span className="text-sm font-bold text-white">Latest: Chemistry CAT 1</span>
                             <div className="flex items-center gap-2">
                                 <Input className="w-16 h-8 bg-slate-800 text-center font-bold text-indigo-400 border-white/10" defaultValue="85" />
                                 <span className="text-[10px] font-black text-slate-500 uppercase">/100</span>
@@ -225,8 +218,8 @@ export const StaffView = () => {
                     </div>
                     <div className="space-y-6">
                         {[
-                            { name: 'Mrs. Alice', msg: 'Reminder: Staff meeting at 2 PM.', color: 'indigo', emoji: '👩‍🏫', isNew: true },
-                            { name: 'Principal James', msg: 'Monthly performance reviews start Monday.', color: 'sky', emoji: '👨‍💼', isNew: false }
+                            { name: 'Mrs. Alice (DOS)', msg: 'Reminder: Academic briefing at 4 PM.', color: 'indigo', emoji: '👩‍🏫', isNew: true },
+                            { name: 'Deputy Principal', msg: 'Form 4 joint mock papers are ready for collection.', color: 'sky', emoji: '👨‍💼', isNew: false }
                         ].map((item, i) => (
                             <motion.div
                                 key={i}

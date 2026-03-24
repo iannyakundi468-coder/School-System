@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const MOCK_EVENTS = [
     { id: 1, title: 'Madaraka Day Celebrations', date: '2026-06-01', time: '09:00 AM', location: 'School Assembly Ground', type: 'Holiday', description: 'Celebrating Kenya\'s internal self-rule.' },
-    { id: 2, title: 'Term 1 CBC Open Day', date: '2026-03-20', time: '02:00 PM', location: 'St Joseph\'s Hall', type: 'Academic', description: 'Exhibition of Grade 6 projects and assessment reviews.' },
+    { id: 2, title: 'Term 1 CBC Open Day', date: '2026-03-20', time: '02:00 PM', location: 'St Joseph\'s Hall', type: 'Academic', description: 'Exhibition of Form 3 projects and assessment reviews.' },
     { id: 3, title: 'Kisii County Music Festivals', date: '2026-04-05', time: '10:00 AM', location: 'Kisii University', type: 'Arts', description: 'Representing the school at the county level.' },
     { id: 4, title: 'Easter Value Break', date: '2026-04-10', time: 'All Day', location: 'N/A', type: 'Holiday', description: 'School closed for Easter festivities.' },
 ];

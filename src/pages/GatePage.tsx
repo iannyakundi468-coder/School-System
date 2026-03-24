@@ -17,9 +17,9 @@ export const GatePage = () => {
     const navigate = useNavigate();
 
     const entryLogs = [
-        { id: 1, name: 'Kelvin Omari', type: 'Student', grade: 'Grade 5', time: '07:15 AM', status: 'In', notified: true },
+        { id: 1, name: 'Kelvin Omari', type: 'Student', grade: 'Form 3', time: '07:15 AM', status: 'In', notified: true },
         { id: 2, name: 'Mrs. Jane Doe', type: 'Staff', grade: 'Admin', time: '07:12 AM', status: 'In', notified: false },
-        { id: 3, name: 'John Kimani', type: 'Student', grade: 'Grade 4', time: '07:10 AM', status: 'In', notified: true },
+        { id: 3, name: 'John Kimani', type: 'Student', grade: 'JSS Grade 8', time: '07:10 AM', status: 'In', notified: true },
         { id: 4, name: 'Visitor: Moses W.', type: 'Visitor', grade: 'ID: 29***34', time: '07:05 AM', status: 'Pending', notified: false },
     ];
 

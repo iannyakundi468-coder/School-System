@@ -17,7 +17,7 @@ export const HomeLearningPage = () => {
                         <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
                             Home Learning Hub
                         </h1>
-                        <p className="text-gray-400 mt-1 font-medium italic">Premium CBC-aligned digital learning experience.</p>
+                        <p className="text-gray-400 mt-1 font-medium italic">Premium 8-4-4 & CBC dual-curriculum experience.</p>
                     </div>
                     <div className="flex flex-wrap gap-2">
                         <Button
@@ -58,28 +58,28 @@ export const HomeLearningPage = () => {
                 {activeTab === 'courses' && (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <CourseCard
-                            title="Mathematics - Grade 6 (CBC)"
+                            title="Mathematics - Form 3 (8-4-4)"
                             progress={65}
-                            nextLesson="Fractions and Decimals"
+                            nextLesson="Trigonometry II"
                             color="indigo"
                         />
                         <CourseCard
-                            title="Science and Technology - Grade 6"
+                            title="Integrated Science - Grade 8 (CBC)"
                             progress={40}
-                            nextLesson="The Water Cycle"
+                            nextLesson="Human Anatomy"
                             color="sky"
                             icon={BookOpen}
                         />
                         <CourseCard
-                            title="Social Studies & Religious Education"
+                            title="Geography & History (8-4-4)"
                             progress={85}
-                            nextLesson="Pre-colonial History of Kisii County"
+                            nextLesson="Map Reading & Interpretation"
                             color="amber"
                         />
                         <CourseCard
-                            title="English & Kiswahili Literacy"
+                            title="Pre-Tech & Pre-Career (CBC)"
                             progress={20}
-                            nextLesson="Verbs and Tenses"
+                            nextLesson="Basic Electronics"
                             color="rose"
                         />
                     </div>
@@ -93,7 +93,7 @@ export const HomeLearningPage = () => {
                                     <Clock className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white text-lg group-hover:text-indigo-400 transition-colors">CBC Math: Market Transactions & Percentages</h3>
+                                    <h3 className="font-bold text-white text-lg group-hover:text-indigo-400 transition-colors">KCSE Math: Trigonometry Revision</h3>
                                     <p className="text-sm text-gray-400">Deadline: Tomorrow, 4:00 PM • Priority High</p>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@ export const HomeLearningPage = () => {
                                     <BookOpen className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white text-lg group-hover:text-indigo-400 transition-colors">Science: Indigenous Plants of Nyanza</h3>
+                                    <h3 className="font-bold text-white text-lg group-hover:text-indigo-400 transition-colors">Grade 8 CBC: Pre-Tech Project</h3>
                                     <p className="text-sm text-gray-400">Deadline: Friday, 20th Oct • Term Project</p>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@ export const HomeLearningPage = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-300">English: Comprehension</h3>
-                                    <p className="text-sm text-gray-500">Submitted: Yesterday • Grade 6 Emerald</p>
+                                    <p className="text-sm text-gray-500">Submitted: Yesterday • Form 3 Emerald</p>
                                 </div>
                             </div>
                             <div className="text-right">

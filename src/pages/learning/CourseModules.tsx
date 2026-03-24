@@ -5,8 +5,8 @@ import { BookOpen, CheckCircle, Lock, PlayCircle, FileText, ChevronRight } from 
 const MODULES = [
     {
         id: 1,
-        title: 'Unit 1: Foundations of CBC Mathematics',
-        description: 'Master the core principles of the new Competency Based Curriculum.',
+        title: 'Unit 1: Foundations of 8-4-4 & CBC Mathematics',
+        description: 'Master the core principles of both the Competency Based Curriculum and 8-4-4 syllabus.',
         lessons: [
             { title: 'Numbers and Operations', status: 'completed', type: 'reading' },
             { title: 'Algebraic Expressions', status: 'in-progress', type: 'video' },

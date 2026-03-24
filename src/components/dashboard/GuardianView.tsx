@@ -22,7 +22,7 @@ export const GuardianView = () => {
                     <div className="p-1 bg-purple-500/20 rounded-md">
                         <span className="text-xl">🎓</span>
                     </div>
-                    <span>Home Learning</span>
+                    <span>Holiday Assignments</span>
                 </Button>
                 <Button variant="glass" className="h-24 flex flex-col gap-2">
                     <User className="w-6 h-6 text-amber-400" />
@@ -39,7 +39,7 @@ export const GuardianView = () => {
                         </div>
                         <div>
                             <p className="font-bold text-lg text-white">Ian Manyara</p>
-                            <p className="text-gray-400">Grade 6 - Green House</p>
+                            <p className="text-gray-400">Form 3 - Simba House</p>
                         </div>
                     </div>
                 </Card>
@@ -55,7 +55,7 @@ export const GuardianView = () => {
                     <div className="space-y-4">
                         {[
                             { subject: 'Mathematics', score: 88, color: 'indigo' },
-                            { subject: 'Science', score: 92, color: 'sky' },
+                            { subject: 'Chemistry', score: 92, color: 'sky' },
                             { subject: 'English', score: 75, color: 'amber' },
                         ].map((stat, i) => (
                             <div key={i} className="space-y-2">
@@ -82,25 +82,9 @@ export const GuardianView = () => {
                         </div>
                         <div className="p-2 bg-amber-500/20 rounded-lg"><TrendingUp className="w-5 h-5 text-amber-400" /></div>
                     </div>
-                    <div className="text-xs text-gray-500">Top 10% of CBC Grade 6</div>
+                    <div className="text-xs text-gray-500">Top 10% of Form 3 Cohort</div>
                 </Card>
 
-                <Card>
-                    <div className="flex justify-between items-start mb-4">
-                        <h2 className="text-xl font-bold">School Updates</h2>
-                        <span className="text-xs text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded-full">New</span>
-                    </div>
-                    <div className="space-y-4">
-                        <div className="p-3 bg-slate-800/50 rounded-lg border border-slate-700">
-                            <h3 className="font-bold text-sm text-white">Parent-Teacher Meeting</h3>
-                            <p className="text-xs text-gray-400 mt-1">Join us to discuss the new CBC assessments...</p>
-                            <div className="flex justify-between items-center mt-2">
-                                <span className="text-[10px] text-gray-500">2 hrs ago • Admin Joseph</span>
-                                <button onClick={() => navigate('/messages')} className="text-xs text-indigo-400 hover:underline">Read More</button>
-                            </div>
-                        </div>
-                    </div>
-                </Card>
 
                 <Card>
                     <h2 className="text-xl font-bold mb-4">Fee Status</h2>

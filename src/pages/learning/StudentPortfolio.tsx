@@ -22,7 +22,7 @@ export const StudentPortfolio = () => {
                         </Button>
                         <div>
                             <h1 className="text-3xl font-bold text-white">Student Portfolios</h1>
-                            <p className="text-slate-400 font-medium tracking-tight">Digital evidence of competency-based learning.</p>
+                            <p className="text-slate-400 font-medium tracking-tight">Digital evidence of blended academic progress.</p>
                         </div>
                     </div>
                     <div className="flex gap-3 w-full md:w-auto">
@@ -37,7 +37,7 @@ export const StudentPortfolio = () => {
 
                 {/* Filters */}
                 <div className="flex flex-wrap gap-2 pb-4 border-b border-white/5">
-                    {['All Submissions', 'Grade 1', 'Grade 2', 'Grade 3', 'Mathematics', 'Language', 'Environmental'].map((f, i) => (
+                    {['All Submissions', 'JSS Grade 7', 'JSS Grade 8', 'Form 1', 'Form 2', 'CBC', '8-4-4'].map((f, i) => (
                         <button key={i} className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${i === 0 ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700 border border-white/5'}`}>
                             {f}
                         </button>
@@ -82,7 +82,7 @@ export const StudentPortfolio = () => {
                         <div>
                             <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-transparent italic">Impact Reporting</h2>
                             <p className="mt-4 text-slate-400 leading-relaxed">
-                                Our portfolio system doesn't just store images; it maps every submission to a specific CBC competency strand. This provides parents with a visual "Living Report" of their child's growth, significantly increasing customer retention and satisfaction.
+                                Our portfolio system doesn't just store images; it maps every submission to a specific CBC competency strand or KCSE syllabus topic. This provides parents with a visual "Living Report" of their child's growth.
                             </p>
                             <div className="mt-8 flex gap-6">
                                 <div className="text-center">

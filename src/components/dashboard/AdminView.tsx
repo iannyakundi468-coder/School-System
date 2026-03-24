@@ -13,7 +13,8 @@ import {
     Scan,
     Utensils,
     FileText,
-    TrendingUp
+    TrendingUp,
+    Calendar
 } from 'lucide-react';
 import { AIInsights } from './AIInsights';
 
@@ -31,6 +32,12 @@ export const AdminView = () => {
         <div className="space-y-10 animate-in">
             {/* Quick Actions */}
             <div className="flex flex-wrap gap-4">
+                <Button variant="ghost" className="px-5 h-11 border border-white/5 bg-white/5" onClick={() => navigate('/gate')}>
+                    <Scan className="w-4 h-4 mr-2 inline-block" /> Smart Gate
+                </Button>
+                <Button variant="ghost" className="px-5 h-11 border border-white/5 bg-white/5" onClick={() => navigate('/timetable')}>
+                    <Calendar className="w-4 h-4 mr-2 inline-block" /> Master Timetable
+                </Button>
                 <Button variant="ghost" className="px-5 h-11 border border-white/5 bg-white/5" onClick={() => navigate('/finance')}>Financial Reports</Button>
                 <Button variant="ghost" className="px-5 h-11 border border-white/5 bg-white/5" onClick={() => navigate('/events')}>School Events</Button>
 

@@ -13,7 +13,7 @@ export const TimetablePage = () => {
 
     const conflicts = [
         { id: 1, teacher: 'Mrs. Alice', room: 'Lab 2', clash: 'Math vs Physics', time: '10:00 AM' },
-        { id: 2, teacher: 'Mr. John', room: 'Field', clash: 'PE vs Drama', time: '11:00 AM' },
+        { id: 2, teacher: 'Mr. John', room: 'Field', clash: 'Agriculture vs Business Studies', time: '11:00 AM' },
     ];
 
     return (
@@ -112,7 +112,7 @@ export const TimetablePage = () => {
                             <h3 className="font-bold text-white mb-4 flex items-center gap-2">
                                 <Zap className="w-4 h-4 text-indigo-400" /> Smart Substitution
                             </h3>
-                            <p className="text-[10px] text-slate-400 mb-4">Detecting teacher absences... 1 match found for 4G Math.</p>
+                            <p className="text-[10px] text-slate-400 mb-4">Detecting teacher absences... 1 match found for Form 3 (8-4-4) Math.</p>
                             <div className="p-3 bg-slate-900/60 rounded-xl border border-white/5 flex items-center justify-between">
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center text-xs font-bold text-indigo-400">SM</div>
@@ -147,7 +147,7 @@ export const TimetablePage = () => {
                                     {[0, 1, 2, 3, 4].map((cIdx) => (
                                         <div key={cIdx} className="p-3 bg-slate-800/30 rounded-lg border border-white/5 group hover:bg-sky-500/10 hover:border-sky-500/30 transition-all cursor-pointer">
                                             <p className="text-[10px] font-bold text-white truncate">Mathematics</p>
-                                            <p className="text-[8px] text-slate-500 font-medium">Grade 4G | R204</p>
+                                            <p className="text-[8px] text-slate-500 font-medium">Form 3 East | R204</p>
                                         </div>
                                     ))}
                                 </div>

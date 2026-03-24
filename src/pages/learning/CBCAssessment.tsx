@@ -4,23 +4,23 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, Save, Send, User, BookOpen, Layers, Bot, MessageSquareQuote } from 'lucide-react';
 
 const students = [
-    { id: 1, name: 'Alice Wambui', grade: 'Grade 6 Emerald' },
-    { id: 2, name: 'John Kamau', grade: 'Grade 6 Emerald' },
-    { id: 3, name: 'Sarah Njeri', grade: 'Grade 6 Emerald' },
-    { id: 4, name: 'Maina Joseph', grade: 'Grade 6 Emerald' },
+    { id: 1, name: 'Alice Wambui', grade: 'Form 3 Emerald (8-4-4)' },
+    { id: 2, name: 'John Kamau', grade: 'JSS Grade 8 North (CBC)' },
+    { id: 3, name: 'Sarah Njeri', grade: 'Form 3 Emerald (8-4-4)' },
+    { id: 4, name: 'Maina Joseph', grade: 'JSS Grade 8 North (CBC)' },
 ];
 
 const strands = [
-    { id: 1, name: 'Mathematics (CBC)', subStrands: ['Addition of 4-Digit Numbers', 'Market Transactions & Percentages', 'Geometric Shapes'] },
-    { id: 2, name: 'Science and Technology', subStrands: ['Indigenous Plants of Nyanza', 'Human Body Systems', 'The Water Cycle'] },
-    { id: 3, name: 'Social Studies & RE', subStrands: ['Pre-colonial History of Kisii County', 'Kenyan National Symbols', 'Values and Ethics'] },
+    { id: 1, name: 'Mathematics', subStrands: ['Algebra', 'Trigonometry', 'Calculus'] },
+    { id: 2, name: 'Chemistry', subStrands: ['Organic Chemistry', 'The Mole', 'Acids & Bases'] },
+    { id: 3, name: 'Geography', subStrands: ['Map Reading', 'Weather & Climate', 'Industrialization'] },
 ];
 
 const ratings = [
-    { label: 'EE', title: 'Exceeding Expectation', color: 'bg-indigo-500', bg: 'bg-indigo-500/20', text: 'text-indigo-400', border: 'border-indigo-500/30' },
-    { label: 'ME', title: 'Meeting Expectation', color: 'bg-sky-500', bg: 'bg-sky-500/20', text: 'text-sky-400', border: 'border-sky-500/30' },
-    { label: 'AE', title: 'Approaching Expectation', color: 'bg-amber-500', bg: 'bg-amber-500/20', text: 'text-amber-400', border: 'border-amber-500/30' },
-    { label: 'BE', title: 'Below Expectation', color: 'bg-rose-500', bg: 'bg-rose-500/20', text: 'text-rose-400', border: 'border-rose-500/30' },
+    { label: 'A', title: 'Distinction', color: 'bg-indigo-500', bg: 'bg-indigo-500/20', text: 'text-indigo-400', border: 'border-indigo-500/30' },
+    { label: 'B', title: 'Credit', color: 'bg-sky-500', bg: 'bg-sky-500/20', text: 'text-sky-400', border: 'border-sky-500/30' },
+    { label: 'C', title: 'Pass', color: 'bg-amber-500', bg: 'bg-amber-500/20', text: 'text-amber-400', border: 'border-amber-500/30' },
+    { label: 'D', title: 'Fail', color: 'bg-rose-500', bg: 'bg-rose-500/20', text: 'text-rose-400', border: 'border-rose-500/30' },
 ];
 
 export const CBCAssessment = () => {
@@ -38,11 +38,11 @@ export const CBCAssessment = () => {
     const generateAIComment = () => {
         setIsGenerating(true);
         setTimeout(() => {
-            const hasEE = Object.values(assessment).includes('EE');
+            const hasEE = Object.values(assessment).includes('A');
             const name = selectedStudent.name.split(' ')[0];
             const comment = hasEE
                 ? `${name} has shown exceptional mastery in ${selectedStrand.name.toLowerCase()}. They demonstrate high-level critical thinking and apply concepts independently.`
-                : `${name} is meeting expectations in ${selectedStrand.name.toLowerCase()}. I recommend focus on consistent practice to bridgeApproaching Expectation areas into Meeting Expectation.`;
+                : `${name} is meeting expectations in ${selectedStrand.name.toLowerCase()}. I recommend focus on consistent practice to bridge Pass areas into Credit.`;
             setAiComment(comment);
             setIsGenerating(false);
         }, 1500);
@@ -56,8 +56,8 @@ export const CBCAssessment = () => {
                         <ArrowLeft className="w-5 h-5" />
                     </Button>
                     <div>
-                        <h1 className="text-3xl font-bold text-white">CBC Assessment Engine</h1>
-                        <p className="text-slate-500 font-medium mt-1">Grade-specific Competency Reporting</p>
+                        <h1 className="text-3xl font-bold text-white">Dual-Curriculum Grading Engine</h1>
+                        <p className="text-slate-500 font-medium mt-1">8-4-4 & CBC Performance Reporting</p>
                     </div>
                 </header>
 

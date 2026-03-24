@@ -16,9 +16,9 @@ export const FinancePage = () => {
 
     // Mock Data
     const [fees, setFees] = useState([
-        { id: 1, title: 'Term 1 Tuition', amount: 35000, dueDate: '2026-01-05', status: 'paid' },
-        { id: 2, title: 'Term 2 Tuition', amount: 35000, dueDate: '2026-05-05', status: 'paid' },
-        { id: 3, title: 'Activity Fee', amount: 5000, dueDate: '2026-03-10', status: 'pending' },
+        { id: 1, title: 'Term 1 Boarding & Tuition', amount: 35000, dueDate: '2026-01-05', status: 'paid' },
+        { id: 2, title: 'Term 2 Boarding & Tuition', amount: 35000, dueDate: '2026-05-05', status: 'paid' },
+        { id: 3, title: 'PTA & Activity Fund', amount: 5000, dueDate: '2026-03-10', status: 'pending' },
         { id: 4, title: 'Lunch Program', amount: 7500, dueDate: '2026-05-01', status: 'pending' },
     ]);
 
@@ -144,7 +144,7 @@ export const FinancePage = () => {
                                     <div>
                                         <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none mb-2">Next Payment Due</p>
                                         <p className="text-2xl font-bold text-white">Mar 10, 2026</p>
-                                        <p className="text-[10px] text-slate-400 mt-1">Activity Fees</p>
+                                        <p className="text-[10px] text-slate-400 mt-1">PTA & Activity Fund</p>
                                     </div>
                                 </div>
                             </div>
@@ -219,7 +219,8 @@ export const FinancePage = () => {
                 )}
 
                 {/* NEW: Zeraki Inspired Mobile-First Fee Ledger */}
-                <Card className="mt-12 p-8 border-t-0 bg-slate-950/40">
+                {isAdmin && (
+                    <Card className="mt-12 p-8 border-t-0 bg-slate-950/40">
                     <div className="flex items-center justify-between mb-8">
                         <div>
                             <h3 className="text-xl font-black text-white tracking-tight">Fee Ledger Analytics</h3>
@@ -259,9 +260,12 @@ export const FinancePage = () => {
                     </div>
                 </Card>
 
+                )}
+
                 {/* NEW: Zeraki Inspired Advanced Financial Tools */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                    <Card className="md:col-span-2 p-8 border-t-0 bg-slate-900/40">
+                {isAdmin && (
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                        <Card className="md:col-span-2 p-8 border-t-0 bg-slate-900/40">
                         <div className="flex justify-between items-center mb-8">
                             <h3 className="text-xl font-bold text-white tracking-tight">Institutional Cashflow Summary</h3>
                             <span className="text-[10px] font-black text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">Live Audit</span>
@@ -303,6 +307,7 @@ export const FinancePage = () => {
                         </Button>
                     </Card>
                 </div>
+                )}
 
                 {/* MPESA Modal */}
                 <PaymentModal

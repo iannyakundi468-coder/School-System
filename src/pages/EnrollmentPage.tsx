@@ -69,8 +69,8 @@ export const EnrollmentPage = () => {
                                 />
                             </div>
                             <Input
-                                label="Grade / Class"
-                                placeholder="e.g. Grade 4"
+                                label="Form / Grade"
+                                placeholder="e.g. Form 1 or JSS Grade 7"
                                 value={formData.grade}
                                 onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
                             />

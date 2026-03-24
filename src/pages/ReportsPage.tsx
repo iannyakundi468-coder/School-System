@@ -97,14 +97,14 @@ export const ReportsPage = () => {
                         {/* NEW: Zeraki Inspired Stream Comparison */}
                         <div className="mt-12 pt-8 border-t border-white/5">
                             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                                <TrendingUp className="w-5 h-5 text-indigo-400" /> Stream Comparison (Grade 6)
+                                <TrendingUp className="w-5 h-5 text-indigo-400" /> Stream Comparison (Form 3 & JSS Grade 9)
                             </h3>
                             <div className="flex items-end gap-4 h-48 px-4">
                                 {[
-                                    { name: '6 North', score: 82, color: 'bg-indigo-500/60' },
-                                    { name: '6 South', score: 75, color: 'bg-indigo-500/40' },
-                                    { name: '6 East', score: 88, color: 'bg-indigo-500' },
-                                    { name: '6 West', score: 68, color: 'bg-indigo-500/20' },
+                                    { name: 'Form 3N', score: 82, color: 'bg-indigo-500/60' },
+                                    { name: 'JSS 9S', score: 75, color: 'bg-indigo-500/40' },
+                                    { name: 'Form 3E', score: 88, color: 'bg-indigo-500' },
+                                    { name: 'JSS 9W', score: 68, color: 'bg-indigo-500/20' },
                                 ].map((stream, i) => (
                                     <div key={i} className="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
                                         <div className="text-[10px] font-black text-white opacity-0 group-hover:opacity-100 transition-opacity">{stream.score}%</div>
