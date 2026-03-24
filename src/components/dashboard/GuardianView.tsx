@@ -24,22 +24,26 @@ export const GuardianView = () => {
                     </div>
                     <span>Holiday Assignments</span>
                 </Button>
-                <Button variant="glass" className="h-24 flex flex-col gap-2">
+                <Button variant="glass" className="h-24 flex flex-col gap-2" onClick={() => navigate('/report')}>
                     <User className="w-6 h-6 text-amber-400" />
                     <span>My Child</span>
                 </Button>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <Card>
-                    <h2 className="text-xl font-bold mb-4">Student Profile</h2>
+                <Card className="hover:bg-slate-800 transition-colors cursor-pointer group" onClick={() => navigate('/report')}>
+                    <div className="flex justify-between items-start mb-4">
+                        <h2 className="text-xl font-bold">Student Profile</h2>
+                        <span className="text-xs text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity">View Full Profile →</span>
+                    </div>
                     <div className="flex items-center gap-4">
                         <div className="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center">
                             <span className="text-2xl">👦</span>
                         </div>
                         <div>
                             <p className="font-bold text-lg text-white">Ian Manyara</p>
-                            <p className="text-gray-400">Form 3 - Simba House</p>
+                            <p className="text-gray-400 text-sm">Form 3 - Simba House</p>
+                            <p className="text-indigo-400 text-xs mt-1 font-mono">ID: SOL-2024-001</p>
                         </div>
                     </div>
                 </Card>

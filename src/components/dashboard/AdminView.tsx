@@ -100,7 +100,7 @@ export const AdminView = () => {
                             { icon: Scan, label: 'Smart Gate', color: 'indigo', path: '/gate' },
                             { icon: Utensils, label: 'Cashless Canteen', color: 'amber', path: '/canteen' },
                             { icon: Activity, label: 'Bus Sentinel', color: 'sky', path: '/safety' },
-                            { icon: FileText, label: 'Board Reports', color: 'purple', path: '/report' }
+                            { icon: FileText, label: 'Board Reports', color: 'purple', path: '/reports' }
                         ].map((btn, i) => (
                             <Button
                                 key={i}
