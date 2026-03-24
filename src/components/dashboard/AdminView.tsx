@@ -55,8 +55,8 @@ export const AdminView = () => {
                 <Button variant="premium" size="md" onClick={() => navigate('/development')}>
                     <Construction className="w-4 h-4" /> School Development
                 </Button>
-                <Button variant="secondary" className="px-6" onClick={() => navigate('/infrastructure')}>
-                    <LayoutDashboard className="w-4 h-4" /> Infrastructure
+                <Button variant="secondary" className="px-6" onClick={() => navigate('/operations')}>
+                    <LayoutDashboard className="w-4 h-4 mr-2 inline-block" /> Infrastructure
                 </Button>
                 <Button variant="secondary" className="px-6 bg-indigo-600/20 text-indigo-400 border border-indigo-500/20 hover:bg-indigo-600/30" onClick={() => navigate('/compliance')}>
                     <ShieldCheck className="w-4 h-4" /> Compliance
