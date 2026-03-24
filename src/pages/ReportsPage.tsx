@@ -64,8 +64,14 @@ export const ReportsPage = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <Card className="lg:col-span-2">
                         <div className="flex justify-between items-center mb-8 pb-4 border-b border-white/5">
-                            <h2 className="text-xl font-bold text-white">Generated Reports</h2>
-                            <span className="text-xs text-slate-500">Term 1, 2026</span>
+                            <div>
+                                <h2 className="text-xl font-bold text-white">Generated Reports</h2>
+                                <span className="text-xs text-slate-500">Term 1, 2026</span>
+                            </div>
+                            <div className="flex gap-2">
+                                <Button variant="ghost" className="h-8 text-[10px] font-bold uppercase tracking-widest text-rose-400 border border-rose-500/20 hover:bg-rose-500/10">Export PDF</Button>
+                                <Button variant="ghost" className="h-8 text-[10px] font-bold uppercase tracking-widest text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/10">Export Excel</Button>
+                            </div>
                         </div>
                         <div className="space-y-4">
                             {[
@@ -84,9 +90,14 @@ export const ReportsPage = () => {
                                             <p className="text-[10px] text-slate-500 font-medium">{report.date} | {report.size}</p>
                                         </div>
                                     </div>
-                                    <Button variant="glass" className="h-9 w-9 p-0 flex items-center justify-center rounded-lg hover:bg-sky-500/20 text-sky-400">
-                                        <Download className="w-4 h-4" />
-                                    </Button>
+                                    <div className="flex gap-2">
+                                        <Button variant="glass" className="h-8 w-12 text-[10px] font-bold flex items-center justify-center rounded-lg hover:bg-rose-500/20 text-rose-400 border border-rose-500/10">
+                                            PDF
+                                        </Button>
+                                        <Button variant="glass" className="h-8 w-14 text-[10px] font-bold flex items-center justify-center rounded-lg hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/10">
+                                            Excel
+                                        </Button>
+                                    </div>
                                 </div>
                             ))}
                         </div>

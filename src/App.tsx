@@ -22,6 +22,8 @@ import { GatePage } from './pages/GatePage';
 import { CanteenPage } from './pages/CanteenPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { HistoricalPerformance } from './pages/academic/HistoricalPerformance';
+import { RoleManagement } from './pages/admin/RoleManagement';
+import { AuditLogs } from './pages/admin/AuditLogs';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -39,6 +41,8 @@ function AnimatedRoutes() {
         <Route path="/history" element={<HistoricalPerformance />} />
         <Route path="/reports" element={<ReportsPage />} />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/roles" element={<RoleManagement />} />
+        <Route path="/audit" element={<AuditLogs />} />
         <Route path="/learning" element={<HomeLearningPage />} />
         <Route path="/learning/assessment" element={<CBCAssessment />} />
         <Route path="/learning/portfolio" element={<StudentPortfolio />} />

@@ -22,10 +22,10 @@ export const AdminView = () => {
     const navigate = useNavigate();
 
     const stats = [
-        { label: 'Total Revenue', value: 'KES 14.2M', trend: '+12.5%', icon: DollarSign, color: 'indigo', delay: 0 },
-        { label: 'Active Students', value: '1,240', trend: '98%', icon: Users, color: 'sky', delay: 0.1 },
-        { label: 'Staff Presence', value: '42 / 45', trend: '3 Away', icon: Activity, color: 'amber', delay: 0.2 },
-        { label: 'Pending Issues', value: '7', trend: 'High Priority', icon: AlertCircle, color: 'rose', delay: 0.3 }
+        { label: 'Academic Mean', value: 'B+ (7.8)', trend: '+0.4 vs T3', icon: TrendingUp, color: 'indigo', delay: 0 },
+        { label: 'Fee Collection', value: 'KES 14.2M', trend: '94% Collected', icon: DollarSign, color: 'emerald', delay: 0.1 },
+        { label: 'Daily Attendance', value: '98.5%', trend: 'Target: 95%', icon: Users, color: 'sky', delay: 0.2 },
+        { label: 'System Alerts', value: '3 Minor', trend: 'Requires Audit', icon: AlertCircle, color: 'amber', delay: 0.3 }
     ];
 
     return (
@@ -40,6 +40,15 @@ export const AdminView = () => {
                 </Button>
                 <Button variant="ghost" className="px-5 h-11 border border-white/5 bg-white/5" onClick={() => navigate('/finance')}>Financial Reports</Button>
                 <Button variant="ghost" className="px-5 h-11 border border-white/5 bg-white/5" onClick={() => navigate('/events')}>School Events</Button>
+
+                <div className="h-11 w-px bg-white/10 mx-2" />
+
+                <Button variant="premium" size="md" className="from-amber-600 to-amber-700 shadow-amber-900/50" onClick={() => navigate('/roles')}>
+                    <Users className="w-4 h-4 mr-2" /> Role Management
+                </Button>
+                <Button variant="premium" size="md" className="from-slate-800 to-slate-900 shadow-slate-900/50" onClick={() => navigate('/audit')}>
+                    <ShieldCheck className="w-4 h-4 mr-2 text-sky-400" /> Audit Logs
+                </Button>
 
                 <div className="h-11 w-px bg-white/10 mx-2" />
 
@@ -74,7 +83,6 @@ export const AdminView = () => {
                                     <span className={`text-[10px] font-bold text-${stat.color}-400 bg-${stat.color}-500/10 px-2 py-0.5 rounded-full`}>
                                         {stat.trend}
                                     </span>
-                                    {stat.label === 'Total Revenue' && <span className="text-[10px] text-slate-500">vs last term</span>}
                                 </div>
                             </div>
                             <div className={`p-3 bg-${stat.color}-500/10 rounded-2xl text-${stat.color}-400`}>
