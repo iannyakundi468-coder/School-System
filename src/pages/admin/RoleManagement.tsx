@@ -39,20 +39,25 @@ export const RoleManagement = () => {
                     </div>
                 </header>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <Card className="border-t-4 border-t-indigo-500">
-                        <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Total Staff & Board</p>
-                        <p className="text-3xl font-bold text-white mt-2">142</p>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                >
+                    <Card className="border-t-4 border-t-indigo-500 bg-gradient-to-br from-slate-900/80 to-indigo-950/20 hover:border-t-indigo-400 transition-colors group">
+                        <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest group-hover:text-indigo-400 transition-colors">Total Staff & Board</p>
+                        <p className="text-3xl font-black text-white mt-2 drop-shadow-md">142</p>
                     </Card>
-                    <Card className="border-t-4 border-t-amber-500">
-                        <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Active Guardians</p>
-                        <p className="text-3xl font-bold text-white mt-2">856</p>
+                    <Card className="border-t-4 border-t-amber-500 bg-gradient-to-br from-slate-900/80 to-amber-950/20 hover:border-t-amber-400 transition-colors group">
+                        <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest group-hover:text-amber-400 transition-colors">Active Guardians</p>
+                        <p className="text-3xl font-black text-white mt-2 drop-shadow-md">856</p>
                     </Card>
-                    <Card className="border-t-4 border-t-rose-500">
-                        <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Pending Invitations</p>
-                        <p className="text-3xl font-bold text-white mt-2">24</p>
+                    <Card className="border-t-4 border-t-rose-500 bg-gradient-to-br from-slate-900/80 to-rose-950/20 hover:border-t-rose-400 transition-colors group">
+                        <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest group-hover:text-rose-400 transition-colors">Pending Invitations</p>
+                        <p className="text-3xl font-black text-white mt-2 drop-shadow-md">24</p>
                     </Card>
-                </div>
+                </motion.div>
 
                 <Card className="p-0 overflow-hidden border-t-0">
                     <div className="p-6 border-b border-white/5 flex flex-col md:flex-row gap-4 justify-between items-center bg-white/[0.02]">
@@ -81,25 +86,39 @@ export const RoleManagement = () => {
                                     <th className="p-6 text-xs font-bold text-slate-400 uppercase tracking-widest text-right">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-white/5">
+                            <motion.tbody 
+                                initial="hidden"
+                                animate="visible"
+                                variants={{
+                                    visible: { transition: { staggerChildren: 0.1 } }
+                                }}
+                                className="divide-y divide-white/5"
+                            >
                                 {MOCK_USERS.filter(u => u.name.toLowerCase().includes(searchTerm.toLowerCase())).map((user) => (
-                                    <motion.tr key={user.id} className="hover:bg-white/[0.02] transition-colors group">
+                                    <motion.tr 
+                                        variants={{
+                                            hidden: { opacity: 0, x: -20 },
+                                            visible: { opacity: 1, x: 0 }
+                                        }}
+                                        key={user.id} 
+                                        className="hover:bg-white/[0.04] transition-all duration-300 group cursor-pointer"
+                                    >
                                         <td className="p-6">
                                             <div className="flex items-center gap-4">
-                                                <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-indigo-400 border border-white/5">
+                                                <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-indigo-400 border border-white/5 group-hover:border-indigo-500/50 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all">
                                                     {user.name.charAt(0)}
                                                 </div>
                                                 <div>
-                                                    <p className="font-bold text-white group-hover:text-sky-400 transition-colors">{user.name}</p>
-                                                    <p className="text-xs text-slate-500">{user.email}</p>
+                                                    <p className="font-bold text-white group-hover:text-indigo-300 transition-colors drop-shadow-sm">{user.name}</p>
+                                                    <p className="text-xs text-slate-500 font-medium">{user.email}</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td className="p-6">
                                             <div className="flex items-center gap-2">
                                                 {user.role === 'Super Admin' && <Key className="w-3 h-3 text-amber-500" />}
-                                                <span className={`text-[10px] uppercase font-bold px-2 py-1 rounded-full border ${user.role === 'Super Admin' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
-                                                        : user.role === 'Principal' ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20'
+                                                <span className={`text-[10px] uppercase font-black tracking-wider px-2.5 py-1 rounded-full border ${user.role === 'Super Admin' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.1)]'
+                                                        : user.role === 'Principal' ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20 shadow-[0_0_10px_rgba(99,102,241,0.1)]'
                                                             : 'bg-slate-800 text-slate-300 border-white/5'
                                                     }`}>
                                                     {user.role}
@@ -107,23 +126,23 @@ export const RoleManagement = () => {
                                             </div>
                                         </td>
                                         <td className="p-6">
-                                            <span className={`text-[10px] uppercase font-bold px-2 py-1 rounded-md ${user.status === 'Active' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-rose-500/20 text-rose-400'}`}>
+                                            <span className={`text-[10px] uppercase font-black tracking-wider px-2.5 py-1 rounded-md ${user.status === 'Active' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'}`}>
                                                 {user.status}
                                             </span>
                                         </td>
-                                        <td className="p-6 text-xs font-medium text-slate-400">
+                                        <td className="p-6 text-xs font-semibold text-slate-400 group-hover:text-slate-300 transition-colors">
                                             {user.lastLogin}
                                         </td>
                                         <td className="p-6 text-right">
-                                            <div className="flex items-center justify-end gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <Button variant="ghost" className="h-8 w-8 p-0 text-slate-400 hover:text-indigo-400"><Edit2 className="w-4 h-4" /></Button>
-                                                {user.role !== 'Super Admin' && <Button variant="ghost" className="h-8 w-8 p-0 text-slate-400 hover:text-rose-400"><Trash2 className="w-4 h-4" /></Button>}
-                                                <Button variant="ghost" className="h-8 w-8 p-0 text-slate-400 hover:text-white"><MoreVertical className="w-4 h-4" /></Button>
+                                            <div className="flex items-center justify-end gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0">
+                                                <Button variant="ghost" className="h-8 w-8 p-0 text-slate-400 hover:text-indigo-400 hover:bg-indigo-500/10"><Edit2 className="w-4 h-4" /></Button>
+                                                {user.role !== 'Super Admin' && <Button variant="ghost" className="h-8 w-8 p-0 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10"><Trash2 className="w-4 h-4" /></Button>}
+                                                <Button variant="ghost" className="h-8 w-8 p-0 text-slate-400 hover:text-white hover:bg-white/10"><MoreVertical className="w-4 h-4" /></Button>
                                             </div>
                                         </td>
                                     </motion.tr>
                                 ))}
-                            </tbody>
+                            </motion.tbody>
                         </table>
                     </div>
                 </Card>

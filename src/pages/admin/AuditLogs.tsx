@@ -54,19 +54,19 @@ export const AuditLogs = () => {
                         <div className="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:ml-[2.75rem] md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-sky-500 before:via-indigo-500 before:to-transparent">
                             {MOCK_LOGS.map((log, i) => (
                                 <motion.div
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.1 }}
+                                    initial={{ opacity: 0, x: -20, filter: 'blur(10px)' }}
+                                    animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                                    transition={{ duration: 0.5, delay: i * 0.1, type: "spring", bounce: 0.4 }}
                                     key={log.id}
-                                    className="relative flex items-center justify-between md:justify-normal group"
+                                    className="relative flex items-center justify-between md:justify-normal group cursor-pointer"
                                 >
-                                    <div className={`flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-900 bg-slate-800 text-${log.color}-400 group-hover:bg-${log.color}-500 group-hover:text-white shadow shrink-0 md:translate-x-6 transition-colors duration-300 z-10`}>
+                                    <div className={`flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-900 bg-slate-800 text-${log.color}-400 group-hover:bg-${log.color}-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(var(--${log.color}-500),0.4)] shadow shrink-0 md:translate-x-6 transition-all duration-500 z-10`}>
                                         <log.icon className="w-4 h-4" />
                                     </div>
-                                    <div className="w-[calc(100%-4rem)] md:w-[calc(100%-6rem)] p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors duration-300 ml-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                    <div className="w-[calc(100%-4rem)] md:w-[calc(100%-6rem)] p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] transition-all duration-300 ml-auto flex flex-col md:flex-row md:items-center justify-between gap-4 group-hover:-translate-y-1">
                                         <div>
                                             <div className="flex flex-wrap items-center gap-2 mb-1">
-                                                <p className="font-bold text-white">{log.user}</p>
+                                                <p className="font-bold text-white group-hover:text-sky-300 transition-colors drop-shadow-sm">{log.user}</p>
                                                 <span className={`text-[8px] uppercase tracking-widest font-black px-2 py-0.5 rounded border border-${log.color}-500/20 text-${log.color}-400 bg-${log.color}-500/10`}>
                                                     {log.type}
                                                 </span>
