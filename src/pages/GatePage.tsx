@@ -36,7 +36,7 @@ export const GatePage = () => {
                         <p className="text-slate-400 font-bold mt-3 text-lg">Real-time Biometric Surveillance & Perimeter Control.</p>
                     </div>
                     <div className="flex gap-4">
-                        <Button variant="premium" size="lg" className="shadow-2xl shadow-emerald-500/20">
+                        <Button variant="premium" size="lg" className="shadow-2xl shadow-indigo-500/20">
                             <Shield className="w-5 h-5 mr-1" /> Perimeter Lockdown
                         </Button>
                     </div>
@@ -47,8 +47,8 @@ export const GatePage = () => {
                     <Card className="lg:col-span-3 border-t-0 p-0 overflow-hidden" hover={false}>
                         <div className="p-8 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
                             <h2 className="text-2xl font-bold text-white">Live Operations Feed</h2>
-                            <div className="flex items-center gap-3 text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-4 py-2 rounded-full border border-emerald-500/20 uppercase tracking-widest">
-                                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse outline outline-4 outline-emerald-500/20" />
+                            <div className="flex items-center gap-3 text-[10px] font-bold text-indigo-400 bg-indigo-500/10 px-4 py-2 rounded-full border border-indigo-500/20 uppercase tracking-widest">
+                                <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse outline outline-4 outline-indigo-500/20" />
                                 Sensors Online
                             </div>
                         </div>
@@ -64,7 +64,7 @@ export const GatePage = () => {
                                 >
                                     <div className="flex items-center gap-6 flex-1 w-full md:w-auto">
                                         <div className={`p-4 bg-slate-800 rounded-2xl text-slate-400 group-hover:scale-110 transition-transform duration-500 border border-white/5
-                                            ${log.type === 'Student' ? 'group-hover:text-blue-400' : 'group-hover:text-emerald-400'}`}>
+                                            ${log.type === 'Student' ? 'group-hover:text-sky-400' : 'group-hover:text-indigo-400'}`}>
                                             {log.type === 'Student' ? <Scan className="w-6 h-6" /> : <UserCheck className="w-6 h-6" />}
                                         </div>
                                         <div>
@@ -87,9 +87,9 @@ export const GatePage = () => {
 
                                         <div className="min-w-[140px] flex justify-end">
                                             {log.notified ? (
-                                                <div className="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 rounded-xl border border-emerald-500/10">
-                                                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                                                    <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest">Parent Link OK</span>
+                                                <div className="flex items-center gap-2 px-4 py-2 bg-indigo-500/10 rounded-xl border border-indigo-500/10">
+                                                    <CheckCircle2 className="w-4 h-4 text-indigo-500" />
+                                                    <span className="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">Parent Link OK</span>
                                                 </div>
                                             ) : (
                                                 <Button variant="ghost" className="h-9 px-4 text-[10px] border border-white/5 hover:bg-white/5">
@@ -120,7 +120,7 @@ export const GatePage = () => {
                                             initial={{ width: 0 }}
                                             animate={{ width: '93%' }}
                                             transition={{ duration: 1.5, ease: "easeOut" }}
-                                            className="h-full bg-gradient-to-r from-indigo-600 to-blue-500 rounded-full shadow-[0_0_10px_rgba(79,70,229,0.5)]"
+                                            className="h-full bg-gradient-to-r from-indigo-600 to-sky-500 rounded-full shadow-[0_0_10px_rgba(79,70,229,0.5)]"
                                         />
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@ export const GatePage = () => {
                                             initial={{ width: 0 }}
                                             animate={{ width: '94%' }}
                                             transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
-                                            className="h-full bg-gradient-to-r from-emerald-600 to-teal-500 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)]"
+                                            className="h-full bg-gradient-to-r from-indigo-600 to-teal-500 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)]"
                                         />
                                     </div>
                                 </div>
@@ -148,9 +148,9 @@ export const GatePage = () => {
                                     <span className="text-slate-400 group-hover:text-rose-400 transition-colors font-bold uppercase tracking-widest">Panic Protocol</span>
                                     <Shield className="w-4 h-4 text-rose-500 group-hover:scale-110" />
                                 </Button>
-                                <Button variant="outline" className="w-full justify-between text-[10px] h-11 border-white/5 hover:bg-blue-500/10 hover:border-blue-500/30 group">
-                                    <span className="text-slate-400 group-hover:text-blue-400 transition-colors font-bold uppercase tracking-widest">Share Manifest</span>
-                                    <Share2 className="w-4 h-4 text-blue-400 group-hover:scale-110" />
+                                <Button variant="outline" className="w-full justify-between text-[10px] h-11 border-white/5 hover:bg-sky-500/10 hover:border-sky-500/30 group">
+                                    <span className="text-slate-400 group-hover:text-sky-400 transition-colors font-bold uppercase tracking-widest">Share Manifest</span>
+                                    <Share2 className="w-4 h-4 text-sky-400 group-hover:scale-110" />
                                 </Button>
                             </div>
                         </Card>

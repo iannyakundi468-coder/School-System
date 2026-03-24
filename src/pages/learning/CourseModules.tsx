@@ -41,7 +41,7 @@ export const CourseModules = () => {
                             <p className="text-slate-400 text-sm mt-1 font-medium italic">{module.description}</p>
                         </div>
                         <div className="h-2 w-32 bg-slate-800 rounded-full overflow-hidden">
-                            <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${module.progress}%` }} />
+                            <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${module.progress}%` }} />
                         </div>
                     </div>
 
@@ -49,8 +49,8 @@ export const CourseModules = () => {
                         {module.lessons.map((lesson, idx) => (
                             <div key={idx} className="p-6 flex items-center justify-between group hover:bg-white/[0.02] transition-colors cursor-pointer">
                                 <div className="flex items-center gap-4">
-                                    <div className={`p-3 rounded-xl border ${lesson.status === 'completed' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' :
-                                            lesson.status === 'in-progress' ? 'bg-blue-500/10 border-blue-500/20 text-blue-400' :
+                                    <div className={`p-3 rounded-xl border ${lesson.status === 'completed' ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400' :
+                                            lesson.status === 'in-progress' ? 'bg-sky-500/10 border-sky-500/20 text-sky-400' :
                                                 'bg-slate-800 border-white/5 text-slate-500'
                                         }`}>
                                         {lesson.status === 'completed' ? <CheckCircle className="w-5 h-5" /> :

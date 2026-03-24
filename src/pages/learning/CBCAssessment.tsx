@@ -17,8 +17,8 @@ const strands = [
 ];
 
 const ratings = [
-    { label: 'EE', title: 'Exceeding Expectation', color: 'bg-emerald-500', bg: 'bg-emerald-500/20', text: 'text-emerald-400', border: 'border-emerald-500/30' },
-    { label: 'ME', title: 'Meeting Expectation', color: 'bg-blue-500', bg: 'bg-blue-500/20', text: 'text-blue-400', border: 'border-blue-500/30' },
+    { label: 'EE', title: 'Exceeding Expectation', color: 'bg-indigo-500', bg: 'bg-indigo-500/20', text: 'text-indigo-400', border: 'border-indigo-500/30' },
+    { label: 'ME', title: 'Meeting Expectation', color: 'bg-sky-500', bg: 'bg-sky-500/20', text: 'text-sky-400', border: 'border-sky-500/30' },
     { label: 'AE', title: 'Approaching Expectation', color: 'bg-amber-500', bg: 'bg-amber-500/20', text: 'text-amber-400', border: 'border-amber-500/30' },
     { label: 'BE', title: 'Below Expectation', color: 'bg-rose-500', bg: 'bg-rose-500/20', text: 'text-rose-400', border: 'border-rose-500/30' },
 ];
@@ -74,7 +74,7 @@ export const CBCAssessment = () => {
                                         key={s.id}
                                         onClick={() => setSelectedStudent(s)}
                                         className={`w-full text-left p-4 rounded-xl transition-all duration-200 border ${selectedStudent.id === s.id
-                                            ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400 font-semibold'
+                                            ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400 font-semibold'
                                             : 'bg-slate-900 border-white/5 text-slate-400 hover:bg-slate-800 hover:border-white/10'
                                             }`}
                                     >
@@ -95,7 +95,7 @@ export const CBCAssessment = () => {
                                         key={strand.id}
                                         onClick={() => setSelectedStrand(strand)}
                                         className={`w-full text-left p-4 rounded-xl transition-all duration-200 border ${selectedStrand.id === strand.id
-                                            ? 'bg-blue-500/10 border-blue-500/20 text-blue-400 font-semibold'
+                                            ? 'bg-sky-500/10 border-sky-500/20 text-sky-400 font-semibold'
                                             : 'bg-slate-900 border-white/5 text-slate-400 hover:bg-slate-800 hover:border-white/10'
                                             }`}
                                     >
@@ -201,15 +201,15 @@ export const CBCAssessment = () => {
                         </div>
 
                         {/* AI Insights Card (Investor Feature) */}
-                        <div className="glass-card p-6 bg-gradient-to-br from-indigo-600 to-blue-700 border-none relative overflow-hidden">
+                        <div className="glass-card p-6 bg-gradient-to-br from-indigo-600 to-sky-700 border-none relative overflow-hidden">
                             <div className="absolute top-0 right-0 p-8 opacity-10">
                                 <CheckCircle2 className="w-32 h-32 text-white" />
                             </div>
                             <div className="relative z-10">
                                 <h3 className="text-white font-bold text-lg flex items-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> AI Learning Insight
+                                    <div className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" /> AI Learning Insight
                                 </h3>
-                                <p className="text-blue-100 text-sm mt-2 max-w-md">
+                                <p className="text-sky-100 text-sm mt-2 max-w-md">
                                     Based on previous data, {selectedStudent.name.split(' ')[0]} shows strong potential in spatial reasoning. Suggesting advanced 3D modeling sub-strands for next term.
                                 </p>
                                 <button className="mt-4 text-xs font-bold text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-all">

@@ -21,8 +21,8 @@ export const AdminView = () => {
     const navigate = useNavigate();
 
     const stats = [
-        { label: 'Total Revenue', value: 'KES 14.2M', trend: '+12.5%', icon: DollarSign, color: 'emerald', delay: 0 },
-        { label: 'Active Students', value: '1,240', trend: '98%', icon: Users, color: 'blue', delay: 0.1 },
+        { label: 'Total Revenue', value: 'KES 14.2M', trend: '+12.5%', icon: DollarSign, color: 'indigo', delay: 0 },
+        { label: 'Active Students', value: '1,240', trend: '98%', icon: Users, color: 'sky', delay: 0.1 },
         { label: 'Staff Presence', value: '42 / 45', trend: '3 Away', icon: Activity, color: 'amber', delay: 0.2 },
         { label: 'Pending Issues', value: '7', trend: 'High Priority', icon: AlertCircle, color: 'rose', delay: 0.3 }
     ];
@@ -42,7 +42,7 @@ export const AdminView = () => {
                 <Button variant="secondary" className="px-6" onClick={() => navigate('/infrastructure')}>
                     <LayoutDashboard className="w-4 h-4" /> Infrastructure
                 </Button>
-                <Button variant="secondary" className="px-6 bg-emerald-600/20 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-600/30" onClick={() => navigate('/compliance')}>
+                <Button variant="secondary" className="px-6 bg-indigo-600/20 text-indigo-400 border border-indigo-500/20 hover:bg-indigo-600/30" onClick={() => navigate('/compliance')}>
                     <ShieldCheck className="w-4 h-4" /> Compliance
                 </Button>
                 <Button variant="secondary" className="px-6 bg-rose-600/20 text-rose-400 border border-rose-500/20 hover:bg-rose-600/30" onClick={() => navigate('/safety')}>
@@ -90,9 +90,9 @@ export const AdminView = () => {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         {[
-                            { icon: Scan, label: 'Smart Gate', color: 'emerald', path: '/gate' },
+                            { icon: Scan, label: 'Smart Gate', color: 'indigo', path: '/gate' },
                             { icon: Utensils, label: 'Cashless Canteen', color: 'amber', path: '/canteen' },
-                            { icon: Activity, label: 'Bus Sentinel', color: 'blue', path: '/safety' },
+                            { icon: Activity, label: 'Bus Sentinel', color: 'sky', path: '/safety' },
                             { icon: FileText, label: 'Board Reports', color: 'purple', path: '/report' }
                         ].map((btn, i) => (
                             <Button
@@ -114,14 +114,14 @@ export const AdminView = () => {
                 <Card variant="glass" className="p-8">
                     <div className="flex justify-between items-center mb-8">
                         <div className="flex items-center gap-3">
-                            <TrendingUp className="w-5 h-5 text-emerald-400" />
+                            <TrendingUp className="w-5 h-5 text-indigo-400" />
                             <h3 className="text-xl font-bold text-white">Institutional Pulse</h3>
                         </div>
-                        <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20">Hardware Sync: Active</span>
+                        <span className="text-[10px] font-bold text-indigo-400 bg-indigo-500/10 px-3 py-1.5 rounded-full border border-indigo-500/20">Hardware Sync: Active</span>
                     </div>
                     <div className="space-y-6">
                         {[
-                            { icon: Scan, color: 'emerald', title: 'Gate Entrance Verified', desc: 'Kelvin Omari arrived at 7:15 AM. Parent notified.', time: '10 mins ago' },
+                            { icon: Scan, color: 'indigo', title: 'Gate Entrance Verified', desc: 'Kelvin Omari arrived at 7:15 AM. Parent notified.', time: '10 mins ago' },
                             { icon: Utensils, color: 'amber', title: 'Canteen Flash-Sale', desc: '142 meals processed in last 30 mins.', time: '30 mins ago' },
                             { icon: AlertCircle, color: 'rose', title: 'Fuel Anomaly Detected', desc: 'Sudden drop in Bus 04 fuel level.', time: '1 hour ago' }
                         ].map((item, i) => (

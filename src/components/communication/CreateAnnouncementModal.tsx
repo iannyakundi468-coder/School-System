@@ -40,8 +40,8 @@ export const CreateAnnouncementModal = ({ onClose, onPost }: CreateAnnouncementM
                 </button>
 
                 <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                        <Megaphone className="w-5 h-5 text-emerald-400" />
+                    <div className="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center">
+                        <Megaphone className="w-5 h-5 text-indigo-400" />
                     </div>
                     <div>
                         <h2 className="text-xl font-bold text-white">New Announcement</h2>
@@ -64,7 +64,7 @@ export const CreateAnnouncementModal = ({ onClose, onPost }: CreateAnnouncementM
                     <div>
                         <label className="block text-sm font-medium text-gray-300 mb-1">Message Content</label>
                         <textarea
-                            className="w-full h-32 bg-slate-800/50 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-emerald-500/50 transition-colors resize-none"
+                            className="w-full h-32 bg-slate-800/50 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-indigo-500/50 transition-colors resize-none"
                             placeholder="Type your announcement here..."
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
@@ -78,7 +78,7 @@ export const CreateAnnouncementModal = ({ onClose, onPost }: CreateAnnouncementM
                             <div className="relative">
                                 <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                                 <select
-                                    className="w-full bg-slate-800/50 border border-slate-700 rounded-lg pl-9 pr-4 py-2 text-white focus:outline-none focus:border-emerald-500/50 appearance-none"
+                                    className="w-full bg-slate-800/50 border border-slate-700 rounded-lg pl-9 pr-4 py-2 text-white focus:outline-none focus:border-indigo-500/50 appearance-none"
                                     value={audience}
                                     onChange={(e) => setAudience(e.target.value)}
                                 >
@@ -102,7 +102,7 @@ export const CreateAnnouncementModal = ({ onClose, onPost }: CreateAnnouncementM
                                 <button
                                     type="button"
                                     onClick={() => setType('info')}
-                                    className={`flex-1 py-2 rounded-lg border flex items-center justify-center gap-1 text-xs font-bold transition-all ${type === 'info' ? 'bg-blue-500/20 border-blue-500 text-blue-400' : 'border-slate-700 text-gray-400 hover:bg-slate-800'}`}
+                                    className={`flex-1 py-2 rounded-lg border flex items-center justify-center gap-1 text-xs font-bold transition-all ${type === 'info' ? 'bg-sky-500/20 border-sky-500 text-sky-400' : 'border-slate-700 text-gray-400 hover:bg-slate-800'}`}
                                 >
                                     <Info className="w-3 h-3" /> Info
                                 </button>

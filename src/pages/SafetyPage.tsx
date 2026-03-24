@@ -54,7 +54,7 @@ export const SafetyPage = () => {
                                 <div className="p-6 bg-slate-900/50 rounded-3xl border border-white/5 group hover:bg-white/[0.04] transition-all">
                                     <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3">Total Fuel Burn</p>
                                     <p className="text-4xl font-black text-white tracking-tighter">42 <span className="text-lg text-slate-500">L/h</span></p>
-                                    <div className="flex items-center gap-2 mt-4 text-emerald-400 text-[10px] font-black uppercase tracking-widest">
+                                    <div className="flex items-center gap-2 mt-4 text-indigo-400 text-[10px] font-black uppercase tracking-widest">
                                         <Zap className="w-4 h-4 shadow-[0_0_10px_rgba(16,185,129,0.5)]" /> Optimized
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@ export const SafetyPage = () => {
                                     <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3">Safety Index</p>
                                     <div className="flex items-baseline gap-2">
                                         <p className="text-4xl font-black text-white">94.2</p>
-                                        <span className="text-[10px] font-black text-emerald-400 uppercase">Excellent</span>
+                                        <span className="text-[10px] font-black text-indigo-400 uppercase">Excellent</span>
                                     </div>
                                     <div className="h-2 w-full bg-slate-800 rounded-full mt-4 overflow-hidden p-0.5">
                                         <motion.div
@@ -87,7 +87,7 @@ export const SafetyPage = () => {
                     {/* Live Tracking Map (Mock) */}
                     <Card variant="glass" className="lg:col-span-3 min-h-[500px] relative overflow-hidden bg-slate-950 p-0 border-white/5 shadow-2xl rounded-[3rem]">
                         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-                        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-blue-500/5" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-sky-500/5" />
 
                         <div className="absolute inset-0 flex items-center justify-center p-12">
                             <div className="relative w-full h-full">
@@ -102,14 +102,14 @@ export const SafetyPage = () => {
                                     transition={{ duration: 4, repeat: Infinity }}
                                     className="absolute top-1/4 left-1/3 group cursor-pointer z-10"
                                 >
-                                    <div className="p-3 bg-emerald-500 rounded-2xl shadow-[0_0_30px_rgba(16,185,129,0.4)] border-2 border-white/20 relative">
+                                    <div className="p-3 bg-indigo-500 rounded-2xl shadow-[0_0_30px_rgba(16,185,129,0.4)] border-2 border-white/20 relative">
                                         <Navigation className="w-5 h-5 text-white rotate-45" />
-                                        <div className="absolute -inset-4 bg-emerald-500/20 rounded-full animate-ping" />
+                                        <div className="absolute -inset-4 bg-indigo-500/20 rounded-full animate-ping" />
                                     </div>
                                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 bg-slate-900/90 backdrop-blur-xl border border-white/10 p-3 rounded-2xl text-[10px] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 shadow-2xl">
                                         <p className="font-black text-white text-xs mb-1">BUS-01</p>
                                         <div className="flex items-center gap-2 text-slate-400 font-bold uppercase tracking-widest">
-                                            <span className="text-emerald-400">42 km/h</span> | Safe Ops
+                                            <span className="text-indigo-400">42 km/h</span> | Safe Ops
                                         </div>
                                     </div>
                                 </motion.div>
@@ -139,7 +139,7 @@ export const SafetyPage = () => {
                         {/* Top Controls */}
                         <div className="absolute top-10 right-10">
                             <div className="flex items-center gap-4 px-6 py-3 bg-slate-900/80 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl">
-                                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+                                <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
                                 <span className="text-[10px] font-black text-white uppercase tracking-[0.2em]">GPS Core: Online</span>
                             </div>
                         </div>
@@ -152,7 +152,7 @@ export const SafetyPage = () => {
                                 <Radio className="w-5 h-5 text-indigo-400" /> Live Transit Mesh
                             </h3>
                             <div className="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest bg-slate-900/50 px-4 py-2 rounded-full border border-white/5">
-                                <Radio className="w-3 h-3 text-emerald-400 animate-pulse" /> 12 Nodes Connected
+                                <Radio className="w-3 h-3 text-indigo-400 animate-pulse" /> 12 Nodes Connected
                             </div>
                         </div>
                         <div className="overflow-x-auto">
@@ -171,7 +171,7 @@ export const SafetyPage = () => {
                                         <tr key={bus.id} className="group transition-all">
                                             <td className="py-6 pl-8 bg-slate-900/40 border-y border-l border-white/5 rounded-l-[2rem] group-hover:bg-white/[0.04] transition-colors">
                                                 <div className="flex items-center gap-4">
-                                                    <div className={`w-3 h-3 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.5)] ${bus.status === 'Warning' ? 'bg-rose-500 shadow-rose-500/40' : 'bg-emerald-500 shadow-emerald-500/40'}`} />
+                                                    <div className={`w-3 h-3 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.5)] ${bus.status === 'Warning' ? 'bg-rose-500 shadow-rose-500/40' : 'bg-indigo-500 shadow-indigo-500/40'}`} />
                                                     <span className="font-black text-white text-lg tracking-tight">{bus.id}</span>
                                                 </div>
                                             </td>
@@ -184,14 +184,14 @@ export const SafetyPage = () => {
                                             <td className="py-6 bg-slate-900/40 border-y border-white/5 group-hover:bg-white/[0.04] transition-colors text-center">
                                                 <div className="flex flex-col items-center gap-1.5">
                                                     <div className="flex items-center gap-2">
-                                                        <Gauge className={`w-4 h-4 ${bus.fuel === '12%' ? 'text-rose-500' : 'text-emerald-500'}`} />
+                                                        <Gauge className={`w-4 h-4 ${bus.fuel === '12%' ? 'text-rose-500' : 'text-indigo-500'}`} />
                                                         <span className={`font-black text-lg ${bus.fuel === '12%' ? 'text-rose-500' : 'text-white'}`}>{bus.fuel}</span>
                                                     </div>
                                                     {bus.flag && <span className="text-[8px] font-black text-rose-500 uppercase tracking-widest bg-rose-500/10 px-2 py-0.5 rounded">Theft Risk</span>}
                                                 </div>
                                             </td>
                                             <td className="py-6 bg-slate-900/40 border-y border-white/5 group-hover:bg-white/[0.04] transition-colors text-center">
-                                                <span className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest ${bus.behavior === 'Safe' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-emerald-500/5' :
+                                                <span className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest ${bus.behavior === 'Safe' ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 shadow-indigo-500/5' :
                                                     bus.behavior === 'Idle' ? 'bg-slate-800 text-slate-500 border border-white/5' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20 shadow-rose-500/5'
                                                     }`}>
                                                     {bus.behavior}
@@ -218,18 +218,18 @@ export const SafetyPage = () => {
                                     <p className="text-slate-500 font-bold text-xs uppercase tracking-widest mt-1">Real-time student device monitoring & AI safety heuristics</p>
                                 </div>
                                 <div className="flex gap-2">
-                                    <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                                    <div className="h-2 w-2 rounded-full bg-emerald-500/30" />
-                                    <div className="h-2 w-2 rounded-full bg-emerald-500/30" />
+                                    <div className="h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />
+                                    <div className="h-2 w-2 rounded-full bg-indigo-500/30" />
+                                    <div className="h-2 w-2 rounded-full bg-indigo-500/30" />
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                                 {[
-                                    { user: 'Kevin O.', device: 'Chromebook 12', activity: 'Math Research', status: 'Safe', color: 'emerald' },
+                                    { user: 'Kevin O.', device: 'Chromebook 12', activity: 'Math Research', status: 'Safe', color: 'indigo' },
                                     { user: 'Sarah L.', device: 'iPad - Lab 4', activity: 'YouTube (Edu)', status: 'Monitored', color: 'amber' },
                                     { user: 'Brian M.', device: 'Win-PC 08', activity: 'Searching: "harmful"', status: 'Flagged', color: 'rose' },
-                                    { user: 'Anita T.', device: 'Chromebook 05', activity: 'History Quiz', status: 'Safe', color: 'emerald' },
+                                    { user: 'Anita T.', device: 'Chromebook 05', activity: 'History Quiz', status: 'Safe', color: 'indigo' },
                                 ].map((item, i) => (
                                     <div key={i} className="p-5 rounded-[2rem] bg-slate-900 border border-white/5 hover:border-white/10 transition-all group">
                                         <div className="flex items-center justify-between mb-4">
@@ -258,10 +258,10 @@ export const SafetyPage = () => {
                                 <div className="space-y-2">
                                     <div className="flex justify-between text-[10px] font-black text-slate-500 uppercase tracking-widest">
                                         <span>AI Content Filter</span>
-                                        <span className="text-emerald-400 text-[10px]">Strict</span>
+                                        <span className="text-indigo-400 text-[10px]">Strict</span>
                                     </div>
                                     <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                                        <div className="h-full w-[95%] bg-emerald-500" />
+                                        <div className="h-full w-[95%] bg-indigo-500" />
                                     </div>
                                 </div>
                                 <div className="space-y-2">

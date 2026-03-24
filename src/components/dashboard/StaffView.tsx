@@ -51,7 +51,7 @@ export const StaffView = () => {
                         <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="flex items-center gap-3 text-emerald-400 font-bold bg-emerald-500/10 px-4 py-2 rounded-xl border border-emerald-500/20 shadow-lg shadow-emerald-500/5 transition-all"
+                            className="flex items-center gap-3 text-indigo-400 font-bold bg-indigo-500/10 px-4 py-2 rounded-xl border border-indigo-500/20 shadow-lg shadow-indigo-500/5 transition-all"
                         >
                             {selectedClass.name}
                             <ChevronDown className="w-4 h-4" />
@@ -71,7 +71,7 @@ export const StaffView = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-3 w-full md:w-auto">
-                    <Button onClick={() => navigate('/gate')} variant="glass" size="sm" className="bg-emerald-500/10 text-emerald-400 border-emerald-500/10 hover:border-emerald-500/30">
+                    <Button onClick={() => navigate('/gate')} variant="glass" size="sm" className="bg-indigo-500/10 text-indigo-400 border-indigo-500/10 hover:border-indigo-500/30">
                         <Scan className="w-4 h-4" /> Smart Gate
                     </Button>
                     <Button onClick={() => navigate('/learning/assessment')} variant="glass" size="sm">
@@ -98,8 +98,8 @@ export const StaffView = () => {
                             <h3 className="text-xl font-bold text-white flex items-center gap-3">
                                 AI Teaching Copilot
                                 {aiEnabled && (
-                                    <span className="flex items-center gap-2 text-[10px] px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-tighter">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                    <span className="flex items-center gap-2 text-[10px] px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 uppercase tracking-tighter">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
                                         Streaming Insights
                                     </span>
                                 )}
@@ -141,23 +141,23 @@ export const StaffView = () => {
                         <div className="p-4 bg-slate-950/50 rounded-2xl border border-white/5 flex items-center justify-between">
                             <span className="text-sm font-bold text-white">Latest: Science Quiz</span>
                             <div className="flex items-center gap-2">
-                                <Input className="w-16 h-8 bg-slate-800 text-center font-bold text-emerald-400 border-white/10" defaultValue="85" />
+                                <Input className="w-16 h-8 bg-slate-800 text-center font-bold text-indigo-400 border-white/10" defaultValue="85" />
                                 <span className="text-[10px] font-black text-slate-500 uppercase">/100</span>
                             </div>
                         </div>
                     </div>
                 </Card>
 
-                <Card className="p-8 border-t-4 border-t-emerald-500 bg-slate-900/40">
+                <Card className="p-8 border-t-4 border-t-indigo-500 bg-slate-900/40">
                     <div className="flex items-center gap-4 mb-6">
-                        <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400">
+                        <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-400">
                             <Scan className="w-6 h-6" />
                         </div>
                         <h4 className="text-lg font-bold text-white tracking-tight">Attendance Snap</h4>
                     </div>
                     <div className="grid grid-cols-3 gap-3">
-                        <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-center">
-                            <p className="text-[10px] font-black text-emerald-500 uppercase">Present</p>
+                        <div className="p-3 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-center">
+                            <p className="text-[10px] font-black text-indigo-500 uppercase">Present</p>
                             <p className="text-xl font-black text-white">28</p>
                         </div>
                         <div className="p-3 bg-rose-500/10 border border-rose-500/20 rounded-xl text-center">
@@ -185,7 +185,7 @@ export const StaffView = () => {
                                 <p className="text-4xl font-bold text-white mt-1">{selectedClass.students}</p>
                                 <p className="text-xs text-slate-400 mt-2 font-medium">Verified Roster</p>
                             </div>
-                            <div className="p-3 bg-blue-500/10 rounded-2xl text-blue-400 border border-blue-500/10">
+                            <div className="p-3 bg-sky-500/10 rounded-2xl text-sky-400 border border-sky-500/10">
                                 <Users className="w-7 h-7" />
                             </div>
                         </div>
@@ -195,9 +195,9 @@ export const StaffView = () => {
                             <div className="flex justify-between items-start">
                                 <div>
                                     <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Today's Attendance</p>
-                                    <p className="text-3xl font-bold text-emerald-400 mt-1">{selectedClass.attendance}</p>
+                                    <p className="text-3xl font-bold text-indigo-400 mt-1">{selectedClass.attendance}</p>
                                 </div>
-                                <div className="p-3 bg-emerald-500/10 rounded-2xl text-emerald-400 border border-emerald-500/10">
+                                <div className="p-3 bg-indigo-500/10 rounded-2xl text-indigo-400 border border-indigo-500/10">
                                     <CheckCircle className="w-6 h-6" />
                                 </div>
                             </div>
@@ -216,7 +216,7 @@ export const StaffView = () => {
                     </div>
                 </div>
 
-                <Card variant="default" className="border-l-4 border-l-blue-500">
+                <Card variant="default" className="border-l-4 border-l-sky-500">
                     <div className="flex justify-between items-center mb-8">
                         <h2 className="text-xl font-bold text-white">Staff Briefing</h2>
                         <Button variant="ghost" size="sm" className="h-8 text-[10px]" onClick={() => navigate('/messages')}>
@@ -226,7 +226,7 @@ export const StaffView = () => {
                     <div className="space-y-6">
                         {[
                             { name: 'Mrs. Alice', msg: 'Reminder: Staff meeting at 2 PM.', color: 'indigo', emoji: '👩‍🏫', isNew: true },
-                            { name: 'Principal James', msg: 'Monthly performance reviews start Monday.', color: 'blue', emoji: '👨‍💼', isNew: false }
+                            { name: 'Principal James', msg: 'Monthly performance reviews start Monday.', color: 'sky', emoji: '👨‍💼', isNew: false }
                         ].map((item, i) => (
                             <motion.div
                                 key={i}
@@ -239,7 +239,7 @@ export const StaffView = () => {
                                 <div className="flex-1 min-w-0">
                                     <div className="flex justify-between items-center">
                                         <h4 className="font-bold text-sm text-white">{item.name}</h4>
-                                        {item.isNew && <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-tighter">New</span>}
+                                        {item.isNew && <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-tighter">New</span>}
                                     </div>
                                     <p className="text-xs text-slate-400 truncate mt-1 font-medium">{item.msg}</p>
                                 </div>
@@ -290,7 +290,7 @@ export const StaffView = () => {
                                     </td>
                                     <td className="py-4 text-center bg-slate-900/40 border-y border-white/5 group-hover:bg-white/5 group-hover:border-white/10 transition-colors">
                                         <span className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter
-                                            ${student.status === 'Present' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
+                                            ${student.status === 'Present' ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20' :
                                                 student.status === 'Absent' ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20' : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'}`}>
                                             {student.status}
                                         </span>

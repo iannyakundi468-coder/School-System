@@ -40,7 +40,7 @@ export const EnrollmentPage = () => {
                     {[1, 2, 3].map((s) => (
                         <div
                             key={s}
-                            className={`w-3 h-3 rounded-full transition-colors ${s === step ? 'bg-emerald-500 scale-125' : s < step ? 'bg-emerald-500/50' : 'bg-slate-700'}`}
+                            className={`w-3 h-3 rounded-full transition-colors ${s === step ? 'bg-indigo-500 scale-125' : s < step ? 'bg-indigo-500/50' : 'bg-slate-700'}`}
                         />
                     ))}
                 </div>
@@ -50,7 +50,7 @@ export const EnrollmentPage = () => {
                     {step === 1 && (
                         <div className="space-y-6 animate-fade-in">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="p-2 bg-emerald-500/10 rounded-lg"><User className="w-6 h-6 text-emerald-400" /></div>
+                                <div className="p-2 bg-indigo-500/10 rounded-lg"><User className="w-6 h-6 text-indigo-400" /></div>
                                 <h2 className="text-xl font-bold">Student Details</h2>
                             </div>
 
@@ -85,7 +85,7 @@ export const EnrollmentPage = () => {
                     {step === 2 && (
                         <div className="space-y-6 animate-fade-in">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="p-2 bg-emerald-500/10 rounded-lg"><Users className="w-6 h-6 text-emerald-400" /></div>
+                                <div className="p-2 bg-indigo-500/10 rounded-lg"><Users className="w-6 h-6 text-indigo-400" /></div>
                                 <h2 className="text-xl font-bold">Guardian Details</h2>
                             </div>
 
@@ -112,19 +112,19 @@ export const EnrollmentPage = () => {
                     {/* Step 3: Success & QR */}
                     {step === 3 && studentId && (
                         <div className="text-center space-y-6 animate-fade-in py-8">
-                            <div className="inline-flex p-4 bg-emerald-500/20 rounded-full mb-4">
-                                <CheckCircle className="w-12 h-12 text-emerald-400" />
+                            <div className="inline-flex p-4 bg-indigo-500/20 rounded-full mb-4">
+                                <CheckCircle className="w-12 h-12 text-indigo-400" />
                             </div>
 
                             <h2 className="text-2xl font-bold">Enrollment Successful!</h2>
                             <p className="text-gray-400">Student <span className="text-white font-semibold">{formData.firstName} {formData.lastName}</span> has been registered.</p>
 
-                            <div className="bg-white p-4 rounded-xl inline-block shadow-xl shadow-emerald-500/20">
+                            <div className="bg-white p-4 rounded-xl inline-block shadow-xl shadow-indigo-500/20">
                                 {/* <QRCodeSVG value={studentId} size={150} /> */}
                                 <div style={{ width: 150, height: 150, background: 'black', color: 'white' }}>QR PLACEHOLDER</div>
                             </div>
 
-                            <p className="text-sm font-mono text-emerald-400 bg-emerald-950/30 py-2 px-4 rounded-lg inline-block">
+                            <p className="text-sm font-mono text-indigo-400 bg-indigo-950/30 py-2 px-4 rounded-lg inline-block">
                                 ID: {studentId}
                             </p>
 

@@ -72,13 +72,13 @@ export const TimetablePage = () => {
 
                     {/* Optimization Metrics */}
                     <div className="space-y-6">
-                        <Card className="border-t-4 border-t-emerald-500">
+                        <Card className="border-t-4 border-t-indigo-500">
                             <h3 className="font-bold text-white mb-4">Optimization Efficiency</h3>
                             <div className="flex items-center justify-center py-6">
                                 <div className="relative w-32 h-32 flex items-center justify-center">
                                     <svg className="w-full h-full transform -rotate-90">
                                         <circle cx="64" cy="64" r="58" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-slate-800" />
-                                        <circle cx="64" cy="64" r="58" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-emerald-500" strokeDasharray="364.4" strokeDashoffset="43.7" />
+                                        <circle cx="64" cy="64" r="58" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-indigo-500" strokeDasharray="364.4" strokeDashoffset="43.7" />
                                     </svg>
                                     <div className="absolute flex flex-col items-center">
                                         <span className="text-3xl font-bold text-white">88%</span>
@@ -98,7 +98,7 @@ export const TimetablePage = () => {
                                 </div>
                                 <div className="flex justify-between text-xs">
                                     <span className="text-slate-500">Room Utilization</span>
-                                    <span className="text-emerald-400 font-bold">92.4%</span>
+                                    <span className="text-indigo-400 font-bold">92.4%</span>
                                 </div>
                                 <div className="flex justify-between text-xs">
                                     <span className="text-slate-500">Teacher Loads Balance</span>
@@ -145,7 +145,7 @@ export const TimetablePage = () => {
                                 <div key={rIdx} className="contents">
                                     <div className="p-4 text-center text-xs font-bold text-slate-400 border-r border-white/5">08:00 - 09:00</div>
                                     {[0, 1, 2, 3, 4].map((cIdx) => (
-                                        <div key={cIdx} className="p-3 bg-slate-800/30 rounded-lg border border-white/5 group hover:bg-blue-500/10 hover:border-blue-500/30 transition-all cursor-pointer">
+                                        <div key={cIdx} className="p-3 bg-slate-800/30 rounded-lg border border-white/5 group hover:bg-sky-500/10 hover:border-sky-500/30 transition-all cursor-pointer">
                                             <p className="text-[10px] font-bold text-white truncate">Mathematics</p>
                                             <p className="text-[8px] text-slate-500 font-medium">Grade 4G | R204</p>
                                         </div>

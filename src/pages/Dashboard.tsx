@@ -45,8 +45,8 @@ export const Dashboard = () => {
                     <div>
                         <h1 className="text-3xl md:text-4xl font-bold text-white">Dashboard</h1>
                         <div className="flex items-center gap-2 mt-2">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                            <p className="text-slate-500 font-medium">Welcome back, {user.name} <span className="text-slate-300 mx-1">|</span> <span className="text-emerald-600 capitalize">{user.role}</span></p>
+                            <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                            <p className="text-slate-500 font-medium">Welcome back, {user.name} <span className="text-slate-300 mx-1">|</span> <span className="text-indigo-600 capitalize">{user.role}</span></p>
                         </div>
                     </div>
                     <div className="flex gap-3 w-full md:w-auto">

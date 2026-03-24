@@ -40,26 +40,26 @@ export const DevelopmentPage = () => {
                             </div>
                         </div>
                     </Card>
-                    <Card className="border-t-4 border-emerald-500">
+                    <Card className="border-t-4 border-indigo-500">
                         <div className="flex justify-between items-start">
                             <div>
                                 <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Growth Index</p>
                                 <p className="text-3xl font-bold text-white mt-2">+18.4%</p>
-                                <p className="text-xs text-emerald-400 mt-2 font-medium">Annualized projection</p>
+                                <p className="text-xs text-indigo-400 mt-2 font-medium">Annualized projection</p>
                             </div>
-                            <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400">
+                            <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-400">
                                 <TrendingUp className="w-6 h-6" />
                             </div>
                         </div>
                     </Card>
-                    <Card className="border-t-4 border-blue-500">
+                    <Card className="border-t-4 border-sky-500">
                         <div className="flex justify-between items-start">
                             <div>
                                 <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Institutional Valor</p>
                                 <p className="text-3xl font-bold text-white mt-2">94.2</p>
-                                <p className="text-xs text-blue-400 mt-2 font-medium">Quality assurance score</p>
+                                <p className="text-xs text-sky-400 mt-2 font-medium">Quality assurance score</p>
                             </div>
-                            <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400">
+                            <div className="p-3 bg-sky-500/10 rounded-xl text-sky-400">
                                 <Landmark className="w-6 h-6" />
                             </div>
                         </div>
@@ -78,15 +78,15 @@ export const DevelopmentPage = () => {
                                             <h4 className="font-bold text-white">{project.title}</h4>
                                             <p className="text-xs text-slate-500 mt-1">Budget: {project.budget} | Priority: {project.priority}</p>
                                         </div>
-                                        <span className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase ${project.status === 'Completed' ? 'bg-emerald-500/20 text-emerald-400' :
-                                                project.status === 'In Progress' ? 'bg-blue-500/20 text-blue-400' : 'bg-slate-700 text-slate-400'
+                                        <span className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase ${project.status === 'Completed' ? 'bg-indigo-500/20 text-indigo-400' :
+                                                project.status === 'In Progress' ? 'bg-sky-500/20 text-sky-400' : 'bg-slate-700 text-slate-400'
                                             }`}>
                                             {project.status}
                                         </span>
                                     </div>
                                     <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
                                         <div
-                                            className={`h-full transition-all duration-500 ${project.completion === 100 ? 'bg-emerald-500' : 'bg-blue-500'
+                                            className={`h-full transition-all duration-500 ${project.completion === 100 ? 'bg-indigo-500' : 'bg-sky-500'
                                                 }`}
                                             style={{ width: `${project.completion}%` }}
                                         />
@@ -111,7 +111,7 @@ export const DevelopmentPage = () => {
                                     <p className="text-sm font-bold text-white">Power Grid</p>
                                     <p className="text-xs text-slate-500 mt-0.5">Stable - Primary Source</p>
                                 </div>
-                                <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                                <div className="w-2 h-2 rounded-full bg-indigo-500" />
                             </div>
                             <div className="flex items-center gap-4">
                                 <div className="p-3 bg-rose-500/10 rounded-xl text-rose-400">
@@ -121,10 +121,10 @@ export const DevelopmentPage = () => {
                                     <p className="text-sm font-bold text-white">Security Ops</p>
                                     <p className="text-xs text-slate-500 mt-0.5">All Checkpoints Active</p>
                                 </div>
-                                <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                                <div className="w-2 h-2 rounded-full bg-indigo-500" />
                             </div>
                         </div>
-                        <Button className="w-full mt-8 bg-blue-600 hover:bg-blue-700">
+                        <Button className="w-full mt-8 bg-sky-600 hover:bg-sky-700">
                             Infrastructure Audit
                         </Button>
                     </Card>

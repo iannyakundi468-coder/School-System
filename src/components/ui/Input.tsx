@@ -29,13 +29,13 @@ export const Input: React.FC<InputProps> = ({
     return (
         <div className="space-y-2 w-full group">
             {label && (
-                <label className="text-sm font-bold text-slate-400 ml-1 flex items-center gap-2 group-focus-within:text-blue-400 transition-colors">
+                <label className="text-sm font-bold text-slate-400 ml-1 flex items-center gap-2 group-focus-within:text-sky-400 transition-colors">
                     {label}
                 </label>
             )}
             <div className="relative">
                 {icon && (
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-blue-400 transition-colors">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-sky-400 transition-colors">
                         {icon}
                     </div>
                 )}
@@ -45,7 +45,7 @@ export const Input: React.FC<InputProps> = ({
             w-full bg-slate-900/50 border border-white/10 rounded-2xl
             ${icon ? 'pl-11' : 'pl-5'} pr-5 py-3.5
             text-white font-medium placeholder:text-slate-600
-            focus:outline-none focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/5
+            focus:outline-none focus:border-sky-500/50 focus:ring-4 focus:ring-sky-500/5
             transition-all duration-300
             ${error ? 'border-rose-500/50 focus:border-rose-500/50 focus:ring-rose-500/5' : ''}
             ${className}

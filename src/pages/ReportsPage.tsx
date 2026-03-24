@@ -30,19 +30,19 @@ export const ReportsPage = () => {
                 </header>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <Card className="border-t-4 border-t-emerald-500">
+                    <Card className="border-t-4 border-t-indigo-500">
                         <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Enrollment Growth</p>
                         <p className="text-3xl font-bold text-white mt-2">+12%</p>
-                        <div className="flex items-center gap-2 mt-4 text-emerald-400 text-xs">
+                        <div className="flex items-center gap-2 mt-4 text-indigo-400 text-xs">
                             <TrendingUp className="w-4 h-4" />
                             <span>Outperforming Term 2, 2025</span>
                         </div>
                     </Card>
-                    <Card className="border-t-4 border-t-blue-500">
+                    <Card className="border-t-4 border-t-sky-500">
                         <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Fee Collection</p>
                         <p className="text-3xl font-bold text-white mt-2">94.2%</p>
                         <div className="bg-slate-800 h-1 w-full mt-4 rounded-full overflow-hidden">
-                            <div className="bg-blue-500 h-full w-[94%]" />
+                            <div className="bg-sky-500 h-full w-[94%]" />
                         </div>
                     </Card>
                     <Card className="border-t-4 border-t-purple-500">
@@ -53,7 +53,7 @@ export const ReportsPage = () => {
                     <Card className="border-t-4 border-t-amber-500">
                         <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Compliance Score</p>
                         <p className="text-3xl font-bold text-white mt-2">100%</p>
-                        <div className="flex items-center gap-2 mt-4 text-emerald-400 text-xs">
+                        <div className="flex items-center gap-2 mt-4 text-indigo-400 text-xs">
                             <CheckCircle2 className="w-4 h-4" />
                             <span>Audit Passed</span>
                         </div>
@@ -76,7 +76,7 @@ export const ReportsPage = () => {
                             ].map((report, i) => (
                                 <div key={i} className="group p-4 bg-slate-900/50 hover:bg-slate-800 rounded-xl border border-white/5 transition-all flex items-center justify-between">
                                     <div className="flex items-center gap-4">
-                                        <div className="p-3 bg-slate-800 group-hover:bg-slate-700 rounded-xl text-slate-400 group-hover:text-blue-400 transition-colors">
+                                        <div className="p-3 bg-slate-800 group-hover:bg-slate-700 rounded-xl text-slate-400 group-hover:text-sky-400 transition-colors">
                                             <FileText className="w-5 h-5" />
                                         </div>
                                         <div>
@@ -84,13 +84,13 @@ export const ReportsPage = () => {
                                             <p className="text-[10px] text-slate-500 font-medium">{report.date} | {report.size}</p>
                                         </div>
                                     </div>
-                                    <Button variant="glass" className="h-9 w-9 p-0 flex items-center justify-center rounded-lg hover:bg-blue-500/20 text-blue-400">
+                                    <Button variant="glass" className="h-9 w-9 p-0 flex items-center justify-center rounded-lg hover:bg-sky-500/20 text-sky-400">
                                         <Download className="w-4 h-4" />
                                     </Button>
                                 </div>
                             ))}
                         </div>
-                        <Button className="w-full mt-8 bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center gap-2 h-12">
+                        <Button className="w-full mt-8 bg-indigo-600 hover:bg-indigo-700 flex items-center justify-center gap-2 h-12">
                             <PieChart className="w-5 h-5" /> Compile New Master Report
                         </Button>
 
@@ -139,13 +139,13 @@ export const ReportsPage = () => {
                         {/* NEW: Zeraki Inspired Topical Strength Heatmap */}
                         <Card className="bg-slate-900/40 border-slate-800">
                             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                                <TrendingUp className="w-5 h-5 text-emerald-400" /> Topical Strength Heatmap
+                                <TrendingUp className="w-5 h-5 text-indigo-400" /> Topical Strength Heatmap
                             </h3>
                             <div className="space-y-4">
                                 {[
-                                    { topic: 'Algebra', strength: 85, color: 'emerald' },
+                                    { topic: 'Algebra', strength: 85, color: 'indigo' },
                                     { topic: 'Geometry', strength: 42, color: 'rose' },
-                                    { topic: 'Calculus', strength: 71, color: 'blue' },
+                                    { topic: 'Calculus', strength: 71, color: 'sky' },
                                     { topic: 'Statistics', strength: 63, color: 'amber' },
                                 ].map((topic, i) => (
                                     <div key={i} className="flex items-center gap-4">

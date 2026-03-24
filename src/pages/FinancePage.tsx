@@ -67,15 +67,15 @@ export const FinancePage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {isAdmin ? (
                         <>
-                            <div className="stat-card border-t-4 border-emerald-500">
+                            <div className="stat-card border-t-4 border-indigo-500">
                                 <div className="flex items-center gap-4">
-                                    <div className="p-4 bg-emerald-500/10 rounded-2xl text-emerald-400">
+                                    <div className="p-4 bg-indigo-500/10 rounded-2xl text-indigo-400">
                                         <Wallet className="w-10 h-10" />
                                     </div>
                                     <div>
                                         <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none mb-2">Total Paid (YTD)</p>
                                         <p className="text-3xl font-bold text-white">KES 3.8M</p>
-                                        <p className="text-[10px] text-emerald-400 font-bold mt-1">+15% above target</p>
+                                        <p className="text-[10px] text-indigo-400 font-bold mt-1">+15% above target</p>
                                     </div>
                                 </div>
                             </div>
@@ -93,16 +93,16 @@ export const FinancePage = () => {
                                 </div>
                             </div>
 
-                            <div className="stat-card border-t-4 border-blue-500">
+                            <div className="stat-card border-t-4 border-sky-500">
                                 <div className="flex items-center gap-4">
-                                    <div className="p-4 bg-blue-500/10 rounded-2xl text-blue-400">
+                                    <div className="p-4 bg-sky-500/10 rounded-2xl text-sky-400">
                                         <AlertCircle className="w-10 h-10" />
                                     </div>
                                     <div>
                                         <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none mb-2">Collection Efficiency</p>
                                         <p className="text-3xl font-bold text-white">92.4%</p>
                                         <div className="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
-                                            <div className="bg-blue-600 h-full w-[92%]" />
+                                            <div className="bg-sky-600 h-full w-[92%]" />
                                         </div>
                                     </div>
                                 </div>
@@ -110,9 +110,9 @@ export const FinancePage = () => {
                         </>
                     ) : (
                         <>
-                            <div className="stat-card border-t-4 border-emerald-500">
+                            <div className="stat-card border-t-4 border-indigo-500">
                                 <div className="flex items-center gap-4">
-                                    <div className="p-4 bg-emerald-500/10 rounded-2xl text-emerald-400">
+                                    <div className="p-4 bg-indigo-500/10 rounded-2xl text-indigo-400">
                                         <Wallet className="w-10 h-10" />
                                     </div>
                                     <div>
@@ -136,9 +136,9 @@ export const FinancePage = () => {
                                 </div>
                             </div>
 
-                            <div className="stat-card border-t-4 border-blue-500">
+                            <div className="stat-card border-t-4 border-sky-500">
                                 <div className="flex items-center gap-4">
-                                    <div className="p-4 bg-blue-500/10 rounded-2xl text-blue-400">
+                                    <div className="p-4 bg-sky-500/10 rounded-2xl text-sky-400">
                                         <AlertCircle className="w-10 h-10" />
                                     </div>
                                     <div>
@@ -157,7 +157,7 @@ export const FinancePage = () => {
                     <h2 className="text-2xl font-bold text-white">
                         {isAdmin ? 'Institutional Revenue Stream' : 'Personal Account Statement'}
                     </h2>
-                    <p className="text-xs font-bold text-blue-400 cursor-pointer hover:underline">
+                    <p className="text-xs font-bold text-sky-400 cursor-pointer hover:underline">
                         {isAdmin ? 'Export Full Report' : 'Download PDF Receipt'}
                     </p>
                 </div>
@@ -168,8 +168,8 @@ export const FinancePage = () => {
                             <h3 className="font-bold text-white mb-4">Revenue Attribution</h3>
                             <div className="space-y-4">
                                 {[
-                                    { label: 'Tuition Fees', value: 'KES 8.2M', color: 'bg-emerald-500' },
-                                    { label: 'Transport', value: 'KES 1.4M', color: 'bg-blue-500' },
+                                    { label: 'Tuition Fees', value: 'KES 8.2M', color: 'bg-indigo-500' },
+                                    { label: 'Transport', value: 'KES 1.4M', color: 'bg-sky-500' },
                                     { label: 'Extracurricular', value: 'KES 900K', color: 'bg-amber-500' },
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center justify-between">
@@ -195,7 +195,7 @@ export const FinancePage = () => {
                                             <p className="text-sm font-medium text-white">{item.desc}</p>
                                             <p className="text-[10px] text-slate-500">{item.date}</p>
                                         </div>
-                                        <span className={`text-sm font-bold ${item.amount.startsWith('+') ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                        <span className={`text-sm font-bold ${item.amount.startsWith('+') ? 'text-indigo-400' : 'text-rose-400'}`}>
                                             {item.amount}
                                         </span>
                                     </div>
@@ -242,8 +242,8 @@ export const FinancePage = () => {
                             </thead>
                             <tbody>
                                 {[
-                                    { id: 'TX-9921', desc: 'Term 1 Balance Clearance', channel: 'M-PESA', amount: 'KES 35,000', color: 'emerald' },
-                                    { id: 'TX-8810', desc: 'Canteen Top-up (RFID)', channel: 'Wallet', amount: 'KES 1,200', color: 'blue' },
+                                    { id: 'TX-9921', desc: 'Term 1 Balance Clearance', channel: 'M-PESA', amount: 'KES 35,000', color: 'indigo' },
+                                    { id: 'TX-8810', desc: 'Canteen Top-up (RFID)', channel: 'Wallet', amount: 'KES 1,200', color: 'sky' },
                                 ].map((row, i) => (
                                     <tr key={i} className="group">
                                         <td className="py-4 pl-4 bg-slate-900/60 border-y border-l border-white/5 rounded-l-xl font-mono text-xs text-slate-400">{row.id}</td>
@@ -264,7 +264,7 @@ export const FinancePage = () => {
                     <Card className="md:col-span-2 p-8 border-t-0 bg-slate-900/40">
                         <div className="flex justify-between items-center mb-8">
                             <h3 className="text-xl font-bold text-white tracking-tight">Institutional Cashflow Summary</h3>
-                            <span className="text-[10px] font-black text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Live Audit</span>
+                            <span className="text-[10px] font-black text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">Live Audit</span>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                             {[

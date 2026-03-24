@@ -13,7 +13,7 @@ interface FeeCardProps {
 
 export const FeeCard: React.FC<FeeCardProps> = ({ title, amount, dueDate, status, onPay }) => {
     const statusColors = {
-        paid: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20',
+        paid: 'text-indigo-400 bg-indigo-400/10 border-indigo-400/20',
         pending: 'text-amber-400 bg-amber-400/10 border-amber-400/20',
         overdue: 'text-rose-400 bg-rose-400/10 border-rose-400/20',
     };
@@ -54,7 +54,7 @@ export const FeeCard: React.FC<FeeCardProps> = ({ title, amount, dueDate, status
             )}
 
             {status === 'paid' && (
-                <div className="text-center py-2 text-emerald-400 font-medium text-sm border border-emerald-500/20 rounded-lg bg-emerald-500/5">
+                <div className="text-center py-2 text-indigo-400 font-medium text-sm border border-indigo-500/20 rounded-lg bg-indigo-500/5">
                     Payment Complete
                 </div>
             )}

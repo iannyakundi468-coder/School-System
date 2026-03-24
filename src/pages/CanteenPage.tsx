@@ -64,7 +64,7 @@ export const CanteenPage = () => {
                                 >
                                     <div className="flex items-center gap-6 flex-1 w-full md:w-auto">
                                         <div className={`p-4 bg-slate-800 rounded-2xl text-slate-400 transition-all duration-500 border border-white/5
-                                            ${tx.flag ? 'bg-amber-500/10 text-amber-500 border-amber-500/20' : 'group-hover:text-blue-400 group-hover:bg-blue-500/10 group-hover:border-blue-500/20'}`}>
+                                            ${tx.flag ? 'bg-amber-500/10 text-amber-500 border-amber-500/20' : 'group-hover:text-sky-400 group-hover:bg-sky-500/10 group-hover:border-sky-500/20'}`}>
                                             <Utensils className="w-6 h-6" />
                                         </div>
                                         <div>
@@ -75,7 +75,7 @@ export const CanteenPage = () => {
 
                                     <div className="flex items-center justify-between md:justify-end gap-10 w-full md:w-auto border-t md:border-t-0 border-white/5 pt-4 md:pt-0">
                                         <div className="text-center md:text-right">
-                                            <p className="text-xl font-black text-emerald-400">{tx.amount}</p>
+                                            <p className="text-xl font-black text-indigo-400">{tx.amount}</p>
                                             <p className="text-[10px] text-slate-500 uppercase font-black tracking-widest mt-1">{tx.time}</p>
                                         </div>
 
@@ -89,9 +89,9 @@ export const CanteenPage = () => {
                                                     </div>
                                                 </div>
                                             ) : (
-                                                <div className="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 rounded-xl border border-emerald-500/10">
-                                                    <ShieldCheck className="w-4 h-4 text-emerald-500" />
-                                                    <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Verified Tx</span>
+                                                <div className="flex items-center gap-2 px-4 py-2 bg-indigo-500/10 rounded-xl border border-indigo-500/10">
+                                                    <ShieldCheck className="w-4 h-4 text-indigo-500" />
+                                                    <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">Verified Tx</span>
                                                 </div>
                                             )}
                                         </div>
@@ -105,12 +105,12 @@ export const CanteenPage = () => {
                     <div className="space-y-8">
                         <Card variant="premium" className="p-8 border-t-0 overflow-visible">
                             <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-3">
-                                <Apple className="w-5 h-5 text-emerald-400" /> Health Profile
+                                <Apple className="w-5 h-5 text-indigo-400" /> Health Profile
                             </h3>
                             <div className="flex items-center justify-center p-8 bg-white/[0.03] rounded-3xl border border-white/5 mb-8 relative group">
-                                <div className="absolute inset-0 bg-emerald-500/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div className="absolute inset-0 bg-indigo-500/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                                 <div className="text-center relative z-10">
-                                    <Apple className="w-14 h-14 text-emerald-400 mx-auto mb-3" />
+                                    <Apple className="w-14 h-14 text-indigo-400 mx-auto mb-3" />
                                     <p className="text-4xl font-black text-white">82.4%</p>
                                     <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mt-2">Balanced Index</p>
                                 </div>
@@ -118,7 +118,7 @@ export const CanteenPage = () => {
                             <div className="space-y-6">
                                 <div className="flex justify-between items-center">
                                     <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Protein Index</span>
-                                    <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">+12%</span>
+                                    <span className="text-xs font-bold text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded">+12%</span>
                                 </div>
                                 <div className="flex justify-between items-center border-t border-white/5 pt-4">
                                     <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Sugar Load</span>
@@ -128,17 +128,17 @@ export const CanteenPage = () => {
                         </Card>
 
                         <Card variant="glass" className="p-8 overflow-hidden relative">
-                            <div className="absolute -top-12 -right-12 w-32 h-32 bg-blue-500/10 blur-[60px] rounded-full" />
+                            <div className="absolute -top-12 -right-12 w-32 h-32 bg-sky-500/10 blur-[60px] rounded-full" />
                             <h3 className="text-lg font-bold text-white mb-6 flex items-center justify-between">
                                 Daily Revenue Shield
-                                <TrendingUp className="w-5 h-5 text-emerald-400" />
+                                <TrendingUp className="w-5 h-5 text-indigo-400" />
                             </h3>
                             <div className="space-y-1">
                                 <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Total Volume</p>
                                 <p className="text-4xl font-black text-white">KES 142k</p>
                             </div>
                             <p className="text-xs text-slate-400 mt-4 font-bold flex items-center gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
                                 98% via Tap-to-Eat RFID
                             </p>
                             <div className="mt-8 pt-8 border-t border-white/5">
@@ -147,7 +147,7 @@ export const CanteenPage = () => {
                                         initial={{ width: 0 }}
                                         animate={{ width: '98%' }}
                                         transition={{ duration: 1.5, ease: "easeOut" }}
-                                        className="h-full bg-gradient-to-r from-blue-600 to-indigo-500 rounded-full"
+                                        className="h-full bg-gradient-to-r from-sky-600 to-indigo-500 rounded-full"
                                     />
                                 </div>
                             </div>

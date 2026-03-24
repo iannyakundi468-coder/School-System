@@ -38,7 +38,7 @@ export const StudentPortfolio = () => {
                 {/* Filters */}
                 <div className="flex flex-wrap gap-2 pb-4 border-b border-white/5">
                     {['All Submissions', 'Grade 1', 'Grade 2', 'Grade 3', 'Mathematics', 'Language', 'Environmental'].map((f, i) => (
-                        <button key={i} className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${i === 0 ? 'bg-emerald-600 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700 border border-white/5'}`}>
+                        <button key={i} className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${i === 0 ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700 border border-white/5'}`}>
                             {f}
                         </button>
                     ))}
@@ -55,7 +55,7 @@ export const StudentPortfolio = () => {
                                         <User className="w-3 h-3" /> {item.student}
                                     </p>
                                 </div>
-                                <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-2 py-1 rounded-lg text-[10px] font-bold text-emerald-400 shadow-sm">
+                                <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-2 py-1 rounded-lg text-[10px] font-bold text-indigo-400 shadow-sm">
                                     {item.area}
                                 </div>
                             </div>
@@ -80,26 +80,26 @@ export const StudentPortfolio = () => {
                     </div>
                     <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent italic">Impact Reporting</h2>
+                            <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-transparent italic">Impact Reporting</h2>
                             <p className="mt-4 text-slate-400 leading-relaxed">
                                 Our portfolio system doesn't just store images; it maps every submission to a specific CBC competency strand. This provides parents with a visual "Living Report" of their child's growth, significantly increasing customer retention and satisfaction.
                             </p>
                             <div className="mt-8 flex gap-6">
                                 <div className="text-center">
-                                    <p className="text-3xl font-bold text-emerald-400">85%</p>
+                                    <p className="text-3xl font-bold text-indigo-400">85%</p>
                                     <p className="text-[10px] font-bold text-slate-500 uppercase mt-1">Parent Engagement</p>
                                 </div>
                                 <div className="w-px h-12 bg-slate-800" />
                                 <div className="text-center">
-                                    <p className="text-3xl font-bold text-blue-400">1.2M</p>
+                                    <p className="text-3xl font-bold text-sky-400">1.2M</p>
                                     <p className="text-[10px] font-bold text-slate-500 uppercase mt-1">Artifacts Stored</p>
                                 </div>
                             </div>
                         </div>
                         <div className="hidden md:flex justify-center">
-                            <div className="w-64 h-64 border-4 border-emerald-500/20 rounded-full flex items-center justify-center relative">
-                                <div className="w-48 h-48 border-4 border-blue-500/20 rounded-full flex items-center justify-center">
-                                    <div className="w-32 h-32 bg-emerald-500 rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/40">
+                            <div className="w-64 h-64 border-4 border-indigo-500/20 rounded-full flex items-center justify-center relative">
+                                <div className="w-48 h-48 border-4 border-sky-500/20 rounded-full flex items-center justify-center">
+                                    <div className="w-32 h-32 bg-indigo-500 rounded-full flex items-center justify-center shadow-2xl shadow-indigo-500/40">
                                         <Plus className="w-12 h-12 text-white" />
                                     </div>
                                 </div>

@@ -11,11 +11,11 @@ export const GuardianView = () => {
             {/* Quick Actions */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <Button variant="glass" className="h-24 flex flex-col gap-2" onClick={() => navigate('/finance')}>
-                    <Wallet className="w-6 h-6 text-emerald-400" />
+                    <Wallet className="w-6 h-6 text-indigo-400" />
                     <span>Pay Fees</span>
                 </Button>
                 <Button variant="glass" className="h-24 flex flex-col gap-2" onClick={() => navigate('/events')}>
-                    <Calendar className="w-6 h-6 text-blue-400" />
+                    <Calendar className="w-6 h-6 text-sky-400" />
                     <span>Events</span>
                 </Button>
                 <Button variant="glass" className="h-24 flex flex-col gap-2" onClick={() => navigate('/learning')}>
@@ -45,17 +45,17 @@ export const GuardianView = () => {
                 </Card>
 
                 {/* PowerSchool Inspired: Student Progress Radar */}
-                <Card className="bg-slate-900/40 border-t-4 border-t-blue-500">
+                <Card className="bg-slate-900/40 border-t-4 border-t-sky-500">
                     <div className="flex justify-between items-center mb-6">
                         <h2 className="text-xl font-bold text-white flex items-center gap-3">
-                            <Activity className="w-5 h-5 text-blue-400" /> Progress Radar
+                            <Activity className="w-5 h-5 text-sky-400" /> Progress Radar
                         </h2>
                         <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Live Sync</span>
                     </div>
                     <div className="space-y-4">
                         {[
-                            { subject: 'Mathematics', score: 88, color: 'emerald' },
-                            { subject: 'Science', score: 92, color: 'blue' },
+                            { subject: 'Mathematics', score: 88, color: 'indigo' },
+                            { subject: 'Science', score: 92, color: 'sky' },
                             { subject: 'English', score: 75, color: 'amber' },
                         ].map((stat, i) => (
                             <div key={i} className="space-y-2">
@@ -69,7 +69,7 @@ export const GuardianView = () => {
                             </div>
                         ))}
                     </div>
-                    <Button variant="ghost" className="w-full mt-6 h-9 text-[10px] border border-white/5 hover:bg-white/5 font-bold uppercase tracking-widest text-blue-400">
+                    <Button variant="ghost" className="w-full mt-6 h-9 text-[10px] border border-white/5 hover:bg-white/5 font-bold uppercase tracking-widest text-sky-400">
                         View Historical Trends
                     </Button>
                 </Card>
@@ -78,7 +78,7 @@ export const GuardianView = () => {
                     <div className="flex justify-between items-start mb-2">
                         <div>
                             <p className="text-gray-400 text-sm">Performance</p>
-                            <p className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">B+ (Avg)</p>
+                            <p className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors">B+ (Avg)</p>
                         </div>
                         <div className="p-2 bg-amber-500/20 rounded-lg"><TrendingUp className="w-5 h-5 text-amber-400" /></div>
                     </div>
@@ -88,7 +88,7 @@ export const GuardianView = () => {
                 <Card>
                     <div className="flex justify-between items-start mb-4">
                         <h2 className="text-xl font-bold">School Updates</h2>
-                        <span className="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-full">New</span>
+                        <span className="text-xs text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded-full">New</span>
                     </div>
                     <div className="space-y-4">
                         <div className="p-3 bg-slate-800/50 rounded-lg border border-slate-700">
@@ -96,7 +96,7 @@ export const GuardianView = () => {
                             <p className="text-xs text-gray-400 mt-1">Join us to discuss the new CBC assessments...</p>
                             <div className="flex justify-between items-center mt-2">
                                 <span className="text-[10px] text-gray-500">2 hrs ago • Admin Joseph</span>
-                                <button onClick={() => navigate('/messages')} className="text-xs text-emerald-400 hover:underline">Read More</button>
+                                <button onClick={() => navigate('/messages')} className="text-xs text-indigo-400 hover:underline">Read More</button>
                             </div>
                         </div>
                     </div>

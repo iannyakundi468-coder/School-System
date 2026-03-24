@@ -10,7 +10,7 @@ interface CourseCardProps {
     icon?: React.ElementType;
 }
 
-export const CourseCard = ({ title, progress, nextLesson, color = 'emerald', icon: Icon = BookOpen }: CourseCardProps) => {
+export const CourseCard = ({ title, progress, nextLesson, color = 'indigo', icon: Icon = BookOpen }: CourseCardProps) => {
     return (
         <Card className={`border-l-4 border-l-${color}-500 hover:bg-slate-800/50 transition-colors group cursor-pointer`}>
             <div className="flex justify-between items-start mb-4">

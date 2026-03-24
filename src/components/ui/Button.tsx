@@ -31,13 +31,13 @@ export const Button: React.FC<CombinedProps> = ({
 
   switch (variant) {
     case 'primary':
-      variantStyles = 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/20 active:bg-emerald-700';
+      variantStyles = 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-500/20 active:bg-indigo-700';
       break;
     case 'secondary':
-      variantStyles = 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20 active:bg-blue-700';
+      variantStyles = 'bg-sky-600 hover:bg-sky-500 text-white shadow-lg shadow-sky-500/20 active:bg-sky-700';
       break;
     case 'premium':
-      variantStyles = 'bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-xl shadow-indigo-500/30 hover:shadow-indigo-500/50';
+      variantStyles = 'bg-gradient-to-r from-sky-600 via-indigo-600 to-purple-600 text-white shadow-xl shadow-indigo-500/30 hover:shadow-indigo-500/50';
       break;
     case 'outline':
       variantStyles = 'border-2 border-slate-700 text-slate-300 hover:border-slate-500 hover:bg-white/5 active:bg-white/10';

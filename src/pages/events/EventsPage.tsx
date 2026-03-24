@@ -43,7 +43,7 @@ export const EventsPage = () => {
                     <span className={`text-sm font-medium ${eventsOnDay.length > 0 ? 'text-white' : 'text-gray-500'}`}>{day}</span>
                     <div className="mt-1 space-y-1">
                         {eventsOnDay.map(event => (
-                            <div key={event.id} className="text-[10px] px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 truncate font-medium border border-blue-500/30">
+                            <div key={event.id} className="text-[10px] px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 truncate font-medium border border-sky-500/30">
                                 {event.title}
                             </div>
                         ))}
@@ -66,7 +66,7 @@ export const EventsPage = () => {
                             <ChevronLeft className="w-4 h-4" /> Back to Dashboard
                         </Button>
                         <h1 className="text-3xl font-bold flex items-center gap-3">
-                            <CalendarIcon className="w-8 h-8 text-blue-400" /> School Calendar
+                            <CalendarIcon className="w-8 h-8 text-sky-400" /> School Calendar
                         </h1>
                     </div>
                     <div className="flex gap-2">
@@ -104,14 +104,14 @@ export const EventsPage = () => {
 
                         <div className="space-y-4">
                             {MOCK_EVENTS.map(event => (
-                                <Card key={event.id} className="hover:bg-slate-800 transition-colors group cursor-pointer border-l-4 border-l-blue-500">
+                                <Card key={event.id} className="hover:bg-slate-800 transition-colors group cursor-pointer border-l-4 border-l-sky-500">
                                     <div className="flex gap-4">
                                         <div className="flex flex-col items-center justify-center p-3 bg-slate-800 rounded-lg min-w-[60px]">
-                                            <span className="text-xs text-blue-400 font-bold uppercase">{new Date(event.date).toLocaleString('default', { month: 'short' })}</span>
+                                            <span className="text-xs text-sky-400 font-bold uppercase">{new Date(event.date).toLocaleString('default', { month: 'short' })}</span>
                                             <span className="text-2xl font-bold text-white">{new Date(event.date).getDate()}</span>
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className="font-bold text-white group-hover:text-blue-400 transition-colors">{event.title}</h3>
+                                            <h3 className="font-bold text-white group-hover:text-sky-400 transition-colors">{event.title}</h3>
                                             <p className="text-xs text-gray-400 mt-1 line-clamp-2">{event.description}</p>
                                             <div className="flex items-center gap-4 mt-3 text-xs text-gray-500">
                                                 <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {event.time}</span>
@@ -123,8 +123,8 @@ export const EventsPage = () => {
                             ))}
                         </div>
 
-                        <Card className="bg-gradient-to-br from-emerald-500/10 to-blue-500/10 border-emerald-500/20">
-                            <h3 className="font-bold text-emerald-400 mb-2">Did You Know?</h3>
+                        <Card className="bg-gradient-to-br from-indigo-500/10 to-sky-500/10 border-indigo-500/20">
+                            <h3 className="font-bold text-indigo-400 mb-2">Did You Know?</h3>
                             <p className="text-sm text-gray-300">You can subscribe to these events on your phone's calendar so you never miss an important school date.</p>
                         </Card>
                     </div>

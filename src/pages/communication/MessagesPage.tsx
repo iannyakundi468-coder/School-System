@@ -22,7 +22,7 @@ export const MessagesPage = () => {
 
     const messages = [
         { id: 1, sender: 'Mary Omari', role: 'Guardian', subject: 'Bus Delay - Route 04', preview: 'Is the bus delayed? It usually arrives at 7:10...', time: '10:15 AM', sentiment: 'Concerned', color: 'amber', avatar: '👩' },
-        { id: 2, sender: 'Principal James', role: 'Admin', subject: 'Term 1 Strategy', preview: 'Regarding the new IoT rollout, we need to...', time: '09:45 AM', sentiment: 'Positive', color: 'emerald', avatar: '👨' },
+        { id: 2, sender: 'Principal James', role: 'Admin', subject: 'Term 1 Strategy', preview: 'Regarding the new IoT rollout, we need to...', time: '09:45 AM', sentiment: 'Positive', color: 'indigo', avatar: '👨' },
         { id: 3, sender: 'John K.', role: 'Guardian', subject: 'Fees Query', preview: 'I paid via M-Pesa but the balance hasn\'t updated...', time: 'Yesterday', sentiment: 'Negative', color: 'rose', avatar: '🧔' },
     ];
 
@@ -45,7 +45,7 @@ export const MessagesPage = () => {
                         <p className="text-slate-400 font-bold mt-3 text-lg">AI-driven sentiment analytics & community "Pulse" monitoring.</p>
                     </div>
                     <div className="flex gap-4">
-                        <Button variant="premium" size="lg" className="shadow-2xl shadow-blue-500/20">
+                        <Button variant="premium" size="lg" className="shadow-2xl shadow-sky-500/20">
                             <Send className="w-5 h-5 mr-1" /> Broadcast Announcement
                         </Button>
                     </div>
@@ -60,18 +60,18 @@ export const MessagesPage = () => {
                             </h3>
                             <div className="space-y-8">
                                 <div className="p-6 bg-white/[0.03] rounded-[2rem] border border-white/5 text-center relative group overflow-hidden">
-                                    <div className="absolute inset-0 bg-emerald-500/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <div className="absolute inset-0 bg-indigo-500/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
                                     <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4 relative z-10">Institutional Mood</p>
                                     <div className="flex items-center justify-center gap-3 relative z-10">
-                                        <Heart className="w-6 h-6 text-emerald-400 fill-emerald-400" />
-                                        <p className="text-4xl font-black text-emerald-400">Optimistic</p>
+                                        <Heart className="w-6 h-6 text-indigo-400 fill-indigo-400" />
+                                        <p className="text-4xl font-black text-indigo-400">Optimistic</p>
                                     </div>
                                     <p className="text-xs text-slate-500 font-bold mt-3 relative z-10">84% Engagement Affinity</p>
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="p-5 p-5 bg-slate-900/50 rounded-2xl border border-white/5 text-center">
-                                        <TrendingUp className="w-6 h-6 text-emerald-400 mx-auto mb-2" />
+                                        <TrendingUp className="w-6 h-6 text-indigo-400 mx-auto mb-2" />
                                         <p className="text-2xl font-black text-white">+12%</p>
                                         <p className="text-[10px] text-slate-500 font-black uppercase tracking-tighter">Growth</p>
                                     </div>
@@ -92,7 +92,7 @@ export const MessagesPage = () => {
                                         >
                                             <div className="flex justify-between items-start mb-2">
                                                 <p className="text-sm font-black text-white">{zone.zone}</p>
-                                                <span className={`text-[10px] font-black uppercase tracking-tighter ${zone.trend === 'up' ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                <span className={`text-[10px] font-black uppercase tracking-tighter ${zone.trend === 'up' ? 'text-indigo-400' : 'text-rose-400'}`}>
                                                     {zone.status}
                                                 </span>
                                             </div>
@@ -179,20 +179,20 @@ export const MessagesPage = () => {
                                         transition={{ delay: i * 0.1 }}
                                         className="p-8 hover:bg-white/[0.03] transition-all cursor-pointer flex flex-col md:flex-row gap-8 group relative overflow-hidden"
                                     >
-                                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-blue-500 transition-colors" />
+                                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-sky-500 transition-colors" />
 
                                         <div className="flex items-center gap-6 flex-1">
                                             <div className="relative">
                                                 <div className="w-16 h-16 rounded-[1.5rem] bg-slate-800 flex items-center justify-center text-3xl border border-white/10 group-hover:scale-105 transition-transform duration-500">
                                                     {msg.avatar}
                                                 </div>
-                                                <div className={`absolute -bottom-1 -right-1 p-1.5 rounded-full ${msg.color === 'emerald' ? 'bg-emerald-500' : msg.color === 'amber' ? 'bg-amber-500' : 'bg-rose-500'} shadow-[0_0_10px_rgba(0,0,0,0.5)]`}>
+                                                <div className={`absolute -bottom-1 -right-1 p-1.5 rounded-full ${msg.color === 'indigo' ? 'bg-indigo-500' : msg.color === 'amber' ? 'bg-amber-500' : 'bg-rose-500'} shadow-[0_0_10px_rgba(0,0,0,0.5)]`}>
                                                     <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
                                                 </div>
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex flex-wrap items-center gap-3 mb-2">
-                                                    <h4 className="font-black text-white text-lg group-hover:text-blue-400 transition-colors uppercase tracking-tighter">{msg.sender}</h4>
+                                                    <h4 className="font-black text-white text-lg group-hover:text-sky-400 transition-colors uppercase tracking-tighter">{msg.sender}</h4>
                                                     <span className="text-[10px] font-black text-slate-500 px-3 py-1 bg-slate-800 rounded-full border border-white/5 uppercase tracking-widest">{msg.role}</span>
                                                     <span className="text-[10px] font-black text-slate-600 ml-auto uppercase tracking-widest">{msg.time}</span>
                                                 </div>
@@ -207,7 +207,7 @@ export const MessagesPage = () => {
                                                 AI: {msg.sentiment}
                                             </div>
                                             <div className="flex items-center gap-3">
-                                                <CheckCircle2 className="w-6 h-6 text-slate-700 group-hover:text-blue-500 transition-all duration-500 group-hover:scale-110" />
+                                                <CheckCircle2 className="w-6 h-6 text-slate-700 group-hover:text-sky-500 transition-all duration-500 group-hover:scale-110" />
                                             </div>
                                         </div>
                                     </motion.div>

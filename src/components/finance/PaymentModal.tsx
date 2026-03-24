@@ -49,7 +49,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, tit
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
 
-            <Card className="w-full max-w-md relative z-10 animate-fade-in border-emerald-500/30">
+            <Card className="w-full max-w-md relative z-10 animate-fade-in border-indigo-500/30">
                 <button
                     onClick={onClose}
                     className="absolute right-4 top-4 text-gray-400 hover:text-white"
@@ -69,7 +69,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, tit
 
                         <button
                             onClick={() => setStep('input-mpesa')}
-                            className="w-full p-4 rounded-xl bg-slate-800/50 hover:bg-emerald-500/20 border border-slate-700 hover:border-emerald-500/50 transition-all flex items-center justify-between group"
+                            className="w-full p-4 rounded-xl bg-slate-800/50 hover:bg-indigo-500/20 border border-slate-700 hover:border-indigo-500/50 transition-all flex items-center justify-between group"
                         >
                             <div className="flex items-center gap-4">
                                 <div className="p-2 bg-green-500/20 rounded-lg text-green-400">
@@ -80,15 +80,15 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, tit
                                     <p className="text-xs text-gray-400">Automatic STK Push</p>
                                 </div>
                             </div>
-                            <ArrowRight className="w-5 h-5 text-gray-500 group-hover:text-emerald-400" />
+                            <ArrowRight className="w-5 h-5 text-gray-500 group-hover:text-indigo-400" />
                         </button>
 
                         <button
                             onClick={() => setStep('input-bank')}
-                            className="w-full p-4 rounded-xl bg-slate-800/50 hover:bg-blue-500/20 border border-slate-700 hover:border-blue-500/50 transition-all flex items-center justify-between group"
+                            className="w-full p-4 rounded-xl bg-slate-800/50 hover:bg-sky-500/20 border border-slate-700 hover:border-sky-500/50 transition-all flex items-center justify-between group"
                         >
                             <div className="flex items-center gap-4">
-                                <div className="p-2 bg-blue-500/20 rounded-lg text-blue-400">
+                                <div className="p-2 bg-sky-500/20 rounded-lg text-sky-400">
                                     <Building2 className="w-6 h-6" />
                                 </div>
                                 <div className="text-left">
@@ -96,7 +96,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, tit
                                     <p className="text-xs text-gray-400">KCB / Equity / Co-op</p>
                                 </div>
                             </div>
-                            <ArrowRight className="w-5 h-5 text-gray-500 group-hover:text-blue-400" />
+                            <ArrowRight className="w-5 h-5 text-gray-500 group-hover:text-sky-400" />
                         </button>
 
                         <button
@@ -176,7 +176,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, tit
 
                 {step === 'processing' && (
                     <div className="text-center py-8 space-y-4">
-                        <Loader2 className="w-12 h-12 text-emerald-400 animate-spin mx-auto" />
+                        <Loader2 className="w-12 h-12 text-indigo-400 animate-spin mx-auto" />
                         <div>
                             <h3 className="text-lg font-semibold text-white">Processing...</h3>
                             <p className="text-gray-400 text-sm">Verifying transaction</p>
@@ -186,7 +186,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, tit
 
                 {step === 'success' && (
                     <div className="text-center py-8 space-y-4">
-                        <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto animate-bounce">
+                        <div className="w-16 h-16 bg-indigo-500 rounded-full flex items-center justify-center mx-auto animate-bounce">
                             <CheckCircle className="w-8 h-8 text-white" />
                         </div>
                         <div>

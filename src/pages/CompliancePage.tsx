@@ -15,8 +15,8 @@ export const CompliancePage = () => {
     const navigate = useNavigate();
 
     const complianceItems = [
-        { id: 1, title: 'TSC Certifications', progress: 95, detail: '42/45 Staff Verified', status: 'Optimal', icon: BadgeCheck, color: 'text-emerald-400' },
-        { id: 2, title: 'Insurance (Student)', progress: 100, detail: 'All students covered', status: 'Optimal', icon: ShieldCheck, color: 'text-emerald-400' },
+        { id: 1, title: 'TSC Certifications', progress: 95, detail: '42/45 Staff Verified', status: 'Optimal', icon: BadgeCheck, color: 'text-indigo-400' },
+        { id: 2, title: 'Insurance (Student)', progress: 100, detail: 'All students covered', status: 'Optimal', icon: ShieldCheck, color: 'text-indigo-400' },
         { id: 3, title: 'Fire Safety Audit', progress: 20, detail: 'Expiring in 14 days', status: 'Action Required', icon: AlertCircle, color: 'text-rose-400' },
         { id: 4, title: 'Health Certificates', progress: 80, detail: 'Kitchen staff pending', status: 'Pending', icon: FileText, color: 'text-amber-400' },
     ];
@@ -37,7 +37,7 @@ export const CompliancePage = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {complianceItems.map((item) => (
-                        <Card key={item.id} className={`border-l-4 ${item.status === 'Optimal' ? 'border-emerald-500' : item.status === 'Pending' ? 'border-amber-500' : 'border-rose-500'}`}>
+                        <Card key={item.id} className={`border-l-4 ${item.status === 'Optimal' ? 'border-indigo-500' : item.status === 'Pending' ? 'border-amber-500' : 'border-rose-500'}`}>
                             <div className="flex justify-between items-start">
                                 <div className="flex gap-4">
                                     <div className={`p-3 rounded-xl bg-slate-900/50 ${item.color}`}>
@@ -48,7 +48,7 @@ export const CompliancePage = () => {
                                         <p className="text-xs text-slate-500 font-medium">{item.detail}</p>
                                     </div>
                                 </div>
-                                <span className={`text-[10px] font-bold uppercase px-2 py-1 rounded ${item.status === 'Optimal' ? 'bg-emerald-500/10 text-emerald-400' :
+                                <span className={`text-[10px] font-bold uppercase px-2 py-1 rounded ${item.status === 'Optimal' ? 'bg-indigo-500/10 text-indigo-400' :
                                         item.status === 'Pending' ? 'bg-amber-500/10 text-amber-400' : 'bg-rose-500/10 text-rose-400'
                                     }`}>
                                     {item.status}
@@ -61,8 +61,8 @@ export const CompliancePage = () => {
                                 </div>
                                 <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
                                     <div
-                                        className={`h-full transition-all duration-700 ${item.progress === 100 ? 'bg-emerald-500' :
-                                                item.progress > 50 ? 'bg-blue-500' : 'bg-rose-500'
+                                        className={`h-full transition-all duration-700 ${item.progress === 100 ? 'bg-indigo-500' :
+                                                item.progress > 50 ? 'bg-sky-500' : 'bg-rose-500'
                                             }`}
                                         style={{ width: `${item.progress}%` }}
                                     />
@@ -82,7 +82,7 @@ export const CompliancePage = () => {
                         ].map((audit, i) => (
                             <div key={i} className="flex items-center justify-between p-4 bg-slate-900/50 rounded-xl border border-white/5">
                                 <div className="flex items-center gap-4">
-                                    <Calendar className="w-5 h-5 text-blue-400" />
+                                    <Calendar className="w-5 h-5 text-sky-400" />
                                     <div>
                                         <p className="text-sm font-bold text-white">{audit.title}</p>
                                         <p className="text-xs text-slate-500">{audit.type}</p>

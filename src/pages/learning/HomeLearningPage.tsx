@@ -14,7 +14,7 @@ export const HomeLearningPage = () => {
             <div className="max-w-7xl mx-auto space-y-8">
                 <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-white/5">
                     <div>
-                        <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">
+                        <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
                             Home Learning Hub
                         </h1>
                         <p className="text-gray-400 mt-1 font-medium italic">Premium CBC-aligned digital learning experience.</p>
@@ -61,13 +61,13 @@ export const HomeLearningPage = () => {
                             title="Mathematics - Grade 6 (CBC)"
                             progress={65}
                             nextLesson="Fractions and Decimals"
-                            color="emerald"
+                            color="indigo"
                         />
                         <CourseCard
                             title="Science and Technology - Grade 6"
                             progress={40}
                             nextLesson="The Water Cycle"
-                            color="blue"
+                            color="sky"
                             icon={BookOpen}
                         />
                         <CourseCard
@@ -87,26 +87,26 @@ export const HomeLearningPage = () => {
 
                 {activeTab === 'assignments' && (
                     <div className="space-y-6 max-w-4xl">
-                        <Card className="flex items-center justify-between group hover:border-emerald-500/50 transition-all p-6 backdrop-blur-md bg-slate-900/40">
+                        <Card className="flex items-center justify-between group hover:border-indigo-500/50 transition-all p-6 backdrop-blur-md bg-slate-900/40">
                             <div className="flex items-center gap-5">
                                 <div className="p-4 bg-rose-500/10 rounded-2xl text-rose-400 border border-rose-500/20">
                                     <Clock className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white text-lg group-hover:text-emerald-400 transition-colors">CBC Math: Market Transactions & Percentages</h3>
+                                    <h3 className="font-bold text-white text-lg group-hover:text-indigo-400 transition-colors">CBC Math: Market Transactions & Percentages</h3>
                                     <p className="text-sm text-gray-400">Deadline: Tomorrow, 4:00 PM • Priority High</p>
                                 </div>
                             </div>
                             <Button variant="glass" className="px-8 border-white/10">Start</Button>
                         </Card>
 
-                        <Card className="flex items-center justify-between group hover:border-emerald-500/50 transition-all p-6 backdrop-blur-md bg-slate-900/40">
+                        <Card className="flex items-center justify-between group hover:border-indigo-500/50 transition-all p-6 backdrop-blur-md bg-slate-900/40">
                             <div className="flex items-center gap-5">
-                                <div className="p-4 bg-blue-500/10 rounded-2xl text-blue-400 border border-blue-500/20">
+                                <div className="p-4 bg-sky-500/10 rounded-2xl text-sky-400 border border-sky-500/20">
                                     <BookOpen className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white text-lg group-hover:text-emerald-400 transition-colors">Science: Indigenous Plants of Nyanza</h3>
+                                    <h3 className="font-bold text-white text-lg group-hover:text-indigo-400 transition-colors">Science: Indigenous Plants of Nyanza</h3>
                                     <p className="text-sm text-gray-400">Deadline: Friday, 20th Oct • Term Project</p>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@ export const HomeLearningPage = () => {
                         <h3 className="text-slate-500 text-xs font-bold mt-12 mb-4 px-2 uppercase tracking-widest">Completed Portfolio Pieces</h3>
                         <Card className="flex items-center justify-between opacity-60 p-6 bg-slate-900/20 border-white/5">
                             <div className="flex items-center gap-5">
-                                <div className="p-4 bg-emerald-500/10 rounded-2xl text-emerald-400 border border-emerald-500/20">
+                                <div className="p-4 bg-indigo-500/10 rounded-2xl text-indigo-400 border border-indigo-500/20">
                                     <CheckCircle className="w-6 h-6" />
                                 </div>
                                 <div>
@@ -125,8 +125,8 @@ export const HomeLearningPage = () => {
                                 </div>
                             </div>
                             <div className="text-right">
-                                <span className="text-emerald-400 text-xl font-black">95/100</span>
-                                <p className="text-[10px] text-emerald-500/60 font-bold uppercase">Excellent</p>
+                                <span className="text-indigo-400 text-xl font-black">95/100</span>
+                                <p className="text-[10px] text-indigo-500/60 font-bold uppercase">Excellent</p>
                             </div>
                         </Card>
                     </div>
@@ -136,7 +136,7 @@ export const HomeLearningPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <Card className="bg-slate-900/40 border-slate-800 p-8 backdrop-blur-md">
                             <h3 className="font-bold text-white text-xl mb-6 flex items-center gap-3">
-                                <Download className="w-5 h-5 text-emerald-400" /> Study Guides
+                                <Download className="w-5 h-5 text-indigo-400" /> Study Guides
                             </h3>
                             <div className="space-y-4">
                                 {[

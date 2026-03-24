@@ -41,7 +41,7 @@ export const OperationsPage = () => {
                         <p className="text-slate-400 font-bold mt-3 text-lg">Hardware auditing, predictive procurement and IoT energy surveillance.</p>
                     </div>
                     <div className="flex gap-4">
-                        <Button variant="glass" className="h-12 border-white/10 text-blue-400 hover:text-white group">
+                        <Button variant="glass" className="h-12 border-white/10 text-sky-400 hover:text-white group">
                             <RefreshCw className="w-4 h-4 mr-2 group-hover:rotate-180 transition-transform duration-500" /> Rescan Infrastructure
                         </Button>
                     </div>
@@ -50,13 +50,13 @@ export const OperationsPage = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     {/* AI Energy Guardian */}
                     <Card variant="premium" className="lg:col-span-1 p-0 overflow-hidden border-t-0">
-                        <div className="p-8 border-b border-white/5 bg-blue-500/5">
+                        <div className="p-8 border-b border-white/5 bg-sky-500/5">
                             <div className="flex justify-between items-center mb-2">
                                 <h2 className="text-2xl font-bold text-white flex items-center gap-3">
-                                    <Zap className="w-6 h-6 text-blue-400" /> Energy Guardian
+                                    <Zap className="w-6 h-6 text-sky-400" /> Energy Guardian
                                 </h2>
-                                <span className="flex items-center gap-2 text-[10px] font-black text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/10">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Live
+                                <span className="flex items-center gap-2 text-[10px] font-black text-indigo-400 bg-indigo-500/10 px-3 py-1.5 rounded-full border border-indigo-500/10">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" /> Live
                                 </span>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ export const OperationsPage = () => {
                         <div className="p-8 space-y-8">
                             <div className="p-6 bg-slate-900/50 rounded-3xl border border-white/5 relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                                    <Activity className="w-16 h-16 text-blue-400" />
+                                    <Activity className="w-16 h-16 text-sky-400" />
                                 </div>
                                 <div className="flex justify-between items-baseline mb-6">
                                     <p className="text-xs font-black text-slate-500 uppercase tracking-widest">Active Power Load</p>
@@ -77,9 +77,9 @@ export const OperationsPage = () => {
                                             initial={{ height: 0 }}
                                             animate={{ height: `${h}%` }}
                                             transition={{ delay: i * 0.05, duration: 1, ease: "easeOut" }}
-                                            className="flex-1 bg-gradient-to-t from-blue-600/10 to-blue-500/40 rounded-t-lg group-hover:to-blue-400 transition-all cursor-crosshair relative"
+                                            className="flex-1 bg-gradient-to-t from-sky-600/10 to-sky-500/40 rounded-t-lg group-hover:to-sky-400 transition-all cursor-crosshair relative"
                                         >
-                                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-sky-400 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
                                         </motion.div>
                                     ))}
                                 </div>
@@ -146,7 +146,7 @@ export const OperationsPage = () => {
                                     </div>
                                     <div className="text-right">
                                         <p className="text-[10px] text-slate-500 uppercase font-black tracking-widest">{item.time}</p>
-                                        <Button variant="ghost" className="h-10 text-[10px] font-black tracking-widest uppercase text-blue-400 hover:bg-blue-400/10 hover:text-blue-300 px-4 mt-2 bg-white/5 border border-white/5">
+                                        <Button variant="ghost" className="h-10 text-[10px] font-black tracking-widest uppercase text-sky-400 hover:bg-sky-400/10 hover:text-sky-300 px-4 mt-2 bg-white/5 border border-white/5">
                                             Re-Allocate
                                         </Button>
                                     </div>
@@ -198,13 +198,13 @@ export const OperationsPage = () => {
                                                 </span>
                                             </td>
                                             <td className="py-6 bg-slate-900/40 border-y border-white/5 group-hover:bg-white/[0.04] transition-colors">
-                                                <span className="text-[10px] font-black text-emerald-400 bg-emerald-500/10 px-4 py-2 rounded-xl border border-emerald-500/10 uppercase tracking-[0.1em]">
+                                                <span className="text-[10px] font-black text-indigo-400 bg-indigo-500/10 px-4 py-2 rounded-xl border border-indigo-500/10 uppercase tracking-[0.1em]">
                                                     {item.action}
                                                 </span>
                                             </td>
                                             <td className="py-6 text-right pr-8 bg-slate-900/40 border-y border-r border-white/5 rounded-r-3xl group-hover:bg-white/[0.04] transition-colors">
                                                 <span className={`inline-block px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg ${item.status === 'Urgent' ? 'bg-rose-500/20 text-rose-400 border border-rose-500/20 shadow-rose-900/20' :
-                                                        item.status === 'Scheduled' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/20 shadow-blue-900/20' : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 shadow-emerald-900/20'
+                                                        item.status === 'Scheduled' ? 'bg-sky-500/20 text-sky-400 border border-sky-500/20 shadow-sky-900/20' : 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/20 shadow-indigo-900/20'
                                                     }`}>
                                                     {item.status}
                                                 </span>
