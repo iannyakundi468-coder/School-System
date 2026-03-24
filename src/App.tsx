@@ -21,6 +21,7 @@ import { TimetablePage } from './pages/TimetablePage';
 import { GatePage } from './pages/GatePage';
 import { CanteenPage } from './pages/CanteenPage';
 import { ReportsPage } from './pages/ReportsPage';
+import { HistoricalPerformance } from './pages/academic/HistoricalPerformance';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -35,6 +36,7 @@ function AnimatedRoutes() {
         <Route path="/enrollment" element={<EnrollmentPage />} />
         <Route path="/messages" element={<MessagesPage />} />
         <Route path="/report" element={<StudentReport />} />
+        <Route path="/history" element={<HistoricalPerformance />} />
         <Route path="/reports" element={<ReportsPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/learning" element={<HomeLearningPage />} />
