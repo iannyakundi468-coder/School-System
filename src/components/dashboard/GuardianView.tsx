@@ -73,7 +73,7 @@ export const GuardianView = () => {
                             </div>
                         ))}
                     </div>
-                    <Button variant="ghost" className="w-full mt-6 h-9 text-[10px] border border-white/5 hover:bg-white/5 font-bold uppercase tracking-widest text-sky-400">
+                    <Button variant="ghost" className="w-full mt-6 h-9 text-[10px] border border-white/5 hover:bg-white/5 font-bold uppercase tracking-widest text-sky-400" onClick={() => navigate('/report')}>
                         View Historical Trends
                     </Button>
                 </Card>
