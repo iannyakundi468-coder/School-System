@@ -96,7 +96,7 @@ export const OperationsPage = () => {
                                     </div>
                                 </div>
                                 <p className="text-xs text-slate-300 leading-relaxed font-bold">
-                                    Sudden flow spike (14.2 L/min) detected. Solian AI engaged emergency shutoff and alerted Caretaker.
+                                    Sudden flow spike (14.2 L/min) detected. SomoBloom AI engaged emergency shutoff and alerted Caretaker.
                                 </p>
                                 <Button variant="premium" className="w-full mt-6 bg-gradient-to-r from-rose-600 to-rose-700 shadow-rose-900/50 h-10 text-[10px] font-black tracking-widest uppercase">
                                     <ShieldAlert className="w-4 h-4 mb-0.5" /> Manual Valve Override

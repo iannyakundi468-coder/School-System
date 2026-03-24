@@ -112,7 +112,7 @@ export const MessagesPage = () => {
                             </div>
                             <p className="text-[10px] font-black text-indigo-400 uppercase mb-3 tracking-[0.2em]">Crisis Shield</p>
                             <p className="text-sm text-slate-300 leading-relaxed font-bold">
-                                Solian AI is actively scanning feedback for "At-Risk" keywords to preempt bulk student transfers.
+                                SomoBloom AI is actively scanning feedback for "At-Risk" keywords to preempt bulk student transfers.
                             </p>
                             <Button variant="ghost" className="mt-6 w-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/10 h-10 text-[10px] font-black uppercase tracking-widest">
                                 Manage Alerts

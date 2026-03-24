@@ -43,7 +43,7 @@ export const GuardianView = () => {
                         <div>
                             <p className="font-bold text-lg text-white">Ian Manyara</p>
                             <p className="text-gray-400 text-sm">Form 3 - Simba House</p>
-                            <p className="text-indigo-400 text-xs mt-1 font-mono">ID: SOL-2024-001</p>
+                            <p className="text-indigo-400 text-xs mt-1 font-mono">ID: SOM-2024-001</p>
                         </div>
                     </div>
                 </Card>
@@ -101,4 +101,4 @@ export const GuardianView = () => {
     );
 };
 
-// St Joseph's Academy V1.0
+// SomoBloom V1.0

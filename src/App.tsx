@@ -64,4 +64,4 @@ export default function App() {
   );
 }
 
-// St Joseph's Academy V1.2 - Premium Experience
+// SomoBloom V1.2 - Premium Experience

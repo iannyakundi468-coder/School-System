@@ -15,7 +15,8 @@ export const Card: React.FC<CardProps> = ({
     className = '',
     variant = 'default',
     delay = 0,
-    hover = true
+    hover = true,
+    onClick
 }) => {
     const baseStyles = 'rounded-3xl p-6 transition-all duration-300 border';
 
@@ -28,6 +29,7 @@ export const Card: React.FC<CardProps> = ({
 
     return (
         <motion.div
+            onClick={onClick}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{

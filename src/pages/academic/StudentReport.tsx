@@ -176,4 +176,4 @@ const Users = ({ className }: { className?: string }) => (
     </svg>
 );
 
-// St Joseph's Academy V1.0
+// SomoBloom V1.0

@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')!).render(
     </ErrorBoundary>
   </StrictMode>,
 )
-console.log('Solian Wolves v1.2 - offline mode disabled');
+console.log('SomoBloom Wolves v1.2 - offline mode disabled');
 
 // Service Worker Disabled for Development
 // if ('serviceWorker' in navigator) {
@@ -28,4 +28,4 @@ console.log('Solian Wolves v1.2 - offline mode disabled');
 //   });
 // }
 
-// Solian Wolves V1.1
+// SomoBloom Wolves V1.1

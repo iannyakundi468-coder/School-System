@@ -31,7 +31,7 @@ export const LoginPage = () => {
     return (
         <AuthLayout
             title={`Welcome back, ${role.charAt(0).toUpperCase() + role.slice(1)}`}
-            subtitle="Access your St Joseph's Academy portal securely."
+            subtitle="Access your SomoBloom portal securely."
         >
             <div className="flex justify-center gap-4 mb-8">
                 <button
@@ -111,4 +111,4 @@ export const LoginPage = () => {
     );
 };
 
-// St Joseph's Academy V1.0
+// SomoBloom V1.0

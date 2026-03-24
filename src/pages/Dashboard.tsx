@@ -65,4 +65,4 @@ export const Dashboard = () => {
     )
 }
 
-// The St Joseph's Kisii South Academy V1.0
+// SomoBloom V1.0
