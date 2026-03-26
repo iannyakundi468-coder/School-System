@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             if (res.ok) {
                 const data = await res.json();
                 setUser(data.user);
-                localStorage.setItem('st_josephs_user', JSON.stringify(data.user));
+                localStorage.setItem('somobloom_user', JSON.stringify(data.user));
                 return;
             }
         } catch (error) {
@@ -46,17 +46,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             id: Math.random().toString(36).substr(2, 9),
         };
         setUser(mockUser);
-        localStorage.setItem('st_josephs_user', JSON.stringify(mockUser));
+        localStorage.setItem('somobloom_user', JSON.stringify(mockUser));
     };
 
     const logout = () => {
         setUser(null);
-        localStorage.removeItem('st_josephs_user');
+        localStorage.removeItem('somobloom_user');
     };
 
     // Load user from local storage
     React.useEffect(() => {
-        const stored = localStorage.getItem('st_josephs_user');
+        const stored = localStorage.getItem('somobloom_user');
         if (stored) setUser(JSON.parse(stored));
     }, []);
 
@@ -75,4 +75,4 @@ export const useAuth = () => {
     return context;
 };
 
-// The St Joseph's Kisii South Academy V1.0
+// SomoBloom V1.0

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap } from 'lucide-react';
+import { Logo } from '../components/ui/Logo';
 
 interface AuthLayoutProps {
     children: React.ReactNode;
@@ -16,11 +16,8 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitl
                     <div className="absolute top-[-20%] left-[-20%] w-[80%] h-[80%] bg-indigo-500/10 rounded-full blur-[120px] animate-pulse"></div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                    <div className="p-2 bg-indigo-500/20 rounded-lg backdrop-blur-sm">
-                        <GraduationCap className="w-8 h-8 text-indigo-400" />
-                    </div>
-                    <span className="font-bold text-2xl tracking-tight">SomoBloom</span>
+                <div className="flex items-center">
+                    <Logo iconClassName="h-10 w-10 sm:h-12 sm:w-12 text-indigo-400" textClassName="font-bold text-3xl tracking-tight ml-2 text-white" />
                 </div>
 
                 <div className="space-y-6 max-w-lg">
