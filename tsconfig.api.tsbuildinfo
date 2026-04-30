@@ -1,0 +1,1 @@
+{"root":["./functions/api/hello.ts","./functions/api/ai/chat.ts","./functions/api/auth/login.ts","./functions/api/events/index.ts","./functions/api/students/index.ts"],"version":"5.9.3"}
