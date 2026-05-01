@@ -1,16 +1,39 @@
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/ui/Button';
-import { ArrowLeft, Plus, Camera, FolderOpen, Heart, User } from 'lucide-react';
-
-const portfolios = [
-    { id: 1, title: 'Clay Modeling - Farm Animals', date: '2026-03-01', student: 'Alice Wambui', image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=500&q=80', likes: 12, area: 'Creative Arts' },
-    { id: 2, title: 'Drawing: My Neighborhood', date: '2026-02-28', student: 'Sarah Njeri', image: 'https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=500&q=80', likes: 8, area: 'Language' },
-    { id: 3, title: 'Number Chart Construction', date: '2026-02-25', student: 'John Kamau', image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80', likes: 15, area: 'Mathematics' },
-    { id: 4, title: 'Singing Game: Mtoto Wetu', date: '2026-02-20', student: 'James Maina', image: 'https://images.unsplash.com/photo-1514466750941-c80f08779607?w=500&q=80', likes: 20, area: 'Music' },
-];
+import { 
+    ArrowLeft, Plus, Camera, FolderOpen, Heart, User, 
+    LayoutGrid, List, Search, Filter, SlidersHorizontal 
+} from 'lucide-react';
+import { usePortfolio } from '../../context/PortfolioContext';
+import { EvidenceUpload } from '../../components/portfolio/EvidenceUpload';
+import { PortfolioPreview } from '../../components/portfolio/PortfolioPreview';
+import { PortfolioItem } from '../../types/portfolio';
+import { useTranslation } from 'react-i18next';
+import { LanguageToggle } from '../../components/ui/LanguageToggle';
+import { GamificationStats } from '../../components/ui/GamificationStats';
 
 export const StudentPortfolio = () => {
     const navigate = useNavigate();
+    const { items } = usePortfolio();
+    const { t } = useTranslation();
+    
+    // UI State
+    const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+    const [isUploadOpen, setIsUploadOpen] = useState(false);
+    const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [activeFilter, setActiveFilter] = useState('All Submissions');
+
+    // Filtering Logic
+    const filteredItems = useMemo(() => {
+        return items.filter(item => {
+            const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                 item.student.toLowerCase().includes(searchQuery.toLowerCase());
+            const matchesFilter = activeFilter === 'All Submissions' || item.area === activeFilter;
+            return matchesSearch && matchesFilter;
+        });
+    }, [items, searchQuery, activeFilter]);
 
     return (
         <div className="min-h-screen bg-mesh p-4 md:p-8">
@@ -21,93 +44,171 @@ export const StudentPortfolio = () => {
                             <ArrowLeft className="w-5 h-5" />
                         </Button>
                         <div>
-                            <h1 className="text-3xl font-bold text-white">Student Portfolios</h1>
+                            <h1 className="text-3xl font-bold text-white">{t('portfolio')}</h1>
                             <p className="text-slate-400 font-medium tracking-tight">Digital evidence of blended academic progress.</p>
                         </div>
                     </div>
-                    <div className="flex gap-3 w-full md:w-auto">
-                        <Button variant="outline" className="flex-1 md:flex-none h-11 border-white/10 text-slate-300">
-                            <Camera className="w-4 h-4 mr-2" /> Quick Snap
-                        </Button>
-                        <Button className="btn-primary flex-1 md:flex-none h-11">
-                            <Plus className="w-4 h-4 mr-2" /> Upload Work
-                        </Button>
+                    <div className="flex flex-col md:flex-row items-end md:items-center gap-4">
+                        <div className="flex items-center gap-3">
+                            <GamificationStats />
+                            <LanguageToggle />
+                        </div>
+                        <div className="flex gap-3 w-full md:w-auto">
+                            <Button variant="outline" className="flex-1 md:flex-none h-11 border-white/10 text-slate-300">
+                                <Camera className="w-4 h-4 mr-2" /> Quick Snap
+                            </Button>
+                            <Button className="btn-primary flex-1 md:flex-none h-11" onClick={() => setIsUploadOpen(true)}>
+                                <Plus className="w-4 h-4 mr-2" /> {t('upload')}
+                            </Button>
+                        </div>
                     </div>
                 </header>
 
-                {/* Filters */}
+                {/* Toolbar */}
+                <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center bg-slate-900/40 p-4 rounded-2xl border border-white/5 backdrop-blur-md">
+                    <div className="relative w-full md:w-96">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                        <input 
+                            value={searchQuery}
+                            onChange={e => setSearchQuery(e.target.value)}
+                            placeholder="Search students or artifacts..."
+                            className="w-full h-10 bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        />
+                    </div>
+
+                    <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
+                        <div className="flex bg-white/5 p-1 rounded-lg border border-white/10 mr-2">
+                            <button 
+                                onClick={() => setViewMode('grid')}
+                                className={`p-1.5 rounded-md transition-all ${viewMode === 'grid' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'}`}
+                            >
+                                <LayoutGrid className="w-4 h-4" />
+                            </button>
+                            <button 
+                                onClick={() => setViewMode('list')}
+                                className={`p-1.5 rounded-md transition-all ${viewMode === 'list' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'}`}
+                            >
+                                <List className="w-4 h-4" />
+                            </button>
+                        </div>
+                        <Button variant="outline" size="sm" className="h-9 border-white/10 text-slate-400">
+                            <SlidersHorizontal className="w-3.5 h-3.5 mr-2" /> More Filters
+                        </Button>
+                    </div>
+                </div>
+
+                {/* Categories */}
                 <div className="flex flex-wrap gap-2 pb-4 border-b border-white/5">
-                    {['All Submissions', 'JSS Grade 7', 'JSS Grade 8', 'Form 1', 'Form 2', 'CBC', '8-4-4'].map((f, i) => (
-                        <button key={i} className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${i === 0 ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700 border border-white/5'}`}>
+                    {['All Submissions', 'Creative Arts', 'Mathematics', 'Language', 'Science', 'Music'].map((f, i) => (
+                        <button 
+                            key={i} 
+                            onClick={() => setActiveFilter(f)}
+                            className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${activeFilter === f ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30' : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800 border border-white/5'}`}
+                        >
                             {f}
                         </button>
                     ))}
                 </div>
 
-                {/* Portfolio Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {portfolios.map((item) => (
-                        <div key={item.id} className="glass-card flex flex-col group overflow-hidden">
-                            <div className="relative aspect-[4/3] overflow-hidden">
-                                <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                                    <p className="text-white text-xs font-medium flex items-center gap-1">
-                                        <User className="w-3 h-3" /> {item.student}
-                                    </p>
+                {/* Portfolio Display */}
+                {filteredItems.length === 0 ? (
+                    <div className="py-20 flex flex-col items-center justify-center text-center space-y-4 glass-card border-dashed">
+                        <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center text-slate-600">
+                            <FolderOpen className="w-8 h-8" />
+                        </div>
+                        <div>
+                            <h3 className="text-white font-bold">No evidence found</h3>
+                            <p className="text-slate-500 text-sm max-w-xs mt-1">Try adjusting your search or filters, or upload new evidence.</p>
+                        </div>
+                        <Button variant="outline" size="sm" onClick={() => {setSearchQuery(''); setActiveFilter('All Submissions');}}>
+                            Clear All Filters
+                        </Button>
+                    </div>
+                ) : viewMode === 'grid' ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {filteredItems.map((item) => (
+                            <div 
+                                key={item.id} 
+                                onClick={() => setSelectedItem(item)}
+                                className="glass-card flex flex-col group overflow-hidden cursor-pointer hover:border-indigo-500/30 transition-colors"
+                            >
+                                <div className="relative aspect-[4/3] overflow-hidden">
+                                    {item.type === 'image' ? (
+                                        <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                    ) : (
+                                        <div className="w-full h-full bg-slate-800 flex items-center justify-center text-slate-500">
+                                            <FileText className="w-10 h-10" />
+                                        </div>
+                                    )}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                        <p className="text-white text-xs font-medium flex items-center gap-1">
+                                            <User className="w-3 h-3" /> {item.student}
+                                        </p>
+                                    </div>
+                                    <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-2 py-1 rounded-lg text-[10px] font-bold text-indigo-400 shadow-sm">
+                                        {item.area}
+                                    </div>
                                 </div>
-                                <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-2 py-1 rounded-lg text-[10px] font-bold text-indigo-400 shadow-sm">
-                                    {item.area}
+                                <div className="p-5 flex flex-col flex-1">
+                                    <h3 className="text-white font-bold text-sm leading-tight mb-2 group-hover:text-indigo-400 transition-colors">{item.title}</h3>
+                                    <div className="mt-auto flex justify-between items-center pt-4 border-t border-white/5">
+                                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{item.date}</span>
+                                        <div className="flex items-center gap-1.5 text-rose-500">
+                                            <Heart className="w-4 h-4" />
+                                            <span className="text-xs font-bold">{item.likes}</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="p-5 flex flex-col flex-1">
-                                <h3 className="text-white font-bold text-sm leading-tight mb-2">{item.title}</h3>
-                                <div className="mt-auto flex justify-between items-center pt-4 border-t border-white/5">
-                                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{item.date}</span>
-                                    <div className="flex items-center gap-1.5 text-rose-500 cursor-pointer">
-                                        <Heart className="w-4 h-4" />
+                        ))}
+                    </div>
+                ) : (
+                    <div className="space-y-3">
+                        {filteredItems.map((item) => (
+                            <div 
+                                key={item.id} 
+                                onClick={() => setSelectedItem(item)}
+                                className="glass-card p-4 flex items-center gap-6 cursor-pointer hover:border-indigo-500/30 transition-all group"
+                            >
+                                <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-slate-800">
+                                    {item.type === 'image' ? (
+                                        <img src={item.url} className="w-full h-full object-cover" alt="" />
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center text-slate-500">
+                                            <FileText className="w-6 h-6" />
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="text-white font-bold text-sm truncate group-hover:text-indigo-400 transition-colors">{item.title}</h3>
+                                    <div className="flex items-center gap-3 mt-1">
+                                        <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">{item.area}</span>
+                                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{item.student}</span>
+                                    </div>
+                                </div>
+                                <div className="text-right flex-shrink-0 hidden md:block">
+                                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{item.date}</p>
+                                    <div className="flex items-center justify-end gap-1.5 text-rose-500 mt-1">
+                                        <Heart className="w-3.5 h-3.5" />
                                         <span className="text-xs font-bold">{item.likes}</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Investor Spotlight (Value Prop) */}
-                <div className="glass-card p-10 bg-slate-900 text-white relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-12 opacity-10">
-                        <FolderOpen className="w-48 h-48" />
+                        ))}
                     </div>
-                    <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-transparent italic">Impact Reporting</h2>
-                            <p className="mt-4 text-slate-400 leading-relaxed">
-                                Our portfolio system doesn't just store images; it maps every submission to a specific CBC competency strand or KCSE syllabus topic. This provides parents with a visual "Living Report" of their child's growth.
-                            </p>
-                            <div className="mt-8 flex gap-6">
-                                <div className="text-center">
-                                    <p className="text-3xl font-bold text-indigo-400">85%</p>
-                                    <p className="text-[10px] font-bold text-slate-500 uppercase mt-1">Parent Engagement</p>
-                                </div>
-                                <div className="w-px h-12 bg-slate-800" />
-                                <div className="text-center">
-                                    <p className="text-3xl font-bold text-sky-400">1.2M</p>
-                                    <p className="text-[10px] font-bold text-slate-500 uppercase mt-1">Artifacts Stored</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="hidden md:flex justify-center">
-                            <div className="w-64 h-64 border-4 border-indigo-500/20 rounded-full flex items-center justify-center relative">
-                                <div className="w-48 h-48 border-4 border-sky-500/20 rounded-full flex items-center justify-center">
-                                    <div className="w-32 h-32 bg-indigo-500 rounded-full flex items-center justify-center shadow-2xl shadow-indigo-500/40">
-                                        <Plus className="w-12 h-12 text-white" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                )}
             </div>
+
+            {/* Modals & Overlays */}
+            <EvidenceUpload 
+                isOpen={isUploadOpen} 
+                onClose={() => setIsUploadOpen(false)} 
+            />
+            
+            <PortfolioPreview 
+                item={selectedItem} 
+                onClose={() => setSelectedItem(null)} 
+            />
         </div>
     );
 };

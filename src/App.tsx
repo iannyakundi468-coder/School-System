@@ -24,6 +24,11 @@ import { ReportsPage } from './pages/ReportsPage';
 import { HistoricalPerformance } from './pages/academic/HistoricalPerformance';
 import { RoleManagement } from './pages/admin/RoleManagement';
 import { AuditLogs } from './pages/admin/AuditLogs';
+import { PortfolioProvider } from './context/PortfolioContext';
+import { GamificationProvider } from './context/GamificationContext';
+import { ParentFeesPage } from './pages/parent/ParentFeesPage';
+
+
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -53,6 +58,7 @@ function AnimatedRoutes() {
         <Route path="/timetable" element={<TimetablePage />} />
         <Route path="/gate" element={<GatePage />} />
         <Route path="/canteen" element={<CanteenPage />} />
+        <Route path="/parent/fees" element={<ParentFeesPage />} />
       </Routes>
     </AnimatePresence>
   );
@@ -61,11 +67,14 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <AuthProvider>
-      <SettingsProvider>
-        <BrowserRouter>
-          <AnimatedRoutes />
-        </BrowserRouter>
-      </SettingsProvider>
+      <GamificationProvider>
+        <PortfolioProvider>
+          <SettingsProvider>
+          <BrowserRouter>
+            <AnimatedRoutes />
+          </BrowserRouter>
+        </SettingsProvider>
+      </PortfolioProvider>
     </AuthProvider>
   );
 }
