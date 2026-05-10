@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useStudent } from '../context/StudentContext';
-import { Camera, Save, X, Edit2, AlertCircle } from 'lucide-react';
+import { Camera, Save, X, Edit2, AlertCircle, User } from 'lucide-react';
 
 const profileSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -14,7 +14,7 @@ const profileSchema = z.object({
 });
 
 export default function Profile() {
-  const { studentData, updateProfile } = useStudent();
+  const { studentData, updateProfile, toggleAiStudy } = useStudent();
   const [isEditing, setIsEditing] = useState(false);
   const [avatarPreview, setAvatarPreview] = useState(studentData.avatarUrl);
 
@@ -52,11 +52,13 @@ export default function Profile() {
   };
 
   const handleAvatarChange = (e) => {
-    // Just a UI preview for the mock data, no actual upload yet
     const file = e.target.files?.[0];
     if (file) {
-      const url = URL.createObjectURL(file);
-      setAvatarPreview(url);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAvatarPreview(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -84,17 +86,23 @@ export default function Profile() {
           {/* Avatar Section */}
           <div className="flex items-center gap-6 pb-8 border-b border-gray-100 dark:border-gray-700">
             <div className="relative group">
-              <img
-                src={avatarPreview}
-                alt="Avatar preview"
-                className="w-24 h-24 rounded-full object-cover border-4 border-gray-50 dark:border-gray-700"
-              />
-              {isEditing && (
-                <label className="absolute inset-0 flex items-center justify-center bg-black/50 text-white rounded-full cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Camera size={24} />
-                  <input type="file" className="hidden" accept="image/*" onChange={handleAvatarChange} />
-                </label>
-              )}
+              <div className="w-24 h-24 rounded-full border-4 border-gray-50 dark:border-gray-700 flex items-center justify-center bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                {avatarPreview ? (
+                  <img
+                    src={avatarPreview}
+                    alt="Avatar preview"
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <User className="text-gray-400" size={48} />
+                )}
+                {isEditing && (
+                  <label className="absolute inset-0 flex items-center justify-center bg-black/50 text-white cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Camera size={24} />
+                    <input type="file" className="hidden" accept="image/*" onChange={handleAvatarChange} />
+                  </label>
+                )}
+              </div>
             </div>
             <div>
               <h3 className="text-xl font-bold">{studentData.name}</h3>
@@ -243,6 +251,29 @@ export default function Profile() {
           )}
         </form>
       </div>
+
+      {/* Demo Controls (Since there's no backend) */}
+      <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-3xl p-6 border border-indigo-100 dark:border-indigo-800">
+        <h3 className="text-sm font-bold text-indigo-900 dark:text-indigo-300 uppercase tracking-wider mb-4">Demo Controls</h3>
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="font-semibold text-gray-900 dark:text-white">AI Study Assistant</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Simulate a teacher enabling or disabling this feature for your account.</p>
+          </div>
+          <button
+            onClick={() => toggleAiStudy()}
+            className={`px-4 py-2 rounded-xl font-bold text-sm transition-colors ${
+              studentData.aiStudyEnabled
+                ? 'bg-red-100 text-red-600 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400'
+                : 'bg-green-100 text-green-600 hover:bg-green-200 dark:bg-green-900/30 dark:text-green-400'
+            }`}
+          >
+            {studentData.aiStudyEnabled ? 'Disable AI (Mock)' : 'Enable AI (Mock)'}
+          </button>
+        </div>
+      </div>
+
     </div>
   );
 }
+

@@ -1,36 +1,45 @@
 import { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, User, LogOut, GraduationCap, BookOpen, Users, Menu, X, ChevronDown, Bell } from 'lucide-react';
+import { LayoutDashboard, User, LogOut, GraduationCap, BookOpen, Users, Menu, X, ChevronDown, Bell, FolderGit2, Bot } from 'lucide-react';
 import { ErrorBoundary } from '../components/common/ErrorBoundary';
 import { useTeacher } from '../context/TeacherContext';
+import { useStudent } from '../context/StudentContext';
+import GlobalAiAssistant from '../components/ai/GlobalAiAssistant';
 
-export default function PortalLayout() {
-  const { teacherData, logout } = useTeacher();
+export default function PortalLayout({ role }) {
+  const { teacherData, logout: teacherLogout } = useTeacher();
+  const { studentData, logout: studentLogout } = useStudent();
   const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
 
-  const notifications = [
-    { id: 1, title: 'New Submission', text: 'Sarah Smith submitted a portfolio item.', time: '10m ago' },
-    { id: 2, title: 'Attendance Reminder', text: 'Grade 4 Science attendance is pending.', time: '1h ago' },
-  ];
+  const isTeacher = role === 'teacher';
 
-  const navItems = [
+  const navItems = isTeacher ? [
     { to: '/teacher', label: 'Dashboard', icon: LayoutDashboard },
     { to: '/teacher/classes', label: 'My Classes', icon: Users },
     { to: '/teacher/portfolio', label: 'Portfolio Manager', icon: BookOpen },
     { to: '/teacher/profile', label: 'Settings', icon: User },
+  ] : [
+    { to: '/student', label: 'Dashboard', icon: LayoutDashboard },
+    { to: '/student/portfolio', label: 'Portfolio', icon: FolderGit2 },
+    { to: '/student/ai-study', label: 'AI Study Center', icon: Bot },
+    { to: '/student/profile', label: 'Profile', icon: User },
   ];
 
   const handleLogout = () => {
-    logout();
+    if (isTeacher) teacherLogout();
+    else studentLogout();
     navigate('/');
   };
 
+  const userData = isTeacher ? teacherData : studentData;
+
   return (
     <div className="flex h-screen bg-white text-slate-900 font-sans overflow-hidden">
+      {!isTeacher && <GlobalAiAssistant />}
       
-      {/* Sidebar - Professional SaaS Style */}
+      {/* Sidebar */}
       <aside className={`
         fixed inset-y-0 left-0 z-50 w-64 bg-white text-slate-600 border-r border-slate-200 transform transition-transform duration-200 ease-in-out md:relative md:translate-x-0
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
@@ -38,25 +47,27 @@ export default function PortalLayout() {
         <div className="h-full flex flex-col">
           {/* Brand */}
           <div className="p-6 flex items-center gap-3 border-b border-slate-100">
-            <div className="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center">
-              <GraduationCap size={20} className="text-white" />
+            <div className={`w-8 h-8 ${isTeacher ? 'bg-indigo-600' : 'bg-yellow-400'} rounded flex items-center justify-center shadow-sm`}>
+              <GraduationCap size={20} className={isTeacher ? "text-white" : "text-slate-900"} />
             </div>
             <span className="text-xl font-bold text-slate-900 tracking-tight">Somobloom</span>
           </div>
 
           {/* Nav */}
           <nav className="flex-1 px-3 py-6 space-y-1">
-            <p className="px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Main Menu</p>
+            <p className="px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              {isTeacher ? 'Teacher Menu' : 'Student Menu'}
+            </p>
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
-                end={item.to === '/teacher'}
+                end={item.to === (isTeacher ? '/teacher' : '/student')}
                 onClick={() => setIsSidebarOpen(false)}
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-3 py-2 rounded text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-indigo-50 text-indigo-700'
+                      ? isTeacher ? 'bg-indigo-50 text-indigo-700' : 'bg-blue-50 text-blue-700'
                       : 'hover:bg-slate-50 hover:text-slate-900'
                   }`
                 }
@@ -71,17 +82,17 @@ export default function PortalLayout() {
           <div className="p-4 border-t border-slate-100">
             <div className="flex items-center gap-3 p-2 rounded hover:bg-slate-50 transition-colors cursor-pointer group">
               <div className="w-8 h-8 rounded bg-slate-50 flex items-center justify-center text-xs font-bold text-slate-600 overflow-hidden border border-slate-200">
-                {teacherData?.avatarUrl ? (
-                  <img src={teacherData.avatarUrl} alt="" className="w-full h-full object-cover" />
+                {userData?.avatarUrl ? (
+                  <img src={userData.avatarUrl} alt="" className="w-full h-full object-cover" />
                 ) : (
-                  teacherData?.name.charAt(0)
+                  userData?.name?.charAt(0) || 'U'
                 )}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-bold text-slate-900 truncate">{teacherData?.name}</p>
-                <p className="text-[10px] text-slate-400 truncate">{teacherData?.school}</p>
+                <p className="text-xs font-bold text-slate-900 truncate">{userData?.name}</p>
+                <p className="text-[10px] text-slate-400 truncate">{isTeacher ? userData?.school : userData?.grade}</p>
               </div>
-              <button onClick={handleLogout} className="text-slate-400 group-hover:text-red-500">
+              <button onClick={handleLogout} className="text-slate-400 group-hover:text-red-500 transition-colors">
                 <LogOut size={16} />
               </button>
             </div>
@@ -90,7 +101,7 @@ export default function PortalLayout() {
       </aside>
 
       {/* Main Container */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-slate-50/30">
         
         {/* Top Navbar */}
         <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 z-30">
@@ -101,7 +112,7 @@ export default function PortalLayout() {
           <div className="hidden md:flex items-center gap-2 text-sm text-slate-500 font-medium">
             <span>Portal</span>
             <span className="text-slate-300">/</span>
-            <span className="text-slate-900">Dashboard</span>
+            <span className="text-slate-900">{isTeacher ? 'Teacher' : 'Student'}</span>
           </div>
 
           <div className="flex items-center gap-4 relative">
@@ -120,7 +131,13 @@ export default function PortalLayout() {
                   <button onClick={() => setIsNotificationsOpen(false)} className="text-[10px] font-bold text-indigo-600 uppercase">Clear All</button>
                 </div>
                 <div className="divide-y divide-slate-50">
-                  {notifications.map(n => (
+                  {(isTeacher ? [
+                    { id: 1, title: 'New Submission', text: 'Sarah Smith submitted a portfolio item.', time: '10m ago' },
+                    { id: 2, title: 'Attendance Reminder', text: 'Grade 4 Science attendance is pending.', time: '1h ago' },
+                  ] : [
+                    { id: 1, title: 'Assignment Due', text: 'Math homework is due today.', time: '2h ago' },
+                    { id: 2, title: 'New Badge!', text: 'You earned the "Fast Learner" badge.', time: '5h ago' },
+                  ]).map(n => (
                     <div key={n.id} className="p-4 hover:bg-slate-50 transition-colors cursor-pointer text-left">
                       <p className="text-sm font-bold text-slate-900">{n.title}</p>
                       <p className="text-xs text-slate-500 mt-0.5">{n.text}</p>
@@ -128,23 +145,20 @@ export default function PortalLayout() {
                     </div>
                   ))}
                 </div>
-                <div className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-center">
-                  <button className="text-xs font-bold text-slate-600">View All Notifications</button>
-                </div>
               </div>
             )}
             <div className="h-8 w-[1px] bg-slate-200"></div>
             <div className="flex items-center gap-3">
-              <span className="text-sm font-semibold text-slate-700 hidden sm:block">{teacherData?.name}</span>
+              <span className="text-sm font-semibold text-slate-700 hidden sm:block">{userData?.name}</span>
               <div className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-xs font-bold text-slate-600">
-                {teacherData?.name.charAt(0)}
+                {userData?.name?.charAt(0) || 'U'}
               </div>
             </div>
           </div>
         </header>
 
         {/* Scrollable Content */}
-        <main className="flex-1 overflow-auto bg-white p-6 md:p-8">
+        <main className="flex-1 overflow-auto p-6 md:p-8">
           <div className="max-w-6xl mx-auto">
             <ErrorBoundary>
               <Outlet />

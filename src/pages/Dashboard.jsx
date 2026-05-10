@@ -3,7 +3,7 @@ import CourseCard from '../components/dashboard/CourseCard';
 import TaskChecklist from '../components/dashboard/TaskChecklist';
 import XPBar from '../components/gamification/XPBar';
 import BadgeGrid from '../components/gamification/BadgeGrid';
-import { Star, ArrowRight } from 'lucide-react';
+import { Star, ArrowRight, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
@@ -13,19 +13,25 @@ export default function Dashboard() {
     <div className="space-y-8 animate-in fade-in duration-500">
       
       {/* Welcome Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-gradient-to-br from-indigo-900 to-blue-900 text-white p-8 rounded-3xl shadow-lg relative overflow-hidden">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-yellow-400 text-slate-900 p-8 rounded-3xl shadow-lg relative overflow-hidden">
         {/* Decorative background element */}
-        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-white opacity-5 blur-3xl"></div>
+        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-white opacity-40 blur-3xl"></div>
         
         <div className="flex items-center gap-6 relative z-10">
-          <img 
-            src={studentData.avatarUrl} 
-            alt={studentData.name} 
-            className="w-20 h-20 rounded-full border-4 border-white/20 bg-white/10"
-          />
+          <div className="w-20 h-20 rounded-full border-4 border-black/10 bg-black/5 flex items-center justify-center overflow-hidden">
+            {studentData.avatarUrl ? (
+              <img 
+                src={studentData.avatarUrl} 
+                alt={studentData.name} 
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <User className="text-black/40" size={32} />
+            )}
+          </div>
           <div>
             <h2 className="text-3xl font-bold mb-1">Welcome back, {studentData.name.split(' ')[0]}!</h2>
-            <p className="text-blue-200">{studentData.grade}</p>
+            <p className="text-slate-800 font-medium">{studentData.grade}</p>
           </div>
         </div>
       </div>

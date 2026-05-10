@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const StudentContext = createContext(null);
 
@@ -19,19 +19,42 @@ const DEFAULT_PORTAL_DATA = {
     { id: 104, title: 'Essay Draft', dueDate: 'Next Monday', completed: true, course: 'Literature' },
   ],
   portfolio: [
-    { id: 201, title: 'Science Fair Project: Solar Ovens', date: 'Oct 15, 2025', course: 'Physics 101', type: 'Project', tags: ['Science', 'Practical'], imageUrl: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=400', description: 'Built a working solar oven using recycled materials that successfully boiled water.' },
-    { id: 202, title: 'Historical Essay: The Renaissance', date: 'Nov 02, 2025', course: 'World History', type: 'Essay', tags: ['History', 'Writing'], imageUrl: 'https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&q=80&w=400', description: 'A 10-page research paper exploring the economic factors that drove the Renaissance.' },
-    { id: 203, title: 'Calculus Final Exam', date: 'Dec 10, 2025', course: 'Advanced Mathematics', type: 'Exam', tags: ['Math', 'Test'], imageUrl: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=400', description: 'Scored 98% on the final exam covering integrals and derivatives.' },
-  ]
+    { id: 201, title: 'Science Fair Project: Solar Ovens', date: 'Oct 15, 2025', course: 'Physics 101', type: 'Project', tags: ['Science', 'Practical'], imageUrl: null, description: 'Built a working solar oven using recycled materials that successfully boiled water.' },
+    { id: 202, title: 'Historical Essay: The Renaissance', date: 'Nov 02, 2025', course: 'World History', type: 'Essay', tags: ['History', 'Writing'], imageUrl: null, description: 'A 10-page research paper exploring the economic factors that drove the Renaissance.' },
+    { id: 203, title: 'Calculus Final Exam', date: 'Dec 10, 2025', course: 'Advanced Mathematics', type: 'Exam', tags: ['Math', 'Test'], imageUrl: null, description: 'Scored 98% on the final exam covering integrals and derivatives.' },
+  ],
+  marks: {
+    rats: [85, 92, 88],
+    cats: [90, 85, 95]
+  },
+  attendance: {
+    present: 42,
+    total: 45
+  },
+  aiStudyEnabled: false
 };
 
 export function StudentProvider({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [studentData, setStudentData] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('studentAuthenticated') === 'true';
+  });
+  const [studentData, setStudentData] = useState(() => {
+    const saved = localStorage.getItem('studentData');
+    return saved ? JSON.parse(saved) : null;
+  });
+
+  useEffect(() => {
+    if (studentData) {
+      localStorage.setItem('studentData', JSON.stringify(studentData));
+      localStorage.setItem('studentAuthenticated', 'true');
+    } else {
+      localStorage.removeItem('studentData');
+      localStorage.setItem('studentAuthenticated', 'false');
+    }
+  }, [studentData]);
 
   // Called from the login/onboarding page
   const login = (profileData) => {
-    const avatarSeed = encodeURIComponent(profileData.name);
     const newStudent = {
       ...DEFAULT_PORTAL_DATA,
       id: 'STU-' + Math.floor(1000 + Math.random() * 9000),
@@ -41,7 +64,8 @@ export function StudentProvider({ children }) {
       grade: profileData.grade,
       interests: profileData.interests || '',
       school: profileData.school || '',
-      avatarUrl: `https://api.dicebear.com/7.x/avataaars/svg?seed=${avatarSeed}`,
+      avatarUrl: null,
+      aiStudyEnabled: false,
     };
     setStudentData(newStudent);
     setIsAuthenticated(true);
@@ -65,12 +89,52 @@ export function StudentProvider({ children }) {
     }));
   };
 
+  const addMark = (type, value) => {
+    setStudentData(prev => ({
+      ...prev,
+      marks: {
+        ...prev.marks,
+        [type]: [...prev.marks[type], parseFloat(value)]
+      }
+    }));
+  };
+
+  const updateAttendance = (isPresent) => {
+    setStudentData(prev => ({
+      ...prev,
+      attendance: {
+        ...prev.attendance,
+        present: isPresent ? prev.attendance.present + 1 : prev.attendance.present,
+        total: prev.attendance.total + 1
+      }
+    }));
+  };
+
+  // Temporary function for testing AI toggle
+  const toggleAiStudy = () => {
+    setStudentData(prev => ({
+      ...prev,
+      aiStudyEnabled: !prev.aiStudyEnabled
+    }));
+  };
+
   return (
-    <StudentContext.Provider value={{ studentData, isAuthenticated, login, logout, updateProfile, toggleTask }}>
+    <StudentContext.Provider value={{ 
+      studentData, 
+      isAuthenticated, 
+      login, 
+      logout, 
+      updateProfile, 
+      toggleTask,
+      addMark,
+      updateAttendance,
+      toggleAiStudy
+    }}>
       {children}
     </StudentContext.Provider>
   );
 }
+
 
 export function useStudent() {
   const context = useContext(StudentContext);
